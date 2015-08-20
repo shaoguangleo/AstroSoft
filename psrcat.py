@@ -32,7 +32,8 @@ def install_psrcat():
         print 'Unable to tar the %s' % psrcat_name
     if os.chdir(psrcat_name_tar):
         print 'Unable to cd %s ' % psrcat_name_tar
-    if os.system('source makeit'):
+    #if os.system('source makeit'): # Here MacOSX is OK
+    if os.system('bash makeit'):
         print 'Unable to makeit - %s ' % psrcat_name_tar
     # here to copy the related (psrcat and psrcat.db) to $AstroSoft/psrcat
     os.system('cp psrcat psrcat.db '+ global_setting.AstroSoft_psrcat)

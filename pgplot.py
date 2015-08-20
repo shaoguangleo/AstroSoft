@@ -27,7 +27,13 @@ def getPgplot():
         print 'Now downloading PGPLOT 5.2' + terminalColor.NONE
         # First change the destination directory
         os.chdir(globalSetting.AstroSoft_Src)
-        os.system(getCmdPath.getCmdPath('wget')+ ' '+ pgplot52_url)
+        if(os.system(getCmdPath.getCmdPath('wget')+ ' '+ pgplot52_url)):
+            print ''
+            print terminalColor.RED
+            print '!!! Make sure you have connect the internet'
+            print '!!! It seem that the download is not complete',
+            print terminalColor.NONE
+            print ''
         print terminalColor.GREEN
         if os.path.exists(globalSetting.AstroSoft_Src+pgplot52_name) and (os.path.getsize(globalSetting.AstroSoft_Src+pgplot52_name) == pgplot52_size):
             print 'Download '+ pgplot52_name + ' successfule .' + terminalColor.NONE

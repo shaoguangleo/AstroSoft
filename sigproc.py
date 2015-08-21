@@ -19,7 +19,7 @@ sigproc_name= 'sigproc.tar.gz'
 sigproc_size = 9999999# here to check if the file completely
 #sigproc_url = 'http://www.imcce.fr/inpop/sigproc/'+sigproc_name
 sigproc_git = 'https://github.com/SixByNine/sigproc.git'
-configure_option = ' '
+configure_option = ' --prefix='+global_setting.AstroSoft_sigproc
 
 def get_sigproc():
     #get_package.get_package(sigproc_url,sigproc_name,sigproc_size)

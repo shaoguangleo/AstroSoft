@@ -25,4 +25,4 @@ It will install the following packages:
 
 
 
-Feel free to contact wite [Shaoguang Guo](sgguo@shao.ac.cn)
+Feel free to contact wite [Shaoguang Guo 郭绍光](sgguo@shao.ac.cn)

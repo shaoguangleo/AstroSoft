@@ -3,44 +3,45 @@
 # This file will download pgplot and install it
 import os
 import terminalColor
-import getCmdPath
-import globalSetting
+import get_cmd_path
+import global_setting
+import get_package
+# Changelog
+# 2015-08-20
 
 __author__ = "Guo Shaoguang<sgguo@shao.ac.cn>"
 __version__ = 1.0
 __date__ = "2015-08-18"
 
 # The download url
-pgplot52_name = 'pgplot5.2.tar.gz'
-pgplot52_name = '/'+pgplot52_name
+pgplot52_name = 'pgplot522.tar.gz'
 pgplot52_size = 1197397 # here to check if the file completely
-pgplot52_url = 'ftp://ftp.astro.caltech.edu/pub/pgplot'+pgplot52_name
+pgplot52_url = 'ftp://ftp.astro.caltech.edu/pub/pgplot/'+pgplot52_name
 
-def getPgplot():
-    if os.path.exists(globalSetting.AstroSoft_Src+pgplot52_name):
-        if os.path.getsize(globalSetting.AstroSoft_Src+pgplot52_name == pgplot52_size):
-            print '<<<You have download the pgplot package @ %s' % globalSetting.AstroSoft_Src
-        else:
-            os.system('rm '+globalSetting.AstroSoft_Src+pgplot52_name)
-    else:
-        print terminalColor.BLINK_GREEN_TEXT_WHITE_BACKGROUND
-        print 'Now downloading PGPLOT 5.2' + terminalColor.NONE
-        # First change the destination directory
-        os.chdir(globalSetting.AstroSoft_Src)
-        if(os.system(getCmdPath.getCmdPath('wget')+ ' '+ pgplot52_url)):
-            print ''
-            print terminalColor.RED
-            print '!!! Make sure you have connect the internet'
-            print '!!! It seem that the download is not complete',
-            print terminalColor.NONE
-            print ''
-        print terminalColor.GREEN
-        if os.path.exists(globalSetting.AstroSoft_Src+pgplot52_name) and (os.path.getsize(globalSetting.AstroSoft_Src+pgplot52_name) == pgplot52_size):
-            print 'Download '+ pgplot52_name + ' successfule .' + terminalColor.NONE
-        return
+def get_pgplot():
+    get_package.get_package(pgplot52_url,pgplot52_name,pgplot52_size)
 
-def installPgplot():
+def install_pgplot():
+    # Here will install the pgplot
+    os.system('cp drivers.list '+global_setting.AstroSoft_pgplot)
+    os.system('cp makefile_pgplot ' + global_setting.AstroSoft_pgplot+'/makefile_pgplot')
+    os.chdir(global_setting.AstroSoft_Src)
+    os.system('tar zxvf '+ pgplot52_name)
+    os.chdir(global_setting.AstroSoft_pgplot)
+    #os.system('wget http://blog.csdn.net/shaoguangleo/article/details/drivers.list');
+    os.system(global_setting.AstroSoft_Src+'/pgplot/makemake '+global_setting.AstroSoft_Src + '/pgplot linux g77_gcc_aout')
+    os.system('cp makefile_pgplot makefile')
+    os.system('make')
+    os.system('make cpg')
+    os.system('make clean')
+    print 'DONE'
+    #install_package.install_package(global_setting.AstroSoft_psrchive,psrchive_name,configure_option,4)
+    pass
+
+def setting_pgplot():
+    # Here will setting the pgplot
     pass
 
 if __name__ == '__main__':
-    getPgplot()
+    #get_pgplot()
+    install_pgplot()

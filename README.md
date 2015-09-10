@@ -31,8 +31,8 @@ It will install the following packages:
 **历史版本**
 2015-08-22
 ==========
-http://yunpan.cn/cmZdLFNqHBTvI 提取码ebbe 
-- 整个版本是在SKA昆明会议期间准备的
+- http://yunpan.cn/cmZdLFNqHBTvI 提取码ebbe 
+- 这个版本是在SKA昆明会议期间准备的
 
 
 Feel free to contact wite [Shaoguang Guo 郭绍光](guoshaoguang.com) [sgguo@shao.ac.cn]

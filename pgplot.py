@@ -6,6 +6,7 @@ import terminalColor
 import get_cmd_path
 import global_setting
 import get_package
+import substitute
 # Changelog
 # 2015-08-20
 
@@ -24,12 +25,13 @@ def get_pgplot():
 def install_pgplot():
     # Here will install the pgplot
     os.system('cp drivers.list '+global_setting.AstroSoft_pgplot)
-    os.system('cp makefile_pgplot ' + global_setting.AstroSoft_pgplot+'/makefile_pgplot')
+    # os.system('cp makefile_pgplot ' + global_setting.AstroSoft_pgplot+'/makefile_pgplot')
     os.chdir(global_setting.AstroSoft_Src)
     os.system('tar zxvf '+ pgplot52_name)
     os.chdir(global_setting.AstroSoft_pgplot)
     #os.system('wget http://blog.csdn.net/shaoguangleo/article/details/drivers.list');
     os.system(global_setting.AstroSoft_Src+'/pgplot/makemake '+global_setting.AstroSoft_Src + '/pgplot linux g77_gcc_aout')
+    substitute.substitute('makefile','makefile_pgplot','FCOMPL=g77','FCOMPL=gfortran')
     os.system('cp makefile_pgplot makefile')
     os.system('make')
     os.system('make cpg')

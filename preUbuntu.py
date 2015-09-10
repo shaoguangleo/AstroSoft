@@ -14,6 +14,7 @@ __version__ = 1.0
 __date__ = "2015-08-19"
 
 def preUbuntu():
+    print '\n\n\n'
     print '#'*60
     print 'First Please make sure you have installed the following depend softwares.'
     print '-'*60
@@ -25,6 +26,7 @@ def preUbuntu():
     for tmp in global_setting.PrePip_software.split():
         print '                \t-> %s' % (tmp)
     print '-'*60
+    print '\n\n\n'
     pass
 
 if __name__ == '__main__':

@@ -10,7 +10,11 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PRESTO/lib
 export PYTHONPATH=$PYTHONPATH:$PRESTO/lib/python
 export PSRCHIVE=~/AstroSoft/psrchive
 export SIGPROC=~/AstroSoft/sigproc
+
 export PGPLOT_DIR=~/AstroSoft/pgplot
+export PGPLOT_DEV=/Xserve
+export PGPLOT_FONT=~/AstroSoft/pgplot/grfont.dat
+export PGPLOT_RGB=~/AstroSoft/pgplot/rgb.txt
 
 export PATH=$PATH:$TEMPO/bin
 export PATH=$PATH:$TEMPO2/bin

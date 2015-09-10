@@ -36,6 +36,8 @@ def install_tempo():
     install_package.install_package(global_setting.AstroSoft_tempo,tempo_name,configure_option,4)
     # Here to copy some needed files
     os.system('cp -rv clock ephem tzpar util '+global_setting.AstroSoft_tempo)
+    # Here to copy the tempo.hlp to $TEMPO
+    os.system('cp tempo.hlp '+global_setting.AstroSoft_tempo)
 def setting_tempo():
     # Here will setting the tempo
     pass

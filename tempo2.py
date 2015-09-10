@@ -18,7 +18,7 @@ __date__ = "2015-08-18"
 tempo2_name= 'tempo2.tar.gz'
 tempo2_size = 9999999# here to check if the file completely
 #tempo2_url = 'http://www.imcce.fr/inpop/tempo2/'+tempo2_name
-tempo2_git = 'https://github.com/SixByNine/tempo2.git'
+tempo2_git = 'https://bitbucket.org/mkeith/tempo2.git'
 configure_option = ' --prefix='+global_setting.AstroSoft_tempo2
 #configure_option = ' -L~/AstroSoft/calceph/include --with-calceph='+global_setting.AstroSoft_calceph+'/lib/libcalceph.a'
 

@@ -31,7 +31,7 @@ def install_pgplot():
     os.chdir(global_setting.AstroSoft_pgplot)
     #os.system('wget http://blog.csdn.net/shaoguangleo/article/details/drivers.list');
     os.system(global_setting.AstroSoft_Src+'/pgplot/makemake '+global_setting.AstroSoft_Src + '/pgplot linux g77_gcc_aout')
-    substitute.substitute('makefile','makefile_pgplot','FCOMPL=g77','FCOMPL=gfortran')
+    substitute.substitute('makefile','makefile_pgplot','FCOMPL=g77','FCOMPL=gfortran\n')
     os.system('cp makefile_pgplot makefile')
     os.system('make')
     os.system('make cpg')

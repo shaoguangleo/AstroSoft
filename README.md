@@ -1,6 +1,6 @@
 # AstroSoft
 
-如果有任何问题和建议，请给我发邮件 [Shaoguang Guo 郭绍光](http://guoshaoguang.com/blog) [sgguo@shao.ac.cn]
+如果有任何问题和建议，请给我发邮件 [郭绍光](http://guoshaoguang.com/blog) [sgguo@shao.ac.cn] @ [上海天文台](http://www.shao.ac.cn)
 Introduction
 ================
 This git repo will install related Astronomical Software automatically.

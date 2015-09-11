@@ -87,8 +87,8 @@ if __name__ == '__main__':
     tempo2.install_tempo2()
     print '==  Going to install sigproc  ==='
     sigproc.install_sigproc()
-    #print '==  Going to install presto  ==='
-    #presto.install_presto()
+    print '==  Going to install presto  ==='
+    presto.install_presto()
     print '==  Going to install psrchive  ==='
     psrchive.install_psrchive()
     print '==  Going to install dspsr  ==='

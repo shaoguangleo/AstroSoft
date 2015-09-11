@@ -34,7 +34,6 @@ It will install the following packages:
 2015-09-11
 - 所有的程序全部在一台新的虚拟机上进行了测试
 - AstroSoft V2.0 下载 http://yunpan.cn/cm9eDuqEdRyAJ  访问密码 b8a3 
-- Ubuntu14.04 x86 64系统下载 http://yunpan.cn/cm9e4Lc8ENpEs  访问密码 b3d6 
 
 ============
 2015-08-22

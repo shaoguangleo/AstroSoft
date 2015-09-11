@@ -23,7 +23,7 @@ AstroSoft_calceph   = AstroSoft_Home+'/calceph'
 AstroSoft_psrchive  = AstroSoft_Home+'/psrchive'
 AstroSoft_dspsr     = AstroSoft_Home+'/dspsr'
 
-PreUbuntu_software = ('build-essential autoconf automake libtool git cvs swig g++ gfortran python-pip libatlas-* libfftw3-* libcfitsio3* liblapack* python-dev csh xorg-dev libx11-dev libglib2.0-dev')
+PreUbuntu_software = ('build-essential autoconf automake libtool git cvs swig g++ gfortran python-pip libatlas-* libfftw3-* libcfitsio3* liblapack* python-dev csh xorg-dev libx11-dev libglib2.0-dev libpng12*')
 pre_Fedora_software = ('libX11-devel gcc-gfortran')
 pre_CentOS_software = ('ftp wget kernel-headers kernel-devel gcc gcc-gfortran gcc-c++ compat-gcc-34 compat-gcc-34-g77 make tk tk-devel glib2-devel libpng-devel libX11 gd gd-devel cvs autoconf automake libtool m4 git csh gsl-devel python-devel numpy swig scipy python-matplotlib emacs gnuplot dkms libxml2 libxml2-devel fuse sshfs man davfs2 atlas-devel libX11-devel gcc-gfortran')
 PrePip_software =('ipython numpy scipy matplotlib')

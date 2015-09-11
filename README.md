@@ -1,5 +1,6 @@
 # AstroSoft
 
+Feel free to contact wite [Shaoguang Guo 郭绍光](guoshaoguang.com) [sgguo@shao.ac.cn]
 Introduction
 ================
 This git repo will install related Astronomical Software automatically.
@@ -33,6 +34,9 @@ It will install the following packages:
 2015-08-22
 - http://yunpan.cn/cmZdLFNqHBTvI 提取码ebbe 
 - 这个版本是在SKA昆明会议期间准备的
+2015-09-11
+- 所有的程序全部在一台新的虚拟机上进行了测试
+- http://yunpan.cn/cmZdLFNqHBTvI 提取码ebbe 
+- 这个版本是在SKA昆明会议期间准备的
 
 
-Feel free to contact wite [Shaoguang Guo 郭绍光](guoshaoguang.com) [sgguo@shao.ac.cn]

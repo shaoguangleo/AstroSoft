@@ -32,7 +32,8 @@ def install_presto():
     os.system('tar zxvf '+ presto_name)
     os.chdir('presto/src')
     # here for the compile during search the include file
-    os.system('cp -rv include '+ global_setting.AstroSoft_presto)
+    os.system('cp -rv include/ '+ global_setting.AstroSoft_presto)
+    os.system('cp -rv lib/ '+ global_setting.AstroSoft_presto)
     #install_package.install_package(global_setting.AstroSoft_presto,presto_name,configure_option,4)
     os.system('make makewisdom')
     os.system('make prep')

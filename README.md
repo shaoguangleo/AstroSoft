@@ -32,7 +32,7 @@ It will install the following packages:
 **历史版本**
 ===========
 2015-09-11
-- 所有的程序全部在一台新的虚拟机上进行了测试
+- 所有的程序全部在一台新的Ubuntu14.04虚拟机上进行了测试
 - AstroSoft V2.0 下载 http://yunpan.cn/cm9eDuqEdRyAJ  访问密码 b8a3 
 
 ============

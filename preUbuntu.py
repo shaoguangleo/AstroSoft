@@ -16,6 +16,9 @@ __date__ = "2015-08-19"
 def preUbuntu():
     print '\n\n\n'
     print '#'*60
+    print 'First maybe you should update your system for lastest software....'
+    print 'sudo apt-get update '
+    print 'sudo apt-get upgrade '
     print 'First Please make sure you have installed the following depend softwares.'
     print '-'*60
     print 'sudo apt-get install '

@@ -1,0 +1,37 @@
+#change .bashrc to have psrcat
+git clone git://github.com/nanograv/tempo.git
+git clone git://github.com/scottransom/presto.git
+
+1. Add
+#define USEFFTW 1
+to include ransomfft.h
+
+2. swap pgplot and cpgpolot in Makefile
+3. make sure
+-- Is PRESTO set to the top-level PRESTO source directory?
+  -- Is TEMPO set to the top-level TEMPO source directory?
+  -- Is PGPLOT_DIR set to the location of the PGPLOT utility files?
+  -- Is $PRESTO/bin in your PATH?
+  -- Is $PRESTO/lib in your LD_LIBRARY_PATH?
+  -- Is $PRESTO/lib/python in your PYTHONPATH?
+
+
+Sigproc
+git clone https://github.com/SixByNine/sigproc.git
+use 
+export FFF=-ffixed-line-length-none
+to treat the fortran format
+
+add -ltempo2 
+to Makefile.am
+the line of
+rfi_analyse_LDADD=-lt2toolkit -ltempo2 
+
+
+Temponest
+
+1. make libnest3.so in multinest directory need to add -fPIC for flags
+2. export MULTINEST_DIR=/home/skapsr/softs/multinest/
+3. ./autogen.sh ./configure
+4. make temponest
+make temponest-install 

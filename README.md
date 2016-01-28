@@ -5,6 +5,11 @@ Introduction
 ================
 This git repo will install related Astronomical Software automatically.
 
+Support OS
+================
+ - Ubuntu
+ - CentOS ,todo
+
 **Pulsar installation脉冲星软件安装**
 ======================
 If you just want to install pulsar suite packages, just type in 

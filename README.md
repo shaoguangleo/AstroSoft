@@ -25,4 +25,4 @@ Support OS and Software
 
 **Old Version**
 ===========
-please enter the old directory for old repo , just for pulsar software
+please enter the **old** directory for old repo , just for pulsar software

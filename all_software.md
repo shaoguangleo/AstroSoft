@@ -15,3 +15,5 @@ presto        | xxx     | no      | no     |            |            |      |
 calceph       | xxx     | no      | no     |            |            |      |
 psrchive      | xxx     | no      | no     |            |            |      |
 dspsr         | xxx     | no      | no     |            |            |      |
+difx          | xxx     | no      | no     |            |            |      |
+sfxc          | xxx     | no      | no     |            |            |      |

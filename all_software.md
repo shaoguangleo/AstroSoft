@@ -2,8 +2,8 @@
 
 Software_name | Version | Offline | Online | Support OS | Dependency | Note
 ------------- | ------- | ------- | ------ | ---------- | ---------- | ----
-wcslib        | 5.15    | yes     | yes    |            |            |      |
-pgplot        | 5.20    | no      | no     |            |            |      |
+wcslib        | 5.15    | yes     | yes    | Linux      |            |      |
+pgplot        | 5.20    | no      | no     | Linux      |            |      |
 fftw          | xxx     | no      | no     |            |            |      |
 lapack        | xxx     | no      | no     |            |            |      |
 atlas         | xxx     | no      | no     |            |            |      |

@@ -7,7 +7,9 @@
 # /_/   \_\___/\__|_|  \___/____/ \___/|_|  \__|
 #
 #
-#
+# Author      : Guo Shaoguang
+# Email       : shaoguangleo@gmail.com
+# Institution : Shanghai Astronomical Observatory
 
 # Test on Ubuntu 10.04 with DiFX2.0.1
 sudo apt-get update

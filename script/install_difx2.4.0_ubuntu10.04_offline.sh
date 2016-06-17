@@ -18,7 +18,8 @@ sudo apt-get upgrade
 ## On Lucid - Ubuntu 10.04
 sudo apt-get install build-essential pkg-config bison flex libfftw3* openmpi-bin\
                       automake gfortran libexpat1-dev  libopenmpi*\
-                      subversion doxygen openmpi-bin automake autoconf libtool
+                      subversion doxygen openmpi-bin automake autoconf libtool \
+                      git-core
 
 # Install DiFX
 

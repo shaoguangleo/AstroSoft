@@ -11,6 +11,25 @@
 # Email       : shaoguangleo@gmail.com
 # Institution : Shanghai Astronomical Observatory
 
+
+#    Fedora:
+#    $ sudo yum install libX11-devel
+#    $ sudo yum install gcc-gfortran
+#    Ubuntu:
+#    $ sudo apt-get install xorg-dev
+#    $ sudo apt-get install gfortran
+#    CentOS:
+#    $ sudo yum install libX11-devel
+#    $ sudo yum install gcc-gfortran
+#    OpenSUSE:
+#    $ sudo zypper install xorg-X11-devel
+#    $ sudo zypper install gcc-fortran
+#    Debian:
+#    $ sudo apt-get install libX11-dev
+#    $ sudo apt-get install gfortran
+
+dest_dir=/home/DIFX/pgplot
+
 echo "Now Begin install PGPLOT5.2..."
 rm -rvf build
 mkdir build
@@ -34,10 +53,10 @@ make
 make cpg
 make clean
 cd ..
-sudo mkdir -p /usr/local/pgplot
-sudo cp -rvf build/* /usr/local/pgplot
+mkdir -p ${dest_dir}
+cp -rvf build/* ${dest_dir}
 echo "Now Finished install PGPLOT5.2..."
 echo "Setting the PGPLOT environment"
-echo "export PGPLOT_DIR=/usr/local/pgplot" >> ~/.bashrc
+echo "export PGPLOT_DIR=${dest_dir}" >> ~/.bashrc
 echo "export PGPLOT_DEV=/Xserve" >> ~/.bashrc
 echo "Enjoy."

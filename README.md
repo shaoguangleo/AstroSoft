@@ -14,6 +14,8 @@ Any problem , send email to me [郭大侠](http://guoshaoguang.com/blog) [sgguo@
 
 This git repo will install related Astronomical Software automatically.
 
+致力于精简所有天文流行软件的安装，对于离线安装，下载需要的包到下载目录的src即可。
+
 # Support OS and Software
 
 - Ubuntu

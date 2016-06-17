@@ -19,7 +19,7 @@ sudo apt-get upgrade
 sudo apt-get install build-essential pkg-config bison flex libfftw3* openmpi-bin\
                       automake gfortran libexpat1-dev  libopenmpi*\
                       subversion doxygen openmpi-bin automake autoconf libtool \
-                      git-core
+                      git-core rpcbind portmap
 
 # Install DiFX
 

@@ -21,6 +21,8 @@ sudo apt-get install build-essential pkg-config bison flex libfftw3* openmpi-bin
                       subversion doxygen openmpi-bin automake autoconf libtool \
                       git-core rpcbind portmap
 
+# If encounter rpc problem, just restart portmap servic
+
 # Install DiFX
 
 echo "Begin install the DiFX2.4.0"

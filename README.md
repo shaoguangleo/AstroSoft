@@ -32,8 +32,28 @@ All the docker images can run on the following OS:
 - MacOSX
 - Other Linux Distro is support
 
+# 使用方法
+
+
+
+使用方法很简单，只要下面一个命令即可：
+
+```
+$ docker run -it docker_name[:version]
+```
+
+其中*docker_name*为下面章节中的名字，比如如果希望之使用centos的pgplot版本，输入下述命令即可：
+
+```
+$ docker run -it shaoguangleo/centos-pgplot
+```
+
+另外*version*为版本号，除非特别说明，默认拉取*latest*最新版本。
+
 
 # Docker
+
+目前支持 **1** 个软件， **1**个版本。详情见下述表格。
 
 |     | Ubuntu     |  CentOS    |  Comment |
 |----|-----|-----|-----|
@@ -53,6 +73,6 @@ All the docker images can run on the following OS:
 |Difmap|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
 
 
-## Current relationship
+# Current relationship
 
 ![wait](relation.png)

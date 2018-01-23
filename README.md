@@ -37,20 +37,21 @@ All the docker images can run on the following OS:
 
 |     | Ubuntu     |  CentOS    |  Comment |
 |----|-----|-----|-----|
-|basic|![Support](images/support.png) [shaoguangleo/ubuntu](https://hub.docker.com/r/shaoguangleo/ubuntu/)|![Support](images/support.png) [shaoguangleo/centos](https://hub.docker.com/r/shaoguangleo/centos/)| 基于CentOS7.4及Ubuntu17.10版本|
-|pgplot|![Support](images/support.png) [shaoguangleo/ubuntu-pgplot](https://hub.docker.com/r/shaoguangleo/ubuntu-pgplot/)|![Support](images/support.png) [shaoguangleo/centos-pgplot](https://hub.docker.com/r/shaoguangleo/centos-pgplot/)| PGPLOT镜像 |
-|tempo|![wait](images/wait.png) |![wait](images/wait.png)||
-|tempo2|![wait](images/wait.png)|![wait](images/wait.png)||
-|sigproc|![wait](images/wait.png)|![wait](images/wait.png)||
-|presto|![wait](images/wait.png)|![wait](images/wait.png)||
-|psrcat|![wait](images/wait.png)|![wait](images/wait.png)||
-|cfitsio|![wait](images/wait.png)|![wait](images/wait.png)||
-|calceph|![wait](images/wait.png)|![wait](images/wait.png)||
-|psrchive|![wait](images/wait.png)|![wait](images/wait.png)||
-|dspsr|![wait](images/wait.png)|![wait](images/wait.png)||
-|DiFX|![wait](images/wait.png)|![wait](images/wait.png)||
-|SFXC|![wait](images/wait.png)|![wait](images/wait.png)||
-|Difmap|![wait](images/wait.png)|![wait](images/wait.png)||
+|basic|![Support](https://github.com/shaoguangleo/AstroSoft/blob/master/images/support.png)[shaoguangleo/ubuntu](https://github.com/shaoguangleo/docker-ubuntu)|![Support](https://github.com/shaoguangleo/AstroSoft/blob/master/images/support.png) [shaoguangleo/centos](https://github.com/shaoguangleo/docker-centos)| CentOS:7.4 </br> Ubuntu:17.10|
+|pgplot|![Support](https://github.com/shaoguangleo/AstroSoft/blob/master/images/support.png) [shaoguangleo/ubuntu-pgplot](https://github.com/shaoguangleo/docker-ubuntu-pgplot/)|![Support](https://github.com/shaoguangleo/AstroSoft/blob/master/images/support.png) [shaoguangleo/centos-pgplot](https://github.com/shaoguangleo/docker-centos-pgplot/)| PGPLOT : v5.2.2 |
+|tempo|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png) |![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+|tempo2|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+|sigproc|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+|presto|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+|psrcat|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+|cfitsio|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+|calceph|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+|psrchive|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+|dspsr|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+|DiFX|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+|SFXC|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+|Difmap|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+
 
 ## Current relationship
 

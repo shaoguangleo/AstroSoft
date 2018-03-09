@@ -57,22 +57,22 @@ $ docker run -it shaoguangleo/centos-pgplot
 
 |     | Ubuntu     |  CentOS    |  Comment |
 |----|-----|-----|-----|
-|basic|![Support](https://github.com/shaoguangleo/AstroSoft/blob/master/images/support.png)[shaoguangleo/ubuntu](https://github.com/shaoguangleo/docker-ubuntu)|![Support](https://github.com/shaoguangleo/AstroSoft/blob/master/images/support.png) [shaoguangleo/centos](https://github.com/shaoguangleo/docker-centos)| CentOS:7.4 </br> Ubuntu:17.10|
-|pgplot|![Support](https://github.com/shaoguangleo/AstroSoft/blob/master/images/support.png) [shaoguangleo/ubuntu-pgplot](https://github.com/shaoguangleo/docker-ubuntu-pgplot/)|![Support](https://github.com/shaoguangleo/AstroSoft/blob/master/images/support.png) [shaoguangleo/centos-pgplot](https://github.com/shaoguangleo/docker-centos-pgplot/)| PGPLOT : v5.2.2 |
-|tempo|![Support](https://github.com/shaoguangleo/AstroSoft/blob/master/images/support.png)[shaoguangleo/ubuntu-pulsar](https://github.com/shaoguangleo/docker-ubuntu-pulsar) |![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|Tempo V20170729 |
-|tempo2|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
-|sigproc|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
-|presto|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
-|psrcat|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
-|cfitsio|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
-|calceph|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
-|psrchive|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
-|dspsr|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
-|DiFX|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
-|SFXC|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
-|Difmap|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)|![wait](https://github.com/shaoguangleo/AstroSoft/blob/master/images/wait.png)||
+|basic|![Support](./images/support.png)[shaoguangleo/ubuntu](https://github.com/shaoguangleo/docker-ubuntu)|![Support](./images/support.png) [shaoguangleo/centos](https://github.com/shaoguangleo/docker-centos)| CentOS:7.4 </br> Ubuntu:17.10|
+|pgplot|![Support](./images/support.png) [shaoguangleo/ubuntu-pgplot](https://github.com/shaoguangleo/docker-ubuntu-pgplot/)|![Support](./images/support.png) [shaoguangleo/centos-pgplot](https://github.com/shaoguangleo/docker-centos-pgplot/)| PGPLOT : v5.2.2 |
+|tempo|![Support](./images/support.png)[shaoguangleo/ubuntu-pulsar](https://github.com/shaoguangleo/docker-ubuntu-pulsar) |![wait](./images/wait.png)|Tempo V20170729 |
+|tempo2|![wait](./images/wait.png)|![wait](./images/wait.png)||
+|sigproc|![wait](./images/wait.png)|![wait](./images/wait.png)||
+|presto|![Support](./images/support.png)[shaoguangleo/ubuntu-presto](https://github.com/shaoguangleo/docker-ubuntu-presto)|![wait](./images/wait.png)|Presto v2.1|
+|psrcat|![wait](./images/wait.png)|![wait](./images/wait.png)||
+|cfitsio|![wait](./images/wait.png)|![wait](./images/wait.png)||
+|calceph|![wait](./images/wait.png)|![wait](./images/wait.png)||
+|psrchive|![wait](./images/wait.png)|![wait](./images/wait.png)||
+|dspsr|![wait](./images/wait.png)|![wait](./images/wait.png)||
+|DiFX|![wait](./images/wait.png)|![wait](./images/wait.png)||
+|SFXC|![wait](./images/wait.png)|![wait](./images/wait.png)||
+|Difmap|![wait](./images/wait.png)|![wait](./images/wait.png)||
 
 
 # Current relationship
 
-![wait](relation.png)
+![wait](astrosoft_relationship.jpg)

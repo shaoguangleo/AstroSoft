@@ -1,3 +1,5 @@
+![SHAO](./images/shao.png)
+
 # ASOD
 
 ```
@@ -53,9 +55,9 @@ $ docker run -it shaoguangleo/centos-pgplot
 
 # Docker
 
-目前支持 **1** 个软件， **1**个版本。详情见下述表格。
+目前支持 **4** 个软件， **5**个版本。 详情见下述表格。
 
-|     | Ubuntu     |  CentOS    |  Comment |
+|     | Ubuntu     |  CentOS    |  版本 |
 |----|-----|-----|-----|
 |basic|![Support](./images/support.png)[shaoguangleo/ubuntu](https://github.com/shaoguangleo/docker-ubuntu)|![Support](./images/support.png) [shaoguangleo/centos](https://github.com/shaoguangleo/docker-centos)| CentOS:7.4 </br> Ubuntu:17.10|
 |pgplot|![Support](./images/support.png) [shaoguangleo/ubuntu-pgplot](https://github.com/shaoguangleo/docker-ubuntu-pgplot/)|![Support](./images/support.png) [shaoguangleo/centos-pgplot](https://github.com/shaoguangleo/docker-centos-pgplot/)| PGPLOT : v5.2.2 |
@@ -68,7 +70,7 @@ $ docker run -it shaoguangleo/centos-pgplot
 |calceph|![wait](./images/wait.png)|![wait](./images/wait.png)||
 |psrchive|![wait](./images/wait.png)|![wait](./images/wait.png)||
 |dspsr|![wait](./images/wait.png)|![wait](./images/wait.png)||
-|DiFX|![wait](./images/wait.png)|![wait](./images/wait.png)||
+|DiFX|![wait](./images/wait.png)|![Support](./images/support.png) [shaoguangleo/centos-difx](https://github.com/shaoguangleo/docker-centos-difx/)| DiFX v2.5.1 </br> DiFX v2.5.2|
 |SFXC|![wait](./images/wait.png)|![wait](./images/wait.png)||
 |Difmap|![wait](./images/wait.png)|![wait](./images/wait.png)||
 

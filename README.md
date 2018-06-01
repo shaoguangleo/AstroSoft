@@ -55,16 +55,16 @@ $ docker run -it shaoguangleo/centos-pgplot
 
 # Docker
 
-目前支持 **4** 个软件， **5**个版本。 详情见下述表格。
+目前支持 **4** 个软件， **7**个版本。 详情见下述表格。
 
 |     | Ubuntu     |  CentOS    |  版本 |
 |----|-----|-----|-----|
 |basic|![Support](./images/support.png)[shaoguangleo/ubuntu](https://github.com/shaoguangleo/docker-ubuntu)|![Support](./images/support.png) [shaoguangleo/centos](https://github.com/shaoguangleo/docker-centos)| CentOS:7.4 </br> Ubuntu:17.10|
 |pgplot|![Support](./images/support.png) [shaoguangleo/ubuntu-pgplot](https://github.com/shaoguangleo/docker-ubuntu-pgplot/)|![Support](./images/support.png) [shaoguangleo/centos-pgplot](https://github.com/shaoguangleo/docker-centos-pgplot/)| PGPLOT : v5.2.2 |
-|tempo|![Support](./images/support.png)[shaoguangleo/ubuntu-pulsar](https://github.com/shaoguangleo/docker-ubuntu-pulsar) |![wait](./images/wait.png)|Tempo V20170729 |
+|tempo|![Support](./images/support.png)[shaoguangleo/ubuntu-tempo](https://github.com/shaoguangleo/docker-ubuntu-tempo) |![Support](./images/support.png)[shaoguangleo/centos-tempo](https://github.com/shaoguangleo/docker-centos-tempo)|Tempo V20170729 |
 |tempo2|![wait](./images/wait.png)|![wait](./images/wait.png)||
 |sigproc|![wait](./images/wait.png)|![wait](./images/wait.png)||
-|presto|![Support](./images/support.png)[shaoguangleo/ubuntu-presto](https://github.com/shaoguangleo/docker-ubuntu-presto)|![wait](./images/wait.png)|Presto v2.1|
+|presto|![Support](./images/support.png)[shaoguangleo/ubuntu-presto](https://github.com/shaoguangleo/docker-ubuntu-presto)|![Support](./images/support.png)[shaoguangleo/centos-presto](https://github.com/shaoguangleo/docker-centos-presto)|Presto v2.1|
 |psrcat|![wait](./images/wait.png)|![wait](./images/wait.png)||
 |cfitsio|![wait](./images/wait.png)|![wait](./images/wait.png)||
 |calceph|![wait](./images/wait.png)|![wait](./images/wait.png)||
@@ -77,4 +77,4 @@ $ docker run -it shaoguangleo/centos-pgplot
 
 # Current relationship
 
-![wait](astrosoft_relationship.jpg)
+![wait](astrosoft_relationship.png)

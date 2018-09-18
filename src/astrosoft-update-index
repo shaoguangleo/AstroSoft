@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+
+cd $ASTROSOFT_DIR/pkg_files
+echo  'Getting latest package descriptions...'
+echo  'Just wait several seconds...'
+wget -t 1 -T 5 -qN $ASTROSOFT_PKG_INDEX.stable
+ex1=$?
+wget -t 1 -T 5 -qN $ASTROSOFT_PKG_INDEX.testing
+ex2=$?
+wget -t 1 -T 5 -qN $ASTROSOFT_PKG_INDEX.devel
+ex3=$?
+
+if [ $ex1 -eq 1 ] || [ $ex2 -eq 1 ] || [ $ex3 -eq 1 ] ; then
+	echo $ex1
+	echo 'ERROR'
+	echo "Could not download the package files:"
+	echo "$ASTROSOFT_PKG_INDEX.stable"
+	echo "$ASTROSOFT_PKG_INDEX.testing"
+	echo "$ASTROSOFT_PKG_INDEX.devel"
+	echo ''
+	echo '*** Waring : pkg index maybe out of date...'
+	echo '*** This might cause some dependancy lookups to fail'
+	echo ''
+else
+	echo 'DONE'
+fi

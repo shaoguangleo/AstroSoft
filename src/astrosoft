@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set +o verbose # print the input line read by shell
+
+#ASTROSOFT=`dirname $0`
+ASTROSOFT_NAME=astrosoft
+#ASTROSOFT_BASE=$HOME
+ASTROSOFT_BASE=/tmp/
+ASTROSOFT_BIN=$ASTROSOFT_BASE/$ASTROSOFT_NAME
+ASTROSOFT_DIR=$ASTROSOFT_BASE/$ASTROSOFT_NAME
+
+export ASTROSOFT_DIR=$ASTROSOFT_BASE/$ASTROSOFT_NAME
+
+export ASTROSOFT_PKG_INDEX=http://www.pulsarastronomy.net/psrsoft/pkg_idx
+
+if [ ! -d $ASTROSOFT_DIR ] ; then
+    mkdir $ASTROSOFT_DIR
+fi
+
+#echo $ASTROSOFT_BASE
+#echo $ASTROSOFT_DIR
+#echo $ASTROSOFT_NAME
+
+#cd $ASTROSOFT_DIR
+
+#export ASTROSOFT_DIR=`pwd`
+
+
+if [[ -z "$ASTROSOFT_USR" ]]; then
+    export ASTROSOFT_USR=$ASTROSOFT_DIR/usr
+fi
+
+export ASTROSOFT_TREE='stable'
+
+
+python astrosoft.py $*

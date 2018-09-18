@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set +o verbose
+
+tar_file=psrsoft.tar.gz
+
+cd $ASTROSOFT_DIR
+cd $ASTROSOFT_DIR/pkg_files
+\rm -f $tar_file
+wget --no-cache -N http://www.pulsarastronomy.net/psrsoft/$tar_file
+if [[ -e $tar_file ]] ; then
+	tar -C ../.. -xvzf $tar_file
+	echo "Done"
+else
+	echo "Could not update"
+	exit 1
+fi
+
+
+# TODOList
+
+if [[ -e $ASTROSOFT_DIR/config/profile ]] ; then
+   if grep -q "atnf.csiro.au" $ASTROSOFT_DIR/config/profile ; then
+	  sed -i.bak -e "s:www.atnf.csiro.au:www.pulsarastronomy.net:g" $ASTROSOFT_DIR/config/profile
+	  echo ""
+	  echo "NOTICE: You have been updated the pulsarastronomy.net package index"
+	  echo "This is a good thing :)"
+   fi
+fi
+
+if [[ -e $ASTROSOFT_DIR/config/profile ]] ; then
+   if grep -q "people/Michael.Keith" $ASTROSOFT_DIR/config/profile ; then
+	  sed -i.bak -e "s:people/Michael.Keith/::g" $ASTROSOFT_DIR/config/profile
+	  echo ""
+	  echo "NOTICE: You have been updated the pulsarastronomy.net package index"
+	  echo "This is a good thing :)"
+   fi
+fi

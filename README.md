@@ -1,3 +1,12 @@
+---
+title : ASOD
+subtitle : Astrnomical Software On Docer
+author: 郭绍光
+date:    $v0.1$
+theme: Madrid
+colortheme: dolphin
+---
+
 ![SHAO](./images/shao.png)
 
 # ASOD
@@ -82,7 +91,7 @@ $ docker run -it shaoguangleo/centos-pgplot
 
 ## Current relationship
 
-![wait](astrosoft_relationship.png)
+![wait](images/astrosoft_relationship.png)
 
 # SAS
 
@@ -99,4 +108,14 @@ $ sas software
 ```
 
 If you just type `sas`, you will get a help information of how to use sas like the following information.
+
+# 软件版本
+
+目前大部分版本因为托管在git上，更新比较快，除了稳定发布的tag版本，其他按照提交时间来发布。
+
+下属命令可以获取最新提交时间信息。
+
+```bash
+$ git show -s --pretty=format:%cI
+```
 

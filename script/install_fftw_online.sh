@@ -11,6 +11,8 @@
 # Email       : shaoguangleo@gmail.com
 # Institution : Shanghai Astronomical Observatory
 
+source astrosoft_config.sh
+
 cd ~
 wget http://www.fftw.org/fftw-3.3.8.tar.gz
 tar zxvf fftw-3.3.8.tar.gz

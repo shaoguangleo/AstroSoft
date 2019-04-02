@@ -14,19 +14,16 @@
 source astrosoft_config.sh
 
 cd ~
-wget $FFTW_WEBSITE/fftw-$FFTW_VERSION.tar.gz
-tar zxvf fftw-$FFTW_VERSION.tar.gz
-cd fftw-$FFTW_VERSION
+wget $PSRCAT_WEBSITE/$PSRCAT_VERSION.tar.gz
+tar zxvf $PSRCAT_VERSION.tar.gz
 
-# for psrchive
-$ ./configure --prefix=$ASTROSOFT --enable-float --enable-threads --enable-shared CFLAGS=-fPIC FFLAGS=-fPIC
-make
-make check
-make install
-make clean
-# for tempo2
-./configure --prefix=$ASTROSOFT CFLAGS=-fPIC FFLAGS=-fPIC
-make
-make check
-make install
-make clean
+cd psrcat_tar
+
+csh makeit
+
+mkdir -p $ASTROSOFT/psrcat/bin
+cp psrcat $ASTROSOFT/psrcat/bin
+cp psrcat.db $ASTROSOFT/psrcat
+
+export PSRCAT_FILE=$ASTROSOFT/psrcat/psrcat.db
+export PATH=$PATH:$ASTROSOFT/psrcat/bin

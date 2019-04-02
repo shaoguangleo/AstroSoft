@@ -13,20 +13,20 @@
 
 source astrosoft_config.sh
 
-cd ~
-wget $FFTW_WEBSITE/fftw-$FFTW_VERSION.tar.gz
-tar zxvf fftw-$FFTW_VERSION.tar.gz
-cd fftw-$FFTW_VERSION
+git clone $TEMPO2_WEBSITE tempo2_src
 
-# for psrchive
-$ ./configure --prefix=$ASTROSOFT --enable-float --enable-threads --enable-shared CFLAGS=-fPIC FFLAGS=-fPIC
-make
-make check
+cd tempo2_src
+
+./bootstrap
+cp -r T2runtime $ASTROSOFT/tempo2/
+export TEMPO2=$ASTROSOFT/tempo2
+echo "export TEMPO2=$ASTROSOFT/tempo2" >> ~/.bashrc
+
+./configure --prefix=$ASTROSOFT/tempo2
+
+make  
 make install
-make clean
-# for tempo2
-./configure --prefix=$ASTROSOFT CFLAGS=-fPIC FFLAGS=-fPIC
-make
-make check
-make install
-make clean
+
+make plugins
+make plugins-install 
+#make temponest-install

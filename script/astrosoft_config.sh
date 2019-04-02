@@ -13,3 +13,18 @@
 
 # The configuration of ASTROSOFT
 ASTROSOFT=/usr/local/astrosoft
+
+# Software version
+FFTW_WEBSITE='http://www.fftw.org'
+FFTW_VERSION='3.3.8'
+
+CFITSIO_WEBSITE='https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/'
+CFITSIO_VERSION='3450'
+
+PSRCAT_WEBSITE='http://www.atnf.csiro.au/research/pulsar/psrcat/downloads/'
+PSRCAT_VERSION='psrcat_pkg'
+
+TEMPO_WEBSITE='git://git.code.sf.net/p/tempo/tempo'
+
+TEMPO2_WEBSITE='https://bitbucket.org/psrsoft/tempo2/'
+TEMPO2_DIR='$ASTROSOFT/tempo2'

@@ -14,19 +14,13 @@
 source astrosoft_config.sh
 
 cd ~
-wget $FFTW_WEBSITE/fftw-$FFTW_VERSION.tar.gz
-tar zxvf fftw-$FFTW_VERSION.tar.gz
-cd fftw-$FFTW_VERSION
+wget $CFITSIO_WEBSITE/cfitsio$CFITSIO_VERSION.tar.gz
+gunzip -c cfitsio${CFITSIO_VERSION}.tar.gz | tar xvf -
+cd cfitsio
 
-# for psrchive
-$ ./configure --prefix=$ASTROSOFT --enable-float --enable-threads --enable-shared CFLAGS=-fPIC FFLAGS=-fPIC
-make
-make check
-make install
+./configure --prefix=$ASTROSOFT
+
 make clean
-# for tempo2
-./configure --prefix=$ASTROSOFT CFLAGS=-fPIC FFLAGS=-fPIC
 make
-make check
+make shared
 make install
-make clean

@@ -5,19 +5,29 @@ graph TD;
 
 
     CentOS --> CentOS-PGPLOT;
+    
+    CentOS --> CentOS-CFITSIO;
+    
+    CentOS --> CentOS-PSRCAT;
 
     CentOS-PGPLOT --> CentOS-IPP;
     CentOS-PGPLOT --> CentOS-Tempo;
+    CentOS-PGPLOT --> CentOS-Tempo2;
 
     CentOS-IPP --> CentOS-MPICH;
     CentOS-MPICH --> CentOS-DiFX;
     CentOS-Tempo --> CentOS-Presto;
 
     Ubuntu --> Ubuntu-PGPLOT;
+    
+    Ubuntu --> Ubuntu-CFITSIO;
+    
+    Ubuntu --> Ubuntu-PSRCAT;
 
     Ubuntu-PGPLOT -.-> Ubuntu-IPP;
     Ubuntu-PGPLOT --> Ubuntu-SD;
     Ubuntu-PGPLOT --> Ubuntu-Tempo;
+    Ubuntu-PGPLOT --> Ubuntu-Tempo2;
 
     Ubuntu-IPP --> Ubuntu-DiFX;
     Ubuntu-Tempo --> Ubuntu-Presto;
@@ -40,16 +50,22 @@ graph TD;
 
     style CentOS fill:#0f0,stroke:#333,stroke-width:4px;
     style CentOS-PGPLOT fill:#0f0,stroke:#333,stroke-width:4px;
+    style CentOS-CFITSIO fill:#0f0,stroke:#333,stroke-width:4px;
+    style CentOS-PSRCAT fill:#0f0,stroke:#333,stroke-width:4px;
     style CentOS-IPP fill:#0f0,stroke:#333,stroke-width:4px;
     style CentOS-MPICH fill:#0f0,stroke:#333,stroke-width:4px;
     style CentOS-DiFX fill:#0f0,stroke:#333,stroke-width:4px;
     style CentOS-Tempo fill:#0f0,stroke:#333,stroke-width:4px;
+    style CentOS-Tempo2 fill:#0f0,stroke:#333,stroke-width:4px;
     style CentOS-Presto fill:#0f0,stroke:#333,stroke-width:4px;
 
     style Ubuntu fill:#0f0,stroke:#333,stroke-width:4px;
     style Ubuntu-PGPLOT fill:#0f0,stroke:#333,stroke-width:4px;
+    style Ubuntu-CFITSIO fill:#0f0,stroke:#333,stroke-width:4px;
+    style Ubuntu-PSRCAT fill:#0f0,stroke:#333,stroke-width:4px;
     style Ubuntu-SD fill:#0f0,stroke:#333,stroke-width:4px;
     style Ubuntu-Tempo fill:#0f0,stroke:#333,stroke-width:4px;
+    style Ubuntu-Tempo2 fill:#0f0,stroke:#333,stroke-width:4px;
     style Ubuntu-Presto fill:#0f0,stroke:#333,stroke-width:4px;
 
 

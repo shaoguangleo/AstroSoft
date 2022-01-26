@@ -28,3 +28,7 @@ TEMPO_WEBSITE='git://git.code.sf.net/p/tempo/tempo'
 
 TEMPO2_WEBSITE='https://bitbucket.org/psrsoft/tempo2/'
 TEMPO2_DIR='$ASTROSOFT/tempo2'
+
+PSRCHIVE_WEBSITE='git://git.code.sf.net/p/psrchive/code'
+
+EPSIC_WEBSITE='https://github.com/straten/epsic.git'

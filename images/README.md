@@ -13,6 +13,10 @@ graph TD;
     CentOS-PGPLOT --> CentOS-IPP;
     CentOS-PGPLOT --> CentOS-Tempo;
     CentOS-PGPLOT --> CentOS-Tempo2;
+    
+    CentOS-PGPLOT --> CentOS-PSRCHIVE;
+    CentOS-Tempo2 --> CentOS-PSRCHIVE;
+    CentOS-PSRCAT --> CentOS-PSRCHIVE;
 
     CentOS-IPP --> CentOS-MPICH;
     CentOS-MPICH --> CentOS-DiFX;
@@ -28,6 +32,10 @@ graph TD;
     Ubuntu-PGPLOT --> Ubuntu-SD;
     Ubuntu-PGPLOT --> Ubuntu-Tempo;
     Ubuntu-PGPLOT --> Ubuntu-Tempo2;
+    
+    Ubuntu-PGPLOT --> Ubuntu-PSRCHIVE;
+    Ubuntu-Tempo2 --> Ubuntu-PSRCHIVE;
+    Ubuntu-PSRCAT --> Ubuntu-PSRCHIVE;
 
     Ubuntu-IPP --> Ubuntu-DiFX;
     Ubuntu-Tempo --> Ubuntu-Presto;
@@ -56,7 +64,7 @@ graph TD;
     style CentOS-MPICH fill:#0f0,stroke:#333,stroke-width:4px;
     style CentOS-DiFX fill:#0f0,stroke:#333,stroke-width:4px;
     style CentOS-Tempo fill:#0f0,stroke:#333,stroke-width:4px;
-    style CentOS-Tempo2 fill:#0f0,stroke:#333,stroke-width:4px;
+    %%style CentOS-Tempo2 fill:#0f0,stroke:#333,stroke-width:4px;
     style CentOS-Presto fill:#0f0,stroke:#333,stroke-width:4px;
 
     style Ubuntu fill:#0f0,stroke:#333,stroke-width:4px;

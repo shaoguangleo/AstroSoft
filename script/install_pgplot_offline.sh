@@ -8,7 +8,7 @@
 #
 #
 # Author      : Guo Shaoguang
-# Email       : shaoguangleo@gmail.com
+# Email       : sgguo@shao.ac.cn
 # Institution : Shanghai Astronomical Observatory
 
 

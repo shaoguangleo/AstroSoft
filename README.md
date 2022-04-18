@@ -1,6 +1,6 @@
 ---
 title : ASOD
-subtitle : Astrnomical Software On Docer
+subtitle : Astrnomical Software On Docker
 author: 郭绍光
 date:    $v0.1$
 theme: Madrid

@@ -1,0 +1,14 @@
+machine:
+  services:
+    - docker
+dependencies:
+  cache_directories:
+    - "~/docker-ubuntu"
+  override:
+    - docker info
+    - if [[ -e ~/docker-ubuntu/image.tar ]]; then docker load --input ~/docker-ubuntu/image.tar; fi
+    - docker build -t shaoguangleo/ubuntu .
+    - mkdir -p ~/docker-ubuntu; docker save --output ~/docker-ubuntu/image.tar shaoguangleo/ubuntu
+test:
+  override:
+    - docker run -it shaoguangleo/ubuntu echo "Hello AstroSoft"

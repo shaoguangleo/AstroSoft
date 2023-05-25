@@ -1,0 +1,11 @@
+sudo: required
+
+language: ruby
+
+services:
+        - docker
+
+before_install:
+        - docker build --tag=shaoguangleo/ubuntu:latest .
+        - docker run -it shaoguangleo/ubuntu:latest
+        - docker ps -a

@@ -1,0 +1,14 @@
+machine:
+  services:
+    - docker
+dependencies:
+  cache_directories:
+    - "~/docker-hetu"
+  override:
+    - docker info
+    - if [[ -e ~/docker-hetu/image.tar ]]; then docker load --input ~/docker-hetu/image.tar; fi
+    - docker build -t shaoguangleo/hetu .
+    - mkdir -p ~/docker-hetu; docker save --output ~/docker-hetu/image.tar shaoguangleo/hetu
+test:
+  override:
+    - docker run -it shaoguangleo/hetu echo "Hello AstroSoft"

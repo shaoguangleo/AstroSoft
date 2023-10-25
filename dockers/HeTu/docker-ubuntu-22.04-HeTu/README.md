@@ -12,8 +12,11 @@ The packages are selected for common use in the future.
 
 Just type the following commands
 
-```
-$ docker run -it shaoguangleo/hetu[:version]
+```bash
+$ docker run -it -p 8888:8888 -v /Users/leo/OneDrive/git_internal/my/SHAO-SKA/HeTu/:/hetu shaoguangleo/hetu
+$ cd /hetu
+$ . /ai/bin/activate
+$ jupter-notebook --allow-root
 ```
 
 As we all know, the version can be `lateset` or `$ cat VERSION`

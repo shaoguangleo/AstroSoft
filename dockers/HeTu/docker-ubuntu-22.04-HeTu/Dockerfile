@@ -13,6 +13,7 @@ RUN apt-get install -y python3-numpy \
     && apt-get install -y python3-pip \
     && apt-get install -y python3-venv \
     && /usr/bin/python3 -m venv /ai \
-    && source /ai/bin/activate \
-    && /ai/bin/pip3 install -r /tmp/requirements.txt \
-    && apt-get install -y python3-mpi4py
+    && . /ai/bin/activate \
+    && apt-get install -y python3-mpi4py \
+    && /ai/bin/pip3 install tensorflow \
+    && /ai/bin/pip3 install jupyter

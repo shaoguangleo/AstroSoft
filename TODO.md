@@ -49,3 +49,15 @@ http://www.pulsarastronomy.net/psrsoft/pkg_idx.stable
 - tirific
 - wsclean
 - 
+
+使用方法：
+
+```bash
+$ astrosoft install softname version
+```
+
+
+
+
+
+[ratt-ru/Stimela: A containerized radio interferometry scripting framework (github.com)](https://github.com/ratt-ru/Stimela)

@@ -2,6 +2,8 @@
 
 Dockerfile to build a WSClean image based on CentOS.
 
+Read more on wsclean offical website on gitlab now.
+
 # How to run
 
 Just type the following commands

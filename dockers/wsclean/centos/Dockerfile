@@ -67,7 +67,7 @@ RUN \
           mkdir build && cd build &&\
           cmake .. && \
           make -j`nproc` && \
-          make install && \
+          make install \
           && echo "echo '    _      ____     ___    ____  '" >> ~/.bashrc \
           && echo "echo '   / \    / ___|   / _ \  |  _ \ '" >> ~/.bashrc \
           && echo "echo '  / _ \   \___ \  | | | | | | | |'" >> ~/.bashrc \

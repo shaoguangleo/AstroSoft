@@ -68,25 +68,27 @@ $ docker run -it shaoguangleo/centos-pgplot
 
 ## Docker 情况
 
-目前支持 **4** 个软件， **7**个版本。 详情见下述表格。
+目前支持的软件，如下所示：
 
 |     | Ubuntu     |  CentOS    |  版本 |
 |----|-----|-----|-----|
-|basic|![Support](./images/support.png)[shaoguangleo/ubuntu](https://github.com/shaoguangleo/docker-ubuntu)|![Support](./images/support.png) [shaoguangleo/centos](https://github.com/shaoguangleo/docker-centos)| CentOS:7.4 </br> Ubuntu:17.10|
-|pgplot|![Support](./images/support.png) [shaoguangleo/ubuntu-pgplot](https://github.com/shaoguangleo/docker-ubuntu-pgplot/)|![Support](./images/support.png) [shaoguangleo/centos-pgplot](https://github.com/shaoguangleo/docker-centos-pgplot/)| PGPLOT : v5.2.2 |
-|tempo|![Support](./images/support.png)[shaoguangleo/ubuntu-tempo](https://github.com/shaoguangleo/docker-ubuntu-tempo) |![Support](./images/support.png)[shaoguangleo/centos-tempo](https://github.com/shaoguangleo/docker-centos-tempo)|Tempo V20170729 |
-|tempo2|![wait](./images/wait.png)|![wait](./images/wait.png)||
-|sigproc|![wait](./images/wait.png)|![wait](./images/wait.png)||
-|presto|![Support](./images/support.png)[shaoguangleo/ubuntu-presto](https://github.com/shaoguangleo/docker-ubuntu-presto)|![Support](./images/support.png)[shaoguangleo/centos-presto](https://github.com/shaoguangleo/docker-centos-presto)|Presto v2.1|
-|psrcat|![wait](./images/wait.png)|![wait](./images/wait.png)||
-|cfitsio|![wait](./images/wait.png)|![wait](./images/wait.png)||
-|calceph|![wait](./images/wait.png)|![wait](./images/wait.png)||
-|psrchive|![wait](./images/wait.png)|![wait](./images/wait.png)||
-|dspsr|![wait](./images/wait.png)|![wait](./images/wait.png)||
-|DiFX|![wait](./images/wait.png)|![Support](./images/support.png) [shaoguangleo/centos-difx](https://github.com/shaoguangleo/docker-centos-difx/)| DiFX v2.5.1 </br> DiFX v2.5.2|
-|SFXC|![wait](./images/wait.png)|![wait](./images/wait.png)||
-|Difmap|![wait](./images/wait.png)|![wait](./images/wait.png)||
-|sd|![Support](./images/support.png) [shaoguangleo/ubuntu-sd](https://github.com/shaoguangleo/docker-ubuntu-sd/)|![wait](./images/wait.png)| sd : v0.1 |
+|basic|:+1:shaoguangleo/ubuntu| :+1:shaoguangleo/centos | CentOS:7.4 </br> Ubuntu:17.10|
+|pgplot|:+1:shaoguangleo/ubuntu-pgplot| :+1:shaoguangleo/centos-pgplot | PGPLOT : v5.2.2 |
+|tempo|:+1:[shaoguangleo/ubuntu-tempo](https://github.com/shaoguangleo/docker-ubuntu-tempo) |:+1:[shaoguangleo/centos-tempo](https://github.com/shaoguangleo/docker-centos-tempo)|Tempo V20170729 |
+|tempo2|:construction:​|:construction:​||
+|sigproc|:construction:​|:construction:​||
+|presto|:+1:[shaoguangleo/ubuntu-presto](https://github.com/shaoguangleo/docker-ubuntu-presto)|:+1:shaoguangleo/centos-presto|Presto v2.1|
+|psrcat|:construction:​|:construction:​||
+|cfitsio|:construction:​|:construction:​||
+|calceph|:construction:​|:construction:​||
+|psrchive|:construction:​|:construction:​||
+|dspsr|:construction:​|:construction:​||
+|DiFX|:construction:​|:+1: shaoguangleo/centos-difx| DiFX v2.5.1/v2.5.2 |
+|SFXC|:construction:​|:construction:​||
+|Difmap|:construction:​|:construction:​||
+|sd| :+1:[shaoguangleo/ubuntu-sd](https://github.com/shaoguangleo/docker-ubuntu-sd/) |:construction:| sd : v0.1 |
+|fs|:construction:|:+1: shaoguangleo/centos-fs| FS-10.1.1 |
+|wsclean|:construction:|:+1: shaoguangleo/centos-wsclean| wsclean 3.2 |
 
 
 ## Current relationship

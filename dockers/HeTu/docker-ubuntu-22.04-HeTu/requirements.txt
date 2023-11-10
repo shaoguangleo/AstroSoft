@@ -119,7 +119,7 @@ jupyterlab-widgets==3.0.7
 keras==2.13.1rc0
 keyring==23.13.1
 kiwisolver==1.4.4
-label-studio==1.7.3
+label-studio==1.9.2
 label-studio-converter==0.0.51
 label-studio-tools==0.0.2
 launchdarkly-server-sdk==7.5.0

@@ -1,0 +1,60 @@
+Bootstrap: library
+From: ubuntu:20.04
+
+%labels
+  Author Xu Zhijun & Guo Shaoguang <xuthus@shao.ac.cn and sgguo@shao.ac.cn>
+  Version 2.8.1
+  Description Ubuntu DiFX Images
+
+%environment
+  export LD_LIBRARY_PATH=/usr/local/difx/2.8.1/lib
+  export PATH=${PATH}:/usr/local/difx/2.8.1/bin
+
+%files
+  src/*  /tmp/
+
+%post
+  export DEBIAN_FRONTEND=noninteractive
+  export IPPROOT=/opt/intel
+  export DIFXROOT=/usr/local/difx/2.8.1
+  export PKG_CONFIG_PATH=/usr/local/difx/2.8.1/lib64/pkgconfig:/usr/local/difx/2.8.1/lib/pkgconfig
+  export MPICXX=/usr/local/bin/mpicxx
+
+  mkdir -p /usr/local/difx/2.8.1
+
+  apt-get update
+  apt-get install -y tzdata autoconf automake libtool pkg-config g++ gcc gfortran make python3 python3-pip libgsl23 libgsl-dev libexpat1-dev bison doxygen python3-tk vim openssh-client libfftw3-dev build-essential autotools-dev flex subversion
+  ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+  dpkg-reconfigure -f noninteractive tzdata
+  update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+  apt-get clean all
+  rm -rf /var/lib/apt/lists/*
+
+  pip3 install astropy requests numpy simplejson psutil matplotlib
+
+  cd /tmp/
+  tar zxvf  mpich-3.2.1.tar.gz
+  cd /tmp/mpich-3.2.1
+  ./configure 2>&1 | tee log_configure.txt
+  make 2>&1 | tee log_make.txt
+  make install 2>&1 | tee log_make_install.txt
+
+  cd /tmp/
+  cp /tmp/setup.bash.v2.8.1 /usr/local/difx/
+  sh l_ipp_oneapi_p_2021.7.0.25396_offline.sh -a -s --eula accept
+  tar zxvf DiFX-2.8.1.tar.gz
+  cd /tmp/DiFX-2.8.1
+  /bin/bash -c "source /usr/local/difx/setup.bash.v2.8.1"
+  ./install-difx 
+  ./install-difx --doonly=difx2mark4 
+  echo "source /usr/local/difx/setup.bash.v2.8.1" >> ~/.bashrc
+  rm -f /tmp/DiFX-2.8.1.tar.gz
+  rm -f /tmp/mpich-3.2.1.tar.gz
+  rm -f /tmp/setup.bash.v2.8.1
+  rm -f /tmp/l_ipp_oneapi_p_2021.7.0.25396_offline.sh
+  rm -rf /tmp/mpich-3.2.1
+  rm -rf /tmp/DiFX-2.8.1
+  rm -rf /tmp/unknown_user
+
+%runscript
+  exec /bin/bash

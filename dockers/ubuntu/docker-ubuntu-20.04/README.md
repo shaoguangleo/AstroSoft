@@ -1,6 +1,6 @@
 # About
 
-Dockerfile to build a ubuntu[17.10] lastest base image with some useful packages.
+Dockerfile to build a ubuntu[20.04] lastest base image with some useful packages.
 
 The image is built on top of the most recently `ubuntu` image and installs the following extra packages:
 
@@ -23,5 +23,5 @@ As we all know, the version can be `lateset` or `$ cat VERSION`
 
 # travis
 
-[![Build Status](https://www.travis-ci.org/shaoguangleo/docker-ubuntu.svg?branch=master)](https://www.travis-ci.org/shaoguangleo/docker-ubuntu)
+[![Build Status](https://www.travis-ci.org/shaoguangleo/astrosoft.svg?branch=master)](https://www.travis-ci.org/shaoguangleo/astrosoft)
 

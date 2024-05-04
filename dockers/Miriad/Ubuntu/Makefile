@@ -1,4 +1,4 @@
-OS=ubuntu2204-miriad
+OS=ubuntu-miriad
 
 all: build release
 

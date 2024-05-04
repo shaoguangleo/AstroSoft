@@ -2,7 +2,7 @@
 
 Dockerfile to build a Miriad image based on Ubuntu2204.
 
-# How to run
+## How to run
 
 Just type the following commands
 
@@ -15,10 +15,10 @@ $docker run -it -e DISPLAY=host.docker.internal:0 shaoguangleo/ubuntu-miriad
 
 As we all know, the version can be `lateset` or `$ cat VERSION`
 
-# TODO
+## Reference 
 
-recompile using -fPIC flag
+Find more information about Miriad at [Miriad](http://www.atnf.csiro.au/computing/software/miriad/)
 
-# travis
+## travis
 
-[![Build Status](https://www.travis-ci.org/shaoguangleo/docker-ubuntu-miriad.svg?branch=master)](https://www.travis-ci.org/shaoguangleo/docker-ubuntu-miriad)
+[![Build Status](https://www.travis-ci.org/shaoguangleo/AstroSoft.svg?branch=master)](https://www.travis-ci.org/shaoguangleo/AstroSoft)

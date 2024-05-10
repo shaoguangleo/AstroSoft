@@ -1,15 +1,5 @@
----
-title : ASOD
-subtitle : Astrnomical Software On Docker
-author: 郭绍光
-date:    $v0.1$
-theme: Madrid
-colortheme: dolphin
----
+# AstroSoft 
 
-![SHAO](./images/shao.png)
-
-# ASOD
 
 ```
     _      ____     ___    ____
@@ -121,3 +111,7 @@ If you just type `sas`, you will get a help information of how to use sas like t
 $ git show -s --pretty=format:%cI
 ```
 
+## Maintainer
+
+- [@shaoguangleo](https://github.com/shaoguangleo)
+- [@Xu-Zhijun](https://github.com/Xu-Zhijun)

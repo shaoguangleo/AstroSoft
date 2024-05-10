@@ -1,0 +1,45 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%labels
+    maintainer "sgguo@shao.ac.cn"
+    version "0.1"
+    description "Basic Ubuntu Miriad Image with extensive package installations"
+
+%files
+    src/miriad-common.tar.bz2 /usr/local/astrosoft/
+    src/miriad-code.tar.bz2 /usr/local/astrosoft/
+    src/miriad-linux64.tar.bz2 /usr/local/astrosoft/
+    src/as_logo /usr/local/astrosoft/
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+
+    apt-get update -y
+    apt-get upgrade -y
+    apt-get install -y --no-install-recommends tzdata pkg-config g++ gfortran bison flex libexpat1-dev fftw3-dev automake make autoconf libtool build-essential doxygen pgplot5 subversion libgsl-dev libopenmpi-dev openmpi-bin vim xorg-dev wget curl git gcc cmake python3 python3-pip rpcbind csh libglib2.0-dev dh-autoreconf libpng-dev cpio libaio-dev libncurses-dev
+
+    cd /usr/local/astrosoft/
+    tar xvf miriad-common.tar.bz2
+    tar xvf miriad-code.tar.bz2
+    tar xvf miriad-linux64.tar.bz2
+    export MIR=/usr/local/astrosoft/miriad
+    cd /usr/local/astrosoft/miriad
+    sed -e "s,@MIRROOT@,$MIR," scripts/MIRRC.in > MIRRC
+    sed -e "s,@MIRROOT@,$MIR," scripts/MIRRC.sh.in > MIRRC.sh
+    sh MIRRC.sh
+    echo "source /usr/local/astrosoft/miriad/MIRRC.sh" >>  $SINGULARITY_ENVIRONMENT
+    export PATH=/usr/local/astrosoft/miriad/linux64/bin:$PATH
+    echo "export PATH=/usr/local/astrosoft/miriad/linux64/bin:$PATH" >>  $SINGULARITY_ENVIRONMENT
+    echo "cat /usr/local/astrosoft/as_logo" >>  $SINGULARITY_ENVIRONMENT
+    rm /usr/local/astrosoft/*.tar.bz2
+
+%environment
+    export MIR=/usr/local/astrosoft/miriad
+    export MIRBIN=/usr/local/astrosoft/miriad/linux64/bin
+    export PATH=/usr/local/astrosoft/miriad/linux64/bin:$PATH
+    echo "Initialized Miriad environment with extended packages."
+
+%runscript
+    echo "This container includes a configured Miriad environment with additional development tools."
+    exec /bin/bash "$@"

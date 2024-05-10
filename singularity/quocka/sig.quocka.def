@@ -1,0 +1,21 @@
+Bootstrap: localimage
+From: miriad.sif
+
+%post
+    apt-get update
+    apt-get install -y ghostscript python3-dev
+    cd /usr/local/astrosoft/
+    git clone https://github.com/AlecThomson/quocka.git
+    cd quocka
+    pip install . -i https://pypi.tuna.tsinghua.edu.cn/simple
+    pip install fitscube -i https://pypi.tuna.tsinghua.edu.cn/simple
+    pip install --index-url=https://go.nrao.edu/pypi casadata
+    echo "export PATH=/usr/local/astrosoft/quocka/bin:$PATH" >>  $SINGULARITY_ENVIRONMENT
+%environment
+    export ADDITIONAL_SETUP="done"
+    export PATH=/usr/local/astrosoft/quocka/bin:$PATH
+    echo "Additional packages installed."
+
+%runscript
+    echo "Running with additional configurations."
+    exec /bin/bash "$@"

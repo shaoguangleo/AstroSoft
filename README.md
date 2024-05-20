@@ -1,5 +1,6 @@
 # AstroSoft 
 
+[![DOI](https://zenodo.org/badge/40939159.svg)](https://zenodo.org/doi/10.5281/zenodo.11219200)
 
 ```
     _      ____     ___    ____

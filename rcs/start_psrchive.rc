@@ -1,0 +1,11 @@
+export BASE_PATH=/usr/local/astrosoft
+source $BASE_PATH/start_tempo2.rc
+export PSRCHIVE=$BASE_PATH/psrchive
+export PATH=$PATH:$PSRCHIVE/bin
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PRESTO/lib
+#export C_INCLUDE_PATH=$C_INCLUDE_PATH:$PRESTO/include
+#export PYTHONPATH=$PYTHONPATH:$PRESTO/lib/python
+#export PYTHONPATH=$PYTHONPATH:$PRESTO/lib64/python/ppgplot
+#export PYTHONPATH=$PYTHONPATH:$PRESTO/lib64/python/presto
+#export PYTHONPATH=$PYTHONPATH:$PRESTO/lib64/python
+#export PYTHONPATH=$PYTHONPATH:$PRESTO/python/ppgplot_ver/ppgplot-1.4

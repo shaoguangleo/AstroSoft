@@ -1,0 +1,8 @@
+export BASE_PATH=/usr/local/astrosoft
+source $BASE_PATH/start_psrchive.rc
+export CFITSIO=$BASE_PATH/cfitsio
+export DSPSR=$BASE_PATH/dspsr
+export PATH=$PATH:$DSPSR/bin
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:$CFITSIO/include
+export CPP_INCLUDE_PATH=$CPP_INCLUDE_PATH:$CFITSIO/include
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CFITSIO/lib

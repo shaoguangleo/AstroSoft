@@ -1,0 +1,8 @@
+export BASE_PATH=/usr/local/astrosoft
+source $BASE_PATH/start_pgplot.rc
+export TEMPO=/usr/local/astrosoft/tempo
+export PATH=$PATH:$TEMPO/bin
+export CLKDIR=$TEMPO/clock
+export PARDIR=$TEMPO/tzpar
+export EPHDIR=$TEMPO/ephem
+export OBSYS=$TEMPO/obsys.dat

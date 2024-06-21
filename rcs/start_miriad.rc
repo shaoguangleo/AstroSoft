@@ -1,0 +1,6 @@
+export BASE_PATH=/usr/local/astrosoft
+
+export MIR=$BASE_PATH/miriad
+
+source $MIR/MIRRC.sh
+export PATH=$MIRBIN:$PATH

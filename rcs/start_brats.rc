@@ -1,0 +1,9 @@
+export BASE_PATH=/usr/local/astrosoft
+
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/pgplot
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/astrosoft/funtools/lib
+#export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/astrosoft/funtools/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/astrosoft/CASA/casa-release-4.5.2-el6/lib/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/astrosoft/CASA/casa-release-4.5.2-el6/lib/
+
+export PATH=$PATH:$BASE_PATH/brats/

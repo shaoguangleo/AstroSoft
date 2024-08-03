@@ -1,0 +1,31 @@
+#%Module######################################################################
+#
+# tempo modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use tempo version master"
+}
+
+set sys     [uname sysname]
+set version arm-master
+set tool    tempo
+module-whatis "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user's freedom.
+
+For further information see https://gcc.gnu.org/
+
+Compiled with gcc/4.8.5 
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+if {! [module-info mode whatis] } {
+setenv       TEMPO                /home/app/src/tempo_arm/tempo
+prepend-path PATH                 /home/app/tempo/arm/bin
+prepend-path CPATH                /home/app/tempo/arm/include
+prepend-path LIBRARY_PATH         /home/app/tempo/arm/lib
+prepend-path LD_LIBRARY_PATH      /home/app/tempo/arm/lib
+}
+

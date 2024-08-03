@@ -1,0 +1,32 @@
+#%Module######################################################################
+#
+# askappipeline modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use askapsoft version 1.0.2"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version cpu-1.0.19-mpich-3.2.1
+set tool    askappipeline
+module-whatis "ASKAPsoft for ASKAP data processing.
+For further information see https://bitbucket.csiro.au/projects/CASSSOFT/repos/askapsoft 
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+
+if {! [module-info mode whatis] } {
+prepend-path    PATH            /home/app/src/askapsoft-1.0.19/ASKAPsoft/Code/Components/Pipelines/bash-pipelines/current/install/bin
+setenv PIPELINEDIR /home/app/src/askapsoft-1.0.19/ASKAPsoft/Code/Components/Pipelines/bash-pipelines/current/install/bin
+setenv PIPELINE_VERSION 1.0.19
+}
+
+

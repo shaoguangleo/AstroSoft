@@ -1,0 +1,29 @@
+#%Module######################################################################
+# hdf5 modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use boost version 1.65.1"
+}
+set sys     [uname sysname]
+set version gpu-1.10.4
+set tool    hdf5
+module-whatis "Hierarchical Data Format Version 5
+For further information see https://www.hdfgroup.org/solutions/hdf5/
+
+Compiled with gcc/4.8.5 
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+if {! [module-info mode whatis] } {
+setenv       MAALI_HDF5_HOME     /home/software/hdf5/gpu
+setenv       HDF5_ROOT           "/home/software/hdf5/gpu"
+prepend-path CPATH   /home/software/hdf5/gpu/include
+prepend-path CPLUS_INCLUDE_PATH   /home/software/hdf5/gpu/include
+prepend-path C_INCLUDE_PATH       /home/software/hdf5/gpu/include
+prepend-path LD_LIBRARY_PATH      /home/software/hdf5/gpu/lib
+}
+

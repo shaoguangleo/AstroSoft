@@ -1,0 +1,29 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends chgcentre from wsclean 2.5"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software chgcentre
+set version cpu-wsclean2.6
+
+set root /home/software/chgcentre/cpu
+
+# Check that the root directory actually exists.
+if { ! [file exists $root] } {
+    puts stderr "$root doesn't exist! Exiting."
+    exit 1
+}
+
+# Load dependencies.
+load_unless_already_loaded gcc/7.3.0
+load_unless_already_loaded hdf5/cpu-1.10.4
+
+# MWA built.
+load_unless_already_loaded casacore/cpu-2.4.1
+
+# Prepend the paths.
+prepend-path PATH            $root/bin
+prepend-path LD_LIBRARY_PATH $root/lib

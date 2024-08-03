@@ -1,0 +1,26 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+  puts stderr "Prepends DiFX"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set root /home/software/difx/difx-2.8.1
+
+# Check that the root directory actually exists.
+if { ! [file exists $root] } {
+    puts stderr "$root doesn't exist! Exiting."
+    exit 1
+}
+
+
+# Load dependencies.
+#. /home/software/difx/setup.bash.v2.8.1
+# Prepend the paths.
+prepend-path PATH              $root/bin
+prepend-path LD_LIBRARY_PATH   $root/lib
+setenv       DIFXROOT        $root
+setenv       DIFXDOC    $root/doc
+#setenv       DIFXCAT     $root/cat
+

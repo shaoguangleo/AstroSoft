@@ -1,0 +1,30 @@
+#%Module######################################################################
+#
+# lua modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use cfitsio version 3450"
+}
+set sys     [uname sysname]
+set version cpu-5.3.6-gcc-4.8.5
+set tool    lua
+module-whatis "Lua is free software distributed in source code. It may be used for any purpose, 
+including commercial purposes, at absolutely no cost.
+
+For further information see https://www.lua.org/download.html
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+
+if {! [module-info mode whatis] } {
+setenv       LUA_ROOT           "/home/software/lua/cpu/5.3.6/gcc/4.8.5"
+prepend-path PATH               /home/software/lua/cpu/5.3.6/gcc/4.8.5/bin
+prepend-path CPATH              /home/software/lua/cpu/5.3.6/gcc/4.8.5/include
+prepend-path LD_LIBRARY_PATH    /home/software/lua/cpu/5.3.6/gcc/4.8.5/lib
+}

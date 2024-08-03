@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## askapsoft modulefile
+##
+## This module definition is versioned and the cmake var identifier '@'VERSION'@'
+## will be replaced with the pipeline version identifier at build time.
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\tThis module provides the ASKAPsoft software package."
+}
+
+# No two versions of this module can be loaded simultaneously
+conflict        askapsoft
+
+module-whatis   "ASKAPsoft software package"
+
+set ASKAP_HOME  /home/software/askapsoft/1.12.0
+
+prepend-path    PATH            $ASKAP_HOME/bin
+
+setenv ASKAPSOFT_RELEASE 1.12.0

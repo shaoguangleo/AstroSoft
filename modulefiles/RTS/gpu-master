@@ -1,0 +1,37 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends RTS master"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software RTS
+set version gpu-master
+set root /home/software/src/RTS
+
+#fail_if_path_does_not_exist $root
+#swap_module_if_version_does_not_match $software $version
+
+# Load dependencies.
+# Pawsey provided.
+module load  Healpix/gpu-f90
+module load  Healpix/gpu-cxx
+load_unless_already_loaded fftw/gpu-3.8.8
+load_unless_already_loaded cfitsio/gpu-3450
+load_unless_already_loaded wcslib/gpu-6.2
+load_unless_already_loaded lapack/gpu-3.8.8
+#load_unless_already_loaded Healpix/gpu-f90
+#load_unless_already_loaded Healpix/gpu-cxx
+load_unless_already_loaded openmpi/gpu-4.0.1
+load_unless_already_loaded hdf5/gpu-1.10.4
+# galaxy and zeus have GPUs.
+load_unless_already_loaded python/gpu-2.7.14
+# MWA built.
+#load_unless_already_loaded Healpix/heapy
+
+# Prepend the paths.
+prepend-path PATH     $root/bin
+prepend-path LD_LIBRARY_PATH  /usr/lib64
+setenv       RTS_ROOT $root
+setenv HDF5_USE_FILE_LOCKING "FALSE"

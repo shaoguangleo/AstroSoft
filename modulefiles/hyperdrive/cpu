@@ -1,0 +1,34 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends MWA hyperdrive 0.3.0"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software ws
+set version cpu-3.0-gcc-7.3.0
+
+set root /home/software/hyperdrive/
+module-whatis "An MWA reduction pipeline .  "
+
+fail_if_path_does_not_exist $root
+swap_module_if_version_does_not_match $software $version
+
+# Load dependencies.
+load_unless_already_loaded gcc/7.3.0
+load_unless_already_loaded cfitsio/cpu-4.0.0-gcc-7.3.0
+load_unless_already_loaded hdf5/cpu-1.10.4-gcc-7.3.0
+#load_unless_already_loaded openblas/cpu-0.3.6-gcc-7.3.0
+load_unless_already_loaded python/cpu-3.8.12-gcc-7.3.0
+
+# MWA built.
+load_unless_already_loaded casacore/cpu-3.3.0-gcc-7.3.0
+#load_unless_already_loaded boost/cpu-1.76.0-gcc-7.3.0
+load_unless_already_loaded boost/cpu-1.65.1
+#load_unless_already_loaded chgcentre/cpu-wsclean2.6
+
+# Prepend the paths.
+prepend-path PATH            $root/linux
+prepend-path LD_LIBRARY_PATH $root/lib
+

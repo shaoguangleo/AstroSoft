@@ -1,0 +1,43 @@
+#%Module######################################################################
+#
+# vcstools modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use vcstools version master"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version pulsar-gpu
+set tool    vcstools
+module-whatis "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user's freedom.
+
+For further information see https://gcc.gnu.org/
+
+Compiled with gcc/7.3.0 
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+load_unless_already_loaded python/cpu-3.6.5 
+load_unless_already_loaded gcc/cpu-7.3.0
+load_unless_already_loaded cfitsio/cpu-3450
+load_unless_already_loaded cmake/cpu-3.15.2
+load_unless_already_loaded fftw/cpu-3.3.8
+load_unless_already_loaded python/cpu-3.6.5
+load_unless_already_loaded hdf5/cpu-1.10.4
+load_unless_already_loaded cuda/10.1
+
+if {! [module-info mode whatis] } {
+setenv CMD_VCS_DB_FILE /ibo9000/Pulsar/mwavcs/.vcs.db #/o9000/MWA/vcs/.vcs.db
+setenv KNOWN_RFRB_CSV /home/app/pulsar/2021/vcstools-pulsar-gpu/pulsar-gpu/known_repeating_FRBs.csv
+prepend-path PATH                 /home/app/pulsar/2021/vcstools-pulsar-gpu/pulsar-gpu/bin
+prepend-path PYTHONPATH           /home/app/pulsar/2021/vcstools-pulsar-gpu/python3.6/lib/python3.6/site-packages
+prepend-path HDF5_DIR             /home/app/hdf5/1.10.4/cpu
+setenv HDF5_USE_FILE_LOCKING "FALSE"
+}
+

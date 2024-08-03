@@ -1,0 +1,34 @@
+#%Module######################################################################
+#
+# mpich modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use boost version 7.3.0"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version cpu-3.2.1-gcc-7.3.0
+set tool    mpich
+module-whatis "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user's freedom.
+
+For further information see https://gcc.gnu.org/
+
+Compiled with gcc/7.3.0 
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+load_unless_already_loaded gcc/cpu-7.3.0
+
+if {! [module-info mode whatis] } {
+prepend-path PATH                 /home/app/mpich/3.2.1/cpu/gcc/7.3.0/bin
+prepend-path CPATH                /home/app/mpich/3.2.1/cpu/gcc/7.3.0/include
+prepend-path LIBRARY_PATH         /home/app/mpich/3.2.1/cpu/gcc/7.3.0/lib
+prepend-path LD_LIBRARY_PATH      /home/app/mpich/3.2.1/cpu/gcc/7.3.0/lib
+}
+

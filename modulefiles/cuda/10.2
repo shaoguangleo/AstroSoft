@@ -1,0 +1,33 @@
+#%Module######################################################################
+#
+# cuda modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use cuda version 10.1"
+}
+
+#source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version 10.2
+set tool    cuda
+module-whatis "CUDA® is a parallel computing platform and programming model developed by NVIDIA for general computing on graphical processing units (GPUs). With CUDA, developers are able to dramatically speed up computing applications by harnessing the power of GPUs.
+
+In GPU-accelerated applications, the sequential part of the workload runs on the CPU – which is optimized for single-threaded performance – while the compute intensive portion of the application runs on thousands of GPU cores in parallel. When using CUDA, developers program in popular languages such as C, C++, Fortran, Python and MATLAB and express parallelism through extensions in the form of a few basic keywords.
+
+For further information see https://developer.nvidia.com
+
+Compiled with gcc/4.8.5 
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+if {! [module-info mode whatis] } {
+prepend-path PATH                 /usr/local/cuda-10.2/bin
+prepend-path CPATH                /usr/local/cuda-10.2/include
+prepend-path LD_LIBRARY_PATH      /usr/local/cuda-10.2/lib64
+}
+

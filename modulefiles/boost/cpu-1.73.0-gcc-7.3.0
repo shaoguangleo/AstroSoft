@@ -1,0 +1,42 @@
+#%Module######################################################################
+#
+# boost modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use boost version 1.73.0"
+}
+
+
+source /home/app/modulefiles/common.tcl
+set sys     [uname sysname]
+set version cpu-1.73.0-gcc-7.3.0
+set tool    boost
+module-whatis "Boost provides free peer-reviewed portable C++ source libraries.
+
+Boost emphasizes libraries that work well with the C++ Standard Library. Boost
+libraries are intended to be widely useful, and usable across a broad spectrum
+of applications. The Boost license encourages both commercial and
+non-commercial use.
+
+For further information see http://www.boost.org/
+
+Compiled with gcc/7.3.0
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+# Load dependencies.
+load_unless_already_loaded gcc/cpu-7.3.0
+
+if {! [module-info mode whatis] } {
+setenv       MAALI_BOOST_HOME     /home/app/boost/1.73.0/cpu/gcc/7.3.0
+setenv       BOOST_ROOT           "/home/app/boost/1.73.0/cpu/gcc/7.3.0"
+prepend-path CPATH                /home/app/boost/1.73.0/cpu/gcc/7.3.0/include
+prepend-path CPLUS_INCLUDE_PATH   /home/app/boost/1.73.0/cpu/gcc/7.3.0/include
+prepend-path C_INCLUDE_PATH       /home/app/boost/1.73.0/cpu/gcc/7.3.0/include
+prepend-path LD_LIBRARY_PATH      /home/app/boost/1.73.0/cpu/gcc/7.3.0/lib
+prepend-path LIBRARY_PATH         /home/app/boost/1.73.0/cpu/gcc/7.3.0/lib
+}
+

@@ -1,0 +1,26 @@
+#%Module######################################################################
+#
+# ds9 modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use ds9 version centos 7 v8.0"
+}
+
+set sys     [uname sysname]
+set version centos7-v8.0
+set tool    ds9
+module-whatis "
+For further information see http://ds9.si.edu/site/Home.html
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+if {! [module-info mode whatis] } {
+prepend-path PATH                 /home/app/ds9/bin
+}
+

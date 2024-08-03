@@ -1,0 +1,43 @@
+#%Module######################################################################
+#
+# python modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use python version 2.7.14"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version cpu-2.7.14-gcc-4.9.3
+set tool    python
+module-whatis "Python is a clear and powerful object-oriented programming language, comparable
+to Perl, Ruby, Scheme, or Java.
+
+For further information see https://www.python.org/
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+
+load_unless_already_loaded gcc/cpu-4.9.3
+
+if {! [module-info mode whatis] } {
+setenv       MAALI_PYTHON_HOME          /home/app/python/2.7.14/cpu/gcc/4.9.3
+setenv       MAALI_PYTHON_LIBDIR        "lib"
+setenv       MAALI_PYTHON_LIB_VERSION   "2.7"
+prepend-path LD_LIBRARY_PATH            /home/app/python/2.7.14/cpu/gcc/4.9.3/lib
+prepend-path MANPATH                    /home/app/python/2.7.14/cpu/gcc/4.9.3/share/man
+prepend-path PATH                       /home/app/python/2.7.14/cpu/gcc/4.9.3/bin
+prepend-path CPATH                      /home/app/python/2.7.14/cpu/gcc/4.9.3/include/python2.7
+prepend-path PKG_CONFIG_PATH            /home/app/python/2.7.14/cpu/gcc/4.9.3/lib/pkgconfig
+prepend-path PYTHONPATH                 "/home/app/python/2.7.14/cpu/gcc/4.9.3/lib/python2.7/site-packages"
+setenv       PYTHON_DIR                 "/home/app/python/2.7.14/cpu/gcc/4.9.3"
+setenv       PYTHON_VERSION             "2.7.14"
+}
+

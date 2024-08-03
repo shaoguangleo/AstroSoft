@@ -1,0 +1,25 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends libsla"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software erfa
+set version 1.5.0
+set root /home/software/$software/$version/cpu
+
+# Check that the root directory actually exists.
+if { ! [file exists $root] } {
+    puts stderr "$root doesn't exist! Exiting."
+    exit 1
+}
+
+# Load dependencies.
+load_unless_already_loaded gcc/7.3.0
+
+# Prepend the paths.
+prepend-path LD_LIBRARY_PATH  $root/lib
+prepend-path CPATH            $root/include
+

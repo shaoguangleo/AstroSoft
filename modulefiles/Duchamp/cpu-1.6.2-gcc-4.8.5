@@ -1,0 +1,34 @@
+#%Module######################################################################
+#
+# Duchamp modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use Duchamp version 1.6.2"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version cpu-1.6.2-gcc-4.8.5
+set tool    Duchamp
+module-whatis "Duchamp is a solution to this problem of three-dimensional source finding.
+
+For further information see https://www.atnf.csiro.au/people/Matthew.Whiting/Duchamp
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+load_unless_already_loaded wcslib/cpu-6.2
+load_unless_already_loaded pgplot/cpu-5.2
+load_unless_already_loaded cfitsio/cpu-3450
+
+if {! [module-info mode whatis] } {
+prepend-path CPATH              /home/app/Duchamp/cpu/1.6.2/gcc/4.8.5/include
+prepend-path PATH               /home/app/Duchamp/cpu/1.6.2/gcc/4.8.5/bin
+prepend-path LD_LIBRARY_PATH    /home/app/Duchamp/cpu/1.6.2/gcc/4.8.5/lib
+}

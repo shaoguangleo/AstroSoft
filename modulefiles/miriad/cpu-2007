@@ -1,0 +1,28 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+  puts stderr "Prepends miriad"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software miriad
+set version cpu-2007
+set root /home/software/miriad
+
+# Check that the root directory actually exists.
+if { ! [file exists $root] } {
+    puts stderr "$root doesn't exist! Exiting."
+    exit 1
+}
+
+
+# Load dependencies.
+#source /mnt/beegfs/software/miriad/MIRRC.sh
+# Prepend the paths.
+prepend-path PATH              $root/linux64/bin
+prepend-path LD_LIBRARY_PATH   $root/linux64/lib
+setenv       MIR        $root
+setenv       MIRPDOC    $root/doc
+setenv       MIRCAT     $root/cat
+

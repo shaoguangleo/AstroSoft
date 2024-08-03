@@ -1,0 +1,40 @@
+#%Module######################################################################
+#
+# askapsoft modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use askapsoft version yanda"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version cpu-cloud-dingo
+set tool    askapsoft
+module-whatis "ASKAP software for DINGO data processing.
+For further information see https://github.com/ICRAR/cloud-dingo
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+load_unless_already_loaded boost/cpu-1.65.1
+load_unless_already_loaded cmake/cpu-3.15.2
+load_unless_already_loaded fftw/cpu-3.3.8
+load_unless_already_loaded hdf5/cpu-1.10.4
+load_unless_already_loaded lapack/cpu-3.8.0
+load_unless_already_loaded python/cpu-2.7.14
+load_unless_already_loaded wcslib/cpu-6.2
+load_unless_already_loaded openmpi/cpu-4.0.1
+
+if {! [module-info mode whatis] } {
+prepend-path PATH                 /home/app/askapsoft/cpu/bin
+prepend-path CPATH                /home/app/askapsoft/cpu/include
+prepend-path LIBRARY_PATH         /home/app/askapsoft/cpu/lib
+prepend-path LD_LIBRARY_PATH      /home/app/askapsoft/cpu/lib
+}
+

@@ -1,0 +1,18 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends swarp 2.38.0"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software swarp
+set version cpu-2.38.0
+set root /home/software/$software/cpu
+
+fail_if_path_does_not_exist $root
+swap_module_if_version_does_not_match $software $version
+
+# Prepend the paths.
+prepend-path PATH $root/bin
+

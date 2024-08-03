@@ -1,0 +1,28 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends cotter - https://github.com/MWATelescope/cotter"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software cotter
+set version cpu-4.6-gcc-4.8.5
+set root /home/software/cotter/cpu/4.6/gcc/4.8.5
+
+fail_if_path_does_not_exist $root
+swap_module_if_version_does_not_match $software $version
+
+# Load dependencies.
+# Pawsey provided.
+load_unless_already_loaded casacore/cpu-3.3.0-gcc-4.8.5
+load_unless_already_loaded aoflagger/cpu-3.0.0-gcc-4.8.5
+#load_unless_already_loaded libsla/cpu-master
+
+# Prepend the paths.
+prepend-path PATH               $root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+setenv       COTTER_ROOT        $root
+setenv       COTTER_INCLUDE_DIR $root/include
+# set-alias cotter cotter4
+

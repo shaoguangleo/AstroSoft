@@ -1,0 +1,29 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends mwa-reduce - https://github.com/ICRAR/mwa-reduce"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software mwa-reduce
+set version arm-master
+
+set root /home/software/$software/arm
+
+fail_if_path_does_not_exist $root
+swap_module_if_version_does_not_match $software $version
+
+# Load dependencies.
+load_unless_already_loaded fftw/arm-3.8.8
+load_unless_already_loaded boost/arm-1.65.1
+load_unless_already_loaded cfitsio/arm-3450
+load_unless_already_loaded lapack/arm-3.8.0
+# MWA built.
+load_unless_already_loaded libsla/arm-master
+load_unless_already_loaded casacore/arm-2.4.1
+load_unless_already_loaded hdf5/arm-1.10.4
+
+# Prepend the paths.
+prepend-path PATH $root/bin
+prepend-path LD_LIBRARY_PATH $root/lib

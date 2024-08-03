@@ -1,0 +1,33 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+  puts stderr "Prepends dysco master"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software dysco
+set version cpu-1.1
+
+set root /home/software/$software/cpu
+
+# Check that the root directory actually exists.
+if { ! [file exists $root] } {
+    puts stderr "$root doesn't exist! Exiting."
+    exit 1
+}
+
+# Load dependencies.
+load_unless_already_loaded gcc/7.3.0
+load_unless_already_loaded fftw/cpu-3.8.8
+load_unless_already_loaded boost/cpu-1.65.1
+load_unless_already_loaded cfitsio/cpu-3450
+load_unless_already_loaded lapack/cpu-3.8.0
+load_unless_already_loaded libsla/cpu-master
+
+# Prepend the paths.
+prepend-path PATH              $root/bin
+prepend-path LD_LIBRARY_PATH   $root/lib
+setenv       DYSCO_ROOT        $root
+setenv       DYSCO_INCLUDE_DIR $root/include
+

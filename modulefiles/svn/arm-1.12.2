@@ -1,0 +1,29 @@
+#%Module######################################################################
+#
+# svn modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use svn version 1.12.2"
+}
+
+set sys     [uname sysname]
+set version arm-1.12.2
+set tool    svn
+module-whatis "
+For further information see https://subversion.apache.org
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+if {! [module-info mode whatis] } {
+prepend-path PATH                 /home/app/svn/arm/bin
+prepend-path CPATH                /home/app/svn/arm/include
+prepend-path LIBRARY_PATH         /home/app/svn/arm/lib
+prepend-path LD_LIBRARY_PATH      /home/app/svn/arm/lib
+}
+

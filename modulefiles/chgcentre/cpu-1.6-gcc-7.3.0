@@ -1,0 +1,29 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends chgcentre from chgcentre 1.6"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software chgcentre
+set version cpu-1.6-gcc-7.3.0
+
+set root /home/app/chgcentre/1.6/cpu/gcc/7.3.0
+
+# Check that the root directory actually exists.
+if { ! [file exists $root] } {
+    puts stderr "$root doesn't exist! Exiting."
+    exit 1
+}
+
+# Load dependencies.
+load_unless_already_loaded gcc/cpu-7.3.0
+load_unless_already_loaded hdf5/cpu-1.10.4-gcc-7.3.0
+
+# MWA built.
+load_unless_already_loaded casacore/cpu-3.3.0-gcc-7.3.0
+
+# Prepend the paths.
+prepend-path PATH            $root/bin
+prepend-path LD_LIBRARY_PATH $root/lib

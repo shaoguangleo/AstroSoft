@@ -1,0 +1,7 @@
+#%Module######################################################################
+##
+
+prepend-path PATH /home/software/rust/bin
+prepend-path RUSTUP_HOME /home/software/rust
+prepend-path CARGO_HOME /home/software/rust
+

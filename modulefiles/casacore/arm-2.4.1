@@ -1,0 +1,30 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends casacore v2.4.1"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software casacore
+set version arm-2.4.1
+
+set root /home/software/casacore/arm
+
+fail_if_path_does_not_exist $root
+
+# Load dependencies.
+load_unless_already_loaded hdf5/arm-1.10.4
+load_unless_already_loaded fftw/arm-3.8.8
+load_unless_already_loaded boost/arm-1.65.1
+load_unless_already_loaded lapack/arm-3.8.0
+load_unless_already_loaded wcslib/arm-6.2
+load_unless_already_loaded python/arm-2.7.14
+load_unless_already_loaded cfitsio/arm-3450
+
+# Prepend the paths.
+prepend-path PATH             $root/bin
+prepend-path LD_LIBRARY_PATH  $root/lib
+setenv       CASACORE_ROOT    $root
+setenv       CASA_INCLUDE_DIR $root/include
+

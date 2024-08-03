@@ -1,0 +1,39 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends healpix from heapy"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software Healpix
+set version arm-heapy
+set root /home/software/$software/arm
+
+# Check that the root directory actually exists.
+if { ! [file exists $root] } {
+    puts stderr "$root doesn't exist! Exiting."
+    exit 1
+}
+
+# Load dependencies.
+# Pawsey provided.
+load_unless_already_loaded cfitsio/arm-3450
+# MWA built.
+load_unless_already_loaded pgplot/arm-5.2
+
+# Set env. variables.
+prepend-path LD_LIBRARY_PATH $root/lib
+# HEALPIX needs to point at the top-level directoy,
+# where the src/ directory lives
+setenv HEALPIX        $root
+#HEALPIX_TARGET refers only to the actual compiler
+#configuration used, which for us is generic_gcc
+#setenv HEALPIX_TARGET generic_gcc
+
+# Prepend paths.
+prepend-path PATH     $root/bin
+
+prepend-path CPATH    $root/include
+
+prepend-path PKG_CONFIG_PATH   $root/lib/pkgconfig

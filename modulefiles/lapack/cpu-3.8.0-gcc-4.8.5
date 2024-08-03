@@ -1,0 +1,44 @@
+#%Module######################################################################
+#
+# lapack modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use lapack version 3.8.0"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version cpu-3.8.0-gcc-4.8.5
+set tool    lapack
+module-whatis "LAPACK is written in Fortran 90 and provides routines for solving systems of
+simultaneous linear equations, least-squares solutions of linear systems of
+equations, eigenvalue problems, and singular value problems. The associated
+matrix factorizations (LU, Cholesky, QR, SVD, Schur, generalized Schur) are
+also provided, as are related computations such as reordering of the Schur
+factorizations and estimating condition numbers. Dense and banded matrices are
+handled, but not general sparse matrices. In all areas, similar functionality
+is provided for real and complex matrices, in both single and double precision.
+
+For further information see http://www.netlib.org/lapack/
+
+Compiled with gcc/7.3.0
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+# Load dependencies.
+#load_unless_already_loaded python/cpu-2.7.14
+
+if {! [module-info mode whatis] } {
+setenv       MAALI_LAPACK_HOME /home/software/lapack/cpu/gcc/4.8.5
+setenv       LAPACK            "/home/software/lapack/cpu/gcc/4.8.5:/home/software/lapack/cpu/gcc/4.8.5/lib64"
+setenv       LAPACK_LIB        "/home/software/lapack/cpu/gcc/4.8.5/lib64"
+prepend-path LD_LIBRARY_PATH   "/home/software/lapack/cpu/gcc/4.8.5/lib64"
+prepend-path LIBRARY_PATH      "/home/software/lapack/cpu/gcc/4.8.5/lib64"
+prepend-path CPATH             "/home/software/lapack/cpu/gcc/4.8.5/include"
+prepend-path PKG_CONFIG_PATH   "/home/software/lapack/cpu/gcc/4.8.5/lib64/pkgconfig"
+}

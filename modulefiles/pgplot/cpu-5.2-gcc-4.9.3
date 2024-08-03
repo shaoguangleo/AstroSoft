@@ -1,0 +1,31 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends pgplot5.2."
+}
+
+source /home/app/modulefiles/common.tcl
+
+set software pgplot
+set version cpu-5.2-gcc-4.9.3
+set root /home/app/pgplot/5.2/cpu/gcc/4.9.3
+
+# Check that the root directory actually exists.
+if { ! [file exists $root] } {
+    puts stderr "$root doesn't exist! Exiting."
+    exit 1
+}
+
+load_unless_already_loaded gcc/cpu-4.9.3
+
+# Prepend the paths.
+prepend-path PATH $root
+prepend-path LD_LIBRARY_PATH $root
+prepend-path LIBRARY_PATH $root
+
+# Set env. variables
+setenv PGPLOT_DIR           $root
+setenv PGPLOT_FONT          $root/grfont.dat
+setenv PGPLOT_DEV           /xwine 
+#/Xserve
+setenv PGPLOT_LIB           "-L /usr/X11R6/lib -lX11 -L /home/app/pgplot/5.2/cpu/gcc/4.9.3 -lpgplot"

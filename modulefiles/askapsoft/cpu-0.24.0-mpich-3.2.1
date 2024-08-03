@@ -1,0 +1,38 @@
+#%Module######################################################################
+#
+# askapsoft modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use askapsoft version 0.24.0"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version cpu-0.24.0-mpich-3.2.1
+set tool    askapsoft
+module-whatis "ASKAPsoft for ASKAP data processing.
+For further information see https://bitbucket.csiro.au/projects/CASSSOFT/repos/askapsoft 
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+load_unless_already_loaded mpich/cpu-3.2.1-gcc-4.8.5
+load_unless_already_loaded libpng/cpu-1.2.59-gcc-4.8.5
+
+set ASKAP_HOME  /home/app/askapsoft/cpu/CP-0.24.0
+set PYTHON_LIB_VERSION 2.7
+
+if {! [module-info mode whatis] } {
+prepend-path    PATH            $ASKAP_HOME/bin
+prepend-path    LD_LIBRARY_PATH $ASKAP_HOME/lib64
+prepend-path    PYTHONPATH      $ASKAP_HOME/lib64/python${PYTHON_LIB_VERSION}/site-packages
+setenv          ASKAPSOFT_RELEASE 0.24.0
+}
+
+

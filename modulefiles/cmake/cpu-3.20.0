@@ -1,0 +1,27 @@
+#%Module######################################################################
+#
+# cmake modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use cmake version 3.15.2"
+}
+
+set sys     [uname sysname]
+set version cpu-3.20.0
+set tool    cmake
+module-whatis "
+For further information see https://cmake.org
+
+Compiled with gcc/9.3.0
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+if {! [module-info mode whatis] } {
+prepend-path PATH                 /home/software/cmake/cpu/3.20.0/bin
+}
+
+

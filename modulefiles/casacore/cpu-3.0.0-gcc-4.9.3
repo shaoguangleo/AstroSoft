@@ -1,0 +1,30 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends casacore v2.4.1"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set software casacore
+set version cpu-3.0.0-gcc-4.9.3
+
+set root /home/app/casacore/3.0.0/cpu/gcc/4.9.3
+
+fail_if_path_does_not_exist $root
+
+# Load dependencies.
+load_unless_already_loaded hdf5/cpu-1.10.4-gcc-4.9.3
+load_unless_already_loaded fftw/cpu-3.3.8-gcc-4.9.3
+load_unless_already_loaded boost/cpu-1.65.1-gcc-4.9.3
+load_unless_already_loaded openblas/cpu-0.3.6-gcc-4.9.3
+load_unless_already_loaded wcslib/cpu-6.2-gcc-4.9.3
+load_unless_already_loaded python/cpu-2.7.14-gcc-4.9.3
+load_unless_already_loaded cfitsio/cpu-3450-gcc-4.9.3
+
+# Prepend the paths.
+prepend-path PATH             $root/bin
+prepend-path LD_LIBRARY_PATH  $root/lib
+setenv       CASACORE_ROOT    $root
+setenv       CASA_INCLUDE_DIR $root/include
+

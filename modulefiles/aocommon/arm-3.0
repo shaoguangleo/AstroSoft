@@ -1,0 +1,22 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends aocommon v3.0"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software aocommon
+set version arm-3.0
+
+set root /home/software/aocommon/arm
+
+fail_if_path_does_not_exist $root
+
+# Load dependencies.
+load_unless_already_loaded casacore/arm-2.4.1
+
+# Prepend the paths.
+prepend-path PATH             $root/bin
+prepend-path LD_LIBRARY_PATH  $root/lib
+prepend-path CPATH            $root/include

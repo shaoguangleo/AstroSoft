@@ -1,0 +1,29 @@
+#%Module######################################################################
+#
+# boost modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use boost version 4.0.1"
+}
+
+set sys     [uname sysname]
+set version gpu-4.0.1
+set tool    openmpi
+module-whatis "The Open MPI Project is an open source Message Passing Interface implementation that is developed and maintained by a consortium of academic, research, and industry partners. Open MPI is therefore able to combine the expertise, technologies, and resources from all across the High Performance Computing community in order to build the best MPI library available. Open MPI offers advantages for system and software vendors, application developers and computer science researchers.
+For further information see https://www.open-mpi.org/
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+if {! [module-info mode whatis] } {
+prepend-path PATH                 /home/software/openmpi/gpu/bin
+prepend-path CPATH                /home/software/openmpi/gpu/include
+prepend-path LIBRARY_PATH         /home/software/openmpi/gpu/lib
+prepend-path LD_LIBRARY_PATH      /home/software/openmpi/gpu/lib
+}
+

@@ -1,0 +1,31 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends aoflagger - https://sourceforge.net/projects/aoflagger/"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set software aoflagger
+set version cpu-master
+
+set root /home/app/$software/master/cpu
+
+# Check that the root directory actually exists.
+if { ! [file exists $root] } {
+    puts stderr "$root doesn't exist! Exiting."
+    exit 1
+}
+
+# Load dependencies.
+# MWA built.
+
+load_unless_already_loaded casacore/cpu-py3.6.5-3.1.0
+
+# Prepend the paths.
+prepend-path PATH                  $root/bin
+prepend-path LD_LIBRARY_PATH       $root/lib
+prepend-path PYTHONPATH            /home/app/src/aoflagger-code/build/src
+setenv       AOFLAGGER_LIB         $root/lib
+setenv       AOFLAGGER_INCLUDE_DIR $root/include
+

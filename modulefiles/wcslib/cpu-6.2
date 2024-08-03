@@ -1,0 +1,36 @@
+#%Module######################################################################
+#
+# wcslib modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use wcslib version 6.2"
+}
+source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version cpu-6.2
+set tool    wcslib
+module-whatis "The FITS World Coordinate System (WCS) standard defines keywords and usage that provide for the description of astronomical coordinate systems in a FITS image header.
+
+For further information see http://www.atnf.csiro.au/people/mcalabre/WCS
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+# Load dependencies.
+load_unless_already_loaded cfitsio/cpu-3450 
+load_unless_already_loaded pgplot/cpu-5.2
+
+if {! [module-info mode whatis] } {
+setenv       MAALI_WCSLIB_HOME /home/app/wsclib/6.2/cpu
+prepend-path LD_LIBRARY_PATH   /home/app/wsclib/6.2/cpu/lib
+prepend-path PATH              /home/app/wsclib/6.2/cpu/bin
+prepend-path CPATH              /home/app/wsclib/6.2/cpu/include
+setenv       WCSLIB_ROOT       "/home/app/wsclib/6.2/cpu"
+}
+

@@ -1,0 +1,20 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends stilts"
+}
+
+set software stilts
+set root /home/software/$software
+
+# Check that the root directory actually exists.
+if { ! [file exists $root] } {
+    puts stderr "$root doesn't exist! Exiting."
+    exit 1
+}
+
+# Load dependencies.
+
+# set-alias stilts "java -jar ${root}/stilts.jar"
+prepend-path PATH $root/bin
+

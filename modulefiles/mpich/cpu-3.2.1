@@ -1,0 +1,29 @@
+#%Module######################################################################
+#
+# mpich modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use mpich version 3.2.1"
+}
+
+set sys     [uname sysname]
+set version cpu-3.2.1
+set tool    mpich
+module-whatis "MPICH is a high-performance and widely portable implementation of the Message Passing Interface (MPI) standard (MPI-1, MPI-2 and MPI-3). 
+For further information see https://www.mpich.org
+
+Compiled with gcc/7.3.0
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+if {! [module-info mode whatis] } {
+prepend-path PATH                 /home/software/mpich/3.2.1/cpu/bin
+prepend-path CPATH                /home/software/mpich/3.2.1/cpu/include
+prepend-path LIBRARY_PATH         /home/software/mpich/3.2.1/cpu/lib
+prepend-path LD_LIBRARY_PATH      /home/software/mpich/3.2.1/cpu/lib
+}
+

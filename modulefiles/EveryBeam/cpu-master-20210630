@@ -1,0 +1,37 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends EveryBeam master - https://github.com/kernsuite-debian/everybeam"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software EveryBeam
+set version cpu-master-20210630
+
+set root /home/software/EveryBeam/cpu
+module-whatis "This package can be used to compute the beam response for a variety of radio telescopes.
+
+For further information see https://github.com/kernsuite-debian/everybeam
+
+Compiled with gcc/7.3.0
+"
+fail_if_path_does_not_exist $root
+swap_module_if_version_does_not_match $software $version
+
+# Load dependencies.
+load_unless_already_loaded gcc/7.3.0
+load_unless_already_loaded cfitsio/cpu-3450
+load_unless_already_loaded hdf5/cpu-1.10.4
+load_unless_already_loaded fftw/cpu-3.8.8
+load_unless_already_loaded lapack/cpu-3.8.0
+load_unless_already_loaded python/cpu-2.7.14
+load_unless_already_loaded boost/cpu-1.65.1
+
+# MWA built.
+load_unless_already_loaded casacore/cpu-2.4.1
+
+# Prepend the paths.
+prepend-path CPATH           $root/include
+prepend-path LD_LIBRARY_PATH $root/lib
+

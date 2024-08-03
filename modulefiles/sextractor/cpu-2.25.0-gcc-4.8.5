@@ -1,0 +1,29 @@
+#%Module######################################################################
+#
+# SExtractor modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use SExtractor version 2.25.0"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version cpu-2.25.0-gcc-4.8.5
+set tool    sextractor
+module-whatis "https://github.com/astromatic/sextractor
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+load_unless_already_loaded fftw/cpu-3.3.8
+load_unless_already_loaded openblas/cpu-0.3.6-gcc-4.8.5
+
+if {! [module-info mode whatis] } {
+prepend-path PATH               /home/app/sextractor/2.25.0/cpu/gcc/4.8.5/bin
+}

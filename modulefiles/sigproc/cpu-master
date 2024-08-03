@@ -1,0 +1,28 @@
+#%Module######################################################################
+#
+# sigproc modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use sigproc version master"
+}
+
+set sys     [uname sysname]
+set version cpu-master
+set tool    sigproc
+module-whatis " 
+
+For further information see https://github.com/evanocathain/sigproc.git
+
+Compiled with gcc/4.8.5 
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+if {! [module-info mode whatis] } {
+prepend-path PATH                 /home/app/sigproc/bin
+setenv  OSTYPE                    linux
+}
+

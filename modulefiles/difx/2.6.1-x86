@@ -1,0 +1,36 @@
+#%Module######################################################################
+#
+# DiFX modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use DiFX version 2.6.1"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version 2.6.1
+set tool    DiFX
+module-whatis "DiFX for Correlator"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+load_unless_already_loaded mpich/cpu-3.2.1-gcc-4.8.5
+load_unless_already_loaded libpng/cpu-1.2.59-gcc-4.8.5
+
+set DIFX_HOME  /home/app/modulefiles/difx/difx2.6.1
+set PYTHON_LIB_VERSION 2.7
+set DIFXMPIHOME /usr/local/mpich/
+
+if {! [module-info mode whatis] } {
+prepend-path    PATH            $DIFX_HOME/bin
+prepend-path    PATH            $DIFXMPIHOME/bin
+prepend-path    LD_LIBRARY_PATH $DIFX_HOME/lib64
+prepend-path    PYTHONPATH      $DIFX_HOME/lib64/python${PYTHON_LIB_VERSION}/site-packages
+setenv          DIFX_RELEASE 2.6.1
+}
+
+

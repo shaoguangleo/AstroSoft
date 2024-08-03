@@ -1,0 +1,24 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Sets up the paths you need to use numpy version 1.15.1"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set software aegean
+set version cpu-2.2.3
+
+set root /home/app/Aegean/2.2.3/cpu/py3
+
+fail_if_path_does_not_exist $root
+swap_module_if_version_does_not_match $software $version
+
+# Load dependencies.
+# Pawsey provided.
+load_unless_already_loaded python/cpu-3.7.4
+# Not sure why "load_unless_already_loaded" doesn't work for intel-mkl!
+
+setenv       MAALI_NUMPY_HOME $root
+prepend-path PATH             $root/bin
+prepend-path PYTHONPATH       $root/lib/python$env(MAALI_PYTHON_LIB_VERSION)/site-packages

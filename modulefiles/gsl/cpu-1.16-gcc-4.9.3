@@ -1,0 +1,35 @@
+#%Module######################################################################
+#
+# gsl modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use fftw version 3.8.8"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version cpu-1.16-gcc-4.9.3
+set tool    gsl
+module-whatis "The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. It is free software under the GNU General Public License.
+
+The library provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting. There are over 1000 functions in total with an extensive test suite.
+
+For further information see https://www.gnu.org/software/gsl/
+
+Compiled with gcc/4.9.3
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+load_unless_already_loaded gcc/cpu-4.9.3
+
+if {! [module-info mode whatis] } {
+prepend-path CPATH              /home/app/gsl/1.16/cpu/gcc/4.9.3/include/gsl
+prepend-path LD_LIBRARY_PATH    /home/app/gsl/1.16/cpu/gcc/4.9.3/lib
+prepend-path LIBRARY_PATH    /home/app/gsl/1.16/cpu/gcc/4.9.3/lib
+}
+

@@ -1,0 +1,31 @@
+#%Module######################################################################
+#
+# Montage modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use Montage version 6.0"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version cpu-6.0
+set tool    Motange
+module-whatis "Montage is a toolkit for assembling Flexible Image Transport System (FITS) images into custom mosaics. Key features for end users are:
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+
+if {! [module-info mode whatis] } {
+prepend-path PATH                 /home/software/Montage/cpu/Montage/bin
+prepend-path CPATH                /home/software/Montage/cpu/Montage/include
+prepend-path LIBRARY_PATH         /home/software/Montage/cpu/Montage/lib
+prepend-path LD_LIBRARY_PATH      /home/software/Montage/cpu/Montage/lib
+}
+

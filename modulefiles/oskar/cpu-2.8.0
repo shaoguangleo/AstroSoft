@@ -1,0 +1,28 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends oskar v2.8.0"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set software oskar
+set version cpu-2.8.0
+
+set root /home/app/oskar/2.8.0/cpu/
+
+fail_if_path_does_not_exist $root
+
+# Load dependencies.
+load_unless_already_loaded hdf5/cpu-1.10.4-gcc-7.3.0
+load_unless_already_loaded cuda/10.1
+load_unless_already_loaded cmake/cpu-3.15.2
+load_unless_already_loaded casacore/cpu-3.3.0-gcc-7.3.0
+
+
+# Prepend the paths.
+prepend-path PATH             $root/bin
+prepend-path LD_LIBRARY_PATH  $root/lib
+setenv       OSKAR_ROOT    $root
+setenv       OSKAR_INCLUDE_DIR $root/include
+

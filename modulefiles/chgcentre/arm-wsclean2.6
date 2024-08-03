@@ -1,0 +1,28 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends chgcentre from wsclean 2.5"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software chgcentre
+set version arm-wsclean2.6
+
+set root /home/software/chgcentre/arm
+
+# Check that the root directory actually exists.
+if { ! [file exists $root] } {
+    puts stderr "$root doesn't exist! Exiting."
+    exit 1
+}
+
+# Load dependencies.
+load_unless_already_loaded hdf5/arm-1.10.4
+
+# MWA built.
+load_unless_already_loaded casacore/arm-2.4.1
+
+# Prepend the paths.
+prepend-path PATH            $root/bin
+prepend-path LD_LIBRARY_PATH $root/lib

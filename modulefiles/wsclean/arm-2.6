@@ -1,0 +1,34 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends wsclean 2.6 - https://sourceforge.net/projects/wsclean/"
+}
+
+source /home/software/modulefiles/common.tcl
+
+set software wsclean
+set version arm-2.6
+
+set root /home/software/wsclean/arm
+module-whatis "An implementation of a fast, generic wide-field imager for radio astronomy.
+
+For further information see https://sourceforge.net/p/wsclean
+
+Compiled with gcc/4.8.5
+"
+fail_if_path_does_not_exist $root
+swap_module_if_version_does_not_match $software $version
+
+# Load dependencies.
+load_unless_already_loaded cfitsio/arm-3450
+load_unless_already_loaded boost/arm-1.65.1
+load_unless_already_loaded hdf5/arm-1.10.4
+
+# MWA built.
+load_unless_already_loaded casacore/arm-2.4.1
+load_unless_already_loaded chgcentre/arm-wsclean2.6
+
+# Prepend the paths.
+prepend-path PATH            $root/bin
+prepend-path LD_LIBRARY_PATH $root/lib
+

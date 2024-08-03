@@ -1,0 +1,31 @@
+#%Module######################################################################
+#
+# tempo2 modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use tempo version master"
+}
+
+set sys     [uname sysname]
+set version cpu-master
+set tool    tempo2
+module-whatis "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user's freedom.
+
+For further information see https://gcc.gnu.org/
+
+Compiled with gcc/4.8.5 
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+if {! [module-info mode whatis] } {
+prepend-path PATH                 /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/bin
+prepend-path CPATH                /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/include
+prepend-path LIBRARY_PATH         /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/lib
+prepend-path LD_LIBRARY_PATH      /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/lib
+setenv       TEMPO2               /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2
+}
+

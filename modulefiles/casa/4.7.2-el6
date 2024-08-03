@@ -1,0 +1,23 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends casa v4.7.2"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set software casa
+set version 4.7.2
+
+set root /home/app/casa-release-4.7.2-el6
+
+fail_if_path_does_not_exist $root
+
+# Load dependencies.
+load_unless_already_loaded libpng/cpu-1.2.59-gcc-4.8.5
+
+# Prepend the paths.
+prepend-path PATH             $root/bin
+#prepend-path LD_LIBRARY_PATH  $root/lib
+#prepend-path CPATH            $root/include
+

@@ -1,0 +1,64 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+  puts stderr "Prepends MWA_Tools mwa-sci"
+}
+
+source /mnt/beegfs/software/modulefiles/common.tcl
+
+set software MWA_Tools
+set version mwa-sci
+#set root /mnt/beegfs/software/modulefiles/$software
+
+# Check that the root directory actually exists.
+#if { ! [file exists $root] } {
+#    puts stderr "$root doesn't exist! Exiting."
+#    exit 1
+#}
+
+#setenv       MWA_CODE_BASE $root
+
+# Load dependencies.
+
+# core processing utils
+load_unless_already_loaded gcc/4.8
+load_unless_already_loaded hdf5/1.10.4
+load_unless_already_loaded Healpix/heapy
+## 
+## load_unless_already_loaded aocommon/3.0
+## load_unless_already_loaded dysco/1.1
+## load_unless_already_loaded cotter/master
+## load_unless_already_loaded aoflagger/v2.12.1
+## load_unless_already_loaded wsclean/2.6
+## load_unless_already_loaded mwa-reduce/master
+
+# python things
+## load_unless_already_loaded python/2.7.14
+#load_unless_already_loaded aegean
+#load_unless_already_loaded argparse
+#load_unless_already_loaded astropy
+#load_unless_already_loaded emcee
+#load_unless_already_loaded healpy
+#load_unless_already_loaded matplotlib
+#load_unless_already_loaded mwapy
+#load_unless_already_loaded memory_profiler
+#load_unless_already_loaded numpy/1.13.3
+#load_unless_already_loaded scipy
+#load_unless_already_loaded psycopg2
+#load_unless_already_loaded pyephem
+#load_unless_already_loaded sip
+# load_unless_already_loaded manta-ray-client # should only use this on Zeus, which doesn't load MWA_Tools
+
+# extras
+#load_unless_already_loaded stilts
+#load_unless_already_loaded wcstools
+## load_unless_already_loaded swarp/2.38.0
+## load_unless_already_loaded pgplot/5.2
+## load_unless_already_loaded miriad/2007
+## load_unless_already_loaded stilts/3.1-4 
+# not yet working
+## load_unless_already_loaded chgcentre/wsclean2.6 
+# needed ?
+#
+
+## prepend-path PATH /mnt/beegfs/software/bin

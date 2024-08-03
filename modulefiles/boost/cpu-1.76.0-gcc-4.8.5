@@ -1,0 +1,40 @@
+#%Module######################################################################
+#
+# boost modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use boost version 1.65.1"
+}
+source /home/software/modulefiles/common.tcl
+set sys     [uname sysname]
+set version cpu-1.76.0-gcc-4.8.5
+set tool    boost
+module-whatis "Boost provides free peer-reviewed portable C++ source libraries.
+
+Boost emphasizes libraries that work well with the C++ Standard Library. Boost
+libraries are intended to be widely useful, and usable across a broad spectrum
+of applications. The Boost license encourages both commercial and
+non-commercial use.
+
+For further information see http://www.boost.org/
+
+Compiled with gcc/4.8.5
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+# Load dependencies.
+load_unless_already_loaded python/cpu-3.8.12-gcc-4.8.5
+
+if {! [module-info mode whatis] } {
+setenv       MAALI_BOOST_HOME     /home/software/boost/cpu/1.76.0/gcc/4.8.5
+setenv       BOOST_ROOT           "/home/software/boost/cpu/1.76.0/gcc/4.8.5"
+prepend-path CPATH                /home/software/boost/cpu/1.76.0/gcc/4.8.5/include
+prepend-path CPLUS_INCLUDE_PATH   /home/software/boost/cpu/1.76.0/gcc/4.8.5/include
+prepend-path C_INCLUDE_PATH       /home/software/boost/cpu/1.76.0/gcc/4.8.5/include
+prepend-path LD_LIBRARY_PATH      /home/software/boost/cpu/1.76.0/gcc/4.8.5/lib
+prepend-path LIBRARY_PATH         /home/software/boost/cpu/1.76.0/gcc/4.8.5/lib
+}
+

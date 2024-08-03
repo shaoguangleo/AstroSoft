@@ -1,0 +1,24 @@
+#%Module -*- mode: tcl -*-
+
+proc ModulesHelp { } {
+    puts stderr "Prepends pgplot5.2."
+}
+
+
+set software pgplot
+set version arm-5.2
+set root /home/app/pgplot/arm
+
+# Check that the root directory actually exists.
+if { ! [file exists $root] } {
+    puts stderr "$root doesn't exist! Exiting."
+    exit 1
+}
+
+# Prepend the paths.
+prepend-path LD_LIBRARY_PATH $root
+
+# Set env. variables
+setenv PGPLOT_DIR           $root
+setenv PGPLOT_FONT          $root/grfont.dat
+setenv PGPLOT_DEV           /xs

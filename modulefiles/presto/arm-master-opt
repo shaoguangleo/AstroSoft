@@ -1,0 +1,45 @@
+#%Module######################################################################
+#
+# presto modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up the paths you need to use presto version master"
+}
+
+source /home/app/modulefiles/common.tcl
+
+set sys     [uname sysname]
+set version arm-master-opt
+set tool    presto
+module-whatis "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user's freedom.
+
+For further information see https://gcc.gnu.org/
+
+Compiled with gcc/4.8.5 
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+load_unless_already_loaded cfitsio/arm-3450 
+load_unless_already_loaded fftw/arm-3.3.8 
+load_unless_already_loaded glib/arm-2.49.1 
+load_unless_already_loaded lapack/arm-3.8.0 
+load_unless_already_loaded pgplot/arm-5.2 
+#load_unless_already_loaded presto/arm-master 
+load_unless_already_loaded python/arm-3.7.4-presto-opt 
+load_unless_already_loaded tempo/arm-master
+
+set PRESTO /home/app/astrosoft/presto_arm
+
+if {! [module-info mode whatis] } {
+setenv       PRESTO               $PRESTO 
+prepend-path PATH                 $PRESTO/bin
+prepend-path CPATH                $PRESTO/include
+prepend-path LIBRARY_PATH         $PRESTO/lib
+prepend-path LD_LIBRARY_PATH      $PRESTO/lib
+prepend-path PYTHONPATH           $PRESTO/lib/python
+}
+

@@ -1,3 +1,12 @@
 export BASE_PATH=/usr/local/astrosoft
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/astrosoft/difx2.8.1/lib
+if [ -d /opt/intel/oneapi/ipp/latest/lib/intel64/ ]; then
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/oneapi/ipp/latest/lib/intel64/
+fi
+if [ -d /opt/intel/oneapi/ipp/latest/lib/em64t/ ]; then
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/oneapi/ipp/latest/lib/em64t/
+fi
+if [ -d /usr/lib64/openmpi/lib/ ]; then
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64/openmpi/lib/
+fi
 source $BASE_PATH/setup.bash.v2.8.1

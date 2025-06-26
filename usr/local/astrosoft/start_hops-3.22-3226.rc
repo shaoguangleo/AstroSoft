@@ -1,0 +1,3 @@
+export BASE_PATH=/usr/local/astrosoft
+export HOPS_DIR=$BASE_PATH/hops-3.22-3226/
+source $BASE_PATH/hops-3.22-3226.bash

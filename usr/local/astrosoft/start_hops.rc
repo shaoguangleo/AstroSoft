@@ -1,0 +1,6 @@
+export BASE_PATH=/usr/local/
+export PGPLOT_DIR=$BASE_PATH/pgplot
+export PGPLOT_DEV=/Xserve
+export PGPLOT_FONT=$BASE_PATH/grfont.dat
+
+source /usr/local/astrosoft/hops-3.23/hops.bash

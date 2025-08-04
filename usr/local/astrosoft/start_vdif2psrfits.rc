@@ -1,0 +1,4 @@
+export BASE_PATH=/usr/local/astrosoft
+
+export app=$BASE_PATH/vdif2psrfits/bin/
+export PATH=$PATH:$app

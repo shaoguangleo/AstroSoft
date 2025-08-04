@@ -1,4 +1,4 @@
-FROM rockylinux/rockylinux:8.6
+FROM --platform=linux/x86_64 rockylinux/rockylinux:8.6
 MAINTAINER [Guo Shaoguang] <sgguo@shao.ac.cn>
 
 LABEL version="0.1"
@@ -20,6 +20,7 @@ RUN yum update -y \
     && yum install -y pkgconfig\
     && yum install -y bison\
     && yum install -y flex\
+    && yum install -y epel-release\
     && yum install -y fftw fftw-devel\
     && yum install -y glib2 glib2-devel\
     && yum install -y cfitsio cfitsio-devel\

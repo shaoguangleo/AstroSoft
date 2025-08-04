@@ -1,18 +1,15 @@
 ####### DIFX VERSION ########################
-export DIFX_VERSION=DiFX-2.6
+export DIFX_VERSION=DiFX-2.8.1-noipp
 
 ####### ROOT PATHS ##########################
-export DIFXROOT=/usr/local/astrosoft/difx2.6.1
+export DIFXROOT=/usr/local/astrosoft/difx281-noipp
 export DIFX_PREFIX=$DIFXROOT
-export PGPLOTDIR=/usr/local/pgplot
-#export IPPROOT=/opt/intel
-#export IPPROOT=/opt/intel/ipp/6.0.1.071/em64t
-#export IPPROOT=/opt/intel/ipp/6.0/em64t
-export IPPROOT=/opt/intel/composer_xe_2015.5.223/ipp/
+export PGPLOTDIR=
+export IPPROOT=/opt/intel/composer_xe_2015.5.223/
 
 ####### COMPILER ############################
-export DIFXMPIDIR=/usr
-export MPICXX="${DIFXMPIDIR}"/local/bin/mpicxx
+export DIFXMPIDIR=/usr/lib64/mpich-3.2
+export MPICXX="${DIFXMPIDIR}"/bin/mpicxx
 
 ####### LIBRARY PATHS #######################
 ####### Uncomment and modify if needed, #####
@@ -23,10 +20,12 @@ export MPICXX="${DIFXMPIDIR}"/local/bin/mpicxx
 ####### USE GFORTRAN IN PREFERENCE TO G77? ##
 ####### Comment out if not desired ##########
 export USEGFORTRAN="yes"
+# you may need this for calcserver,difxcalc11
+# export FFLAGS=-fallow-argument-mismatch
 
 ####### PERL VERSION/SUBVERSION #############
 perlver="5"
-perlsver="5.10.1"
+perlsver="5.30.0"
 
 ####### PORTS FOR DIFXMESSAGE ###############
 # Uncomment these to enable DIFX_MESSAGES
@@ -98,7 +97,7 @@ then
     if [ `expr "$CurPath" ':' ".*$NewItem\$"` -eq '0'  -a \
          `expr "$CurPath" ':' ".*$NewItem\:.*"` -eq '0' ]
     then
-        eval $Path="$NewItem"\:"$CurPath"
+        eval $Path=\"$NewItem\:$CurPath\"
     fi
 else
     eval export $Path="$NewItem"
@@ -122,7 +121,7 @@ then
 elif [ "$arch" = "x86_64" ] #64 bit
 then
   export DIFXBITS=64
-  PrependPath PERL5LIB         "${DIFXROOT}/perl/lib64/perl$perlver/site_perl/$perlsver/x86_64-linux-thread-multi"
+  PrependPath PERL5LIB         "${DIFXROOT}/share/perl/$perlsver:${DIFXROOT}/./lib/x86_64-linux-gnu/perl/$perlsver"
 else
   echo "Unknown architecture $arch - leaving paths unaltered"
 fi

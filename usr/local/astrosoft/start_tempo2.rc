@@ -1,0 +1,3 @@
+export BASE_PATH=/usr/local/astrosoft
+export TEMPO2=$BASE_PATH/tempo2
+export PATH=$PATH:$TEMPO2/bin

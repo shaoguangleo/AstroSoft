@@ -31,4 +31,3 @@ RUN tar zxvf pgplot5.2.tar.gz && \
     echo "export PGPLOT_DEV=/Xserve" >> ~/.bashrc && \
     cp /usr/local/src/AS_PG_logo /usr/local/pgplot/ && \
     echo "cat /usr/local/pgplot/AS_PG_logo" >> ~/.bashrc
-

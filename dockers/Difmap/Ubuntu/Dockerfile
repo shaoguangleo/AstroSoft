@@ -1,8 +1,8 @@
-FROM shaoguangleo/centos-pgplot:latest
+FROM shaoguangleo/ubuntu22.04:latest
 MAINTAINER [Guo Shaoguang] <sgguo@shao.ac.cn>
 
 LABEL version="0.1"
-LABEL description="Basic CentOS difmap Image"
+LABEL description="Basic Ubuntu difmap Image"
 
 COPY src/difmap2.5e.tar.gz /tmp/
 

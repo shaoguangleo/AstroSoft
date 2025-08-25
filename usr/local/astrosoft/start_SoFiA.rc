@@ -1,0 +1,10 @@
+#For BASH (~/.bashrc):
+export SOFIA_MODULE_PATH="$BASE_PATH/SoFiA/build/lib.linux-x86_64-3.6"
+export SOFIA_PIPELINE_PATH="$BASE_PATH/SoFiA/sofia_pipeline.py"
+export PATH="$PATH:$BASE_PATH/SoFiA:$BASE_PATH/SoFiA/gui"
+
+#For (T)CSH (~/.cshrc):
+#setenv SOFIA_MODULE_PATH "/home/leo/mycode/SoFiA/build/lib.linux-x86_64-3.6"
+#setenv SOFIA_PIPELINE_PATH "/home/leo/mycode/SoFiA/sofia_pipeline.py"
+#setenv PATH {$PATH}:"/home/leo/mycode/SoFiA:/home/leo/mycode/SoFiA/gui"
+

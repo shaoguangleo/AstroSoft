@@ -1,0 +1,4 @@
+export BASE_PATH=/usr/local/astrosoft
+
+export CASA=$BASE_PATH/CASA/casa-6.7.0-31-py3.13.el8/bin
+export PATH=$PATH:$CASA

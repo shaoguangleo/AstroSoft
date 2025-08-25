@@ -1,0 +1,2 @@
+export BASE_PATH=/usr/local/astrosoft
+export PATH=$PATH:$BASE_PATH/srmclient-2.6.28/usr/bin/

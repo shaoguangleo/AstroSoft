@@ -1,0 +1,4 @@
+export BASE_PATH=/usr/local/astrosoft
+
+export DIFMAP=$BASE_PATH/../difmap/
+export PATH=$PATH:$DIFMAP

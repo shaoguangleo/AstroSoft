@@ -1,0 +1,7 @@
+export BASE_PATH=/usr/local/astrosoft
+export PGPLOT_DIR=$BASE_PATH/pgplot
+export PGPLOT_DEV=/Xserve
+export PGPLOT_FONT=$BASE_PATH/grfont.dat
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/astrosoft/pgplot/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/

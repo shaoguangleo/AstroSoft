@@ -1,0 +1,5 @@
+export BASE_PATH=/usr/local/astrosoft
+source $BASE_PATH/setup.bash.v2.8.1-noipp
+#export IPPROOT=/opt/intel/composer_xe_2015.5.223
+#export LD_LIBRARY_PATH=$IPPROOT/lib/intel64/:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/opt/intel/composer_xe_2015.5.223/compiler/lib/intel64/:$LD_LIBRARY_PATH

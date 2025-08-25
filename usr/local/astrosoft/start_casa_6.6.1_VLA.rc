@@ -1,0 +1,4 @@
+export BASE_PATH=/usr/local/astrosoft
+
+export CASA=$BASE_PATH/CASA/casa-6.6.1-17-pipeline-2024.1.1.22/bin
+export PATH=$PATH:$CASA

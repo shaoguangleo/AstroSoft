@@ -1,0 +1,4 @@
+export BASE_PATH=/usr/local/astrosoft
+
+export AIPS_ROOT=$BASE_PATH/AIPS/AIPS31DEC21/
+source $AIPS_ROOT/LOGIN.SH

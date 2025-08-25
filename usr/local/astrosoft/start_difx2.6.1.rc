@@ -1,0 +1,2 @@
+export BASE_PATH=/usr/local/astrosoft
+source $BASE_PATH/setup.bash.v2.6.1

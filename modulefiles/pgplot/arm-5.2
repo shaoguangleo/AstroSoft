@@ -1,4 +1,5 @@
 #%Module -*- mode: tcl -*-
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 proc ModulesHelp { } {
     puts stderr "Prepends pgplot5.2."
@@ -7,7 +8,7 @@ proc ModulesHelp { } {
 
 set software pgplot
 set version arm-5.2
-set root /home/app/pgplot/arm
+set root $APP_ROOT/pgplot/arm
 
 # Check that the root directory actually exists.
 if { ! [file exists $root] } {

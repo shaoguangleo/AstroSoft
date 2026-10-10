@@ -6,15 +6,15 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use vcstools GPU beamformer (master-pulsar-gpu)"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version master-pulsar-gpu
 set tool    vcstools
 module-whatis "MWA vcstools with GPU beamforming.
 
-Install prefix: /home/app/pulsar/2021/vcstools-pulsar-gpu/
-Programs:       /home/app/pulsar/2021/vcstools-pulsar-gpu/pulsar-gpu/bin/
+Install prefix: $APP_ROOT/pulsar/2021/vcstools-pulsar-gpu/
+Programs:       $APP_ROOT/pulsar/2021/vcstools-pulsar-gpu/pulsar-gpu/bin/
 
 For further information see https://github.com/CIRA-Pulsars-and-Transients-Group/vcstools
 "
@@ -35,10 +35,10 @@ load_unless_already_loaded cuda/10.1
 
 if {! [module-info mode whatis] } {
 setenv CMD_VCS_DB_FILE /ibo9000/Pulsar/mwavcs/.vcs.db #/o9000/MWA/vcs/.vcs.db
-setenv KNOWN_RFRB_CSV /home/app/pulsar/2021/vcstools-pulsar-gpu/pulsar-gpu/known_repeating_FRBs.csv
-prepend-path PATH                 /home/app/pulsar/2021/vcstools-pulsar-gpu/pulsar-gpu/bin
-prepend-path PYTHONPATH           /home/app/pulsar/2021/vcstools-pulsar-gpu/python3.6/lib/python3.6/site-packages
-prepend-path HDF5_DIR             /home/app/hdf5/1.10.4/cpu
+setenv KNOWN_RFRB_CSV $APP_ROOT/pulsar/2021/vcstools-pulsar-gpu/pulsar-gpu/known_repeating_FRBs.csv
+prepend-path PATH                 $APP_ROOT/pulsar/2021/vcstools-pulsar-gpu/pulsar-gpu/bin
+prepend-path PYTHONPATH           $APP_ROOT/pulsar/2021/vcstools-pulsar-gpu/python3.6/lib/python3.6/site-packages
+prepend-path HDF5_DIR             $APP_ROOT/hdf5/1.10.4/cpu
 setenv HDF5_USE_FILE_LOCKING "FALSE"
 }
 

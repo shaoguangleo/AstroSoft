@@ -4,11 +4,11 @@ proc ModulesHelp { } {
     puts stderr "Prepends libsla"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software erfa
 set version 1.5.0
-set root /home/software/$software/$version/cpu
+set root $SOFTWARE_ROOT/$software/$version/cpu
 
 # Check that the root directory actually exists.
 if { ! [file exists $root] } {

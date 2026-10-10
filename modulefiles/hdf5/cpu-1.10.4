@@ -1,4 +1,5 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 # hdf5 modulefile
 #
 proc ModulesHelp { } {
@@ -19,12 +20,12 @@ if { [ module-info mode load ] } {
 }
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_HDF5_HOME     /home/app/hdf5/1.10.4/cpu
-setenv       HDF5_ROOT           "/home/app/hdf5/1.10.4/cpu"
-prepend-path CPATH                /home/app/hdf5/1.10.4/cpu/include
-prepend-path CPLUS_INCLUDE_PATH   /home/app/hdf5/1.10.4/cpu/include
-prepend-path C_INCLUDE_PATH       /home/app/hdf5/1.10.4/cpu/include
-prepend-path LD_LIBRARY_PATH      /home/app/hdf5/1.10.4/cpu/lib
-prepend-path PATH                 /home/app/hdf5/1.10.4/cpu/bin
+setenv       MAALI_HDF5_HOME     $APP_ROOT/hdf5/1.10.4/cpu
+setenv       HDF5_ROOT           "$APP_ROOT/hdf5/1.10.4/cpu"
+prepend-path CPATH                $APP_ROOT/hdf5/1.10.4/cpu/include
+prepend-path CPLUS_INCLUDE_PATH   $APP_ROOT/hdf5/1.10.4/cpu/include
+prepend-path C_INCLUDE_PATH       $APP_ROOT/hdf5/1.10.4/cpu/include
+prepend-path LD_LIBRARY_PATH      $APP_ROOT/hdf5/1.10.4/cpu/lib
+prepend-path PATH                 $APP_ROOT/hdf5/1.10.4/cpu/bin
 }
 

@@ -4,9 +4,9 @@ proc ModulesHelp { } {
   puts stderr "Prepends DiFX"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
-set root /home/software/difx/difx-2.8.1
+set root $SOFTWARE_ROOT/difx/difx-2.8.1
 
 # Check that the root directory actually exists.
 if { ! [file exists $root] } {
@@ -16,7 +16,7 @@ if { ! [file exists $root] } {
 
 
 # Load dependencies.
-#. /home/software/difx/setup.bash.v2.8.1
+#. $SOFTWARE_ROOT/difx/setup.bash.v2.8.1
 # Prepend the paths.
 prepend-path PATH              $root/bin
 prepend-path LD_LIBRARY_PATH   $root/lib

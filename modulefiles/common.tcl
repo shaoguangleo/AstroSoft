@@ -1,3 +1,8 @@
+# Site prefixes live in config.tcl beside this file.
+set _modulefiles_root [file dirname [file normalize [info script]]]
+source [file join $_modulefiles_root config.tcl]
+unset _modulefiles_root
+
 # Load a module only if it is not already loaded.
 # If a version is specified, then switch to that version.
 proc load_unless_already_loaded {pkg} {

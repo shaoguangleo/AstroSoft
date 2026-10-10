@@ -4,11 +4,11 @@ proc ModulesHelp { } {
     puts stderr "Prepends cotter - https://github.com/MWATelescope/cotter"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software cotter
 set version cpu-4.6-gcc-4.8.5
-set root /home/software/cotter/cpu/4.6/gcc/4.8.5
+set root $SOFTWARE_ROOT/cotter/cpu/4.6/gcc/4.8.5
 
 fail_if_path_does_not_exist $root
 swap_module_if_version_does_not_match $software $version

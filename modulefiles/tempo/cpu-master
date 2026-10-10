@@ -1,4 +1,5 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 #
 # tempo modulefile
 #
@@ -22,10 +23,10 @@ if { [ module-info mode load ] } {
 }
 
 if {! [module-info mode whatis] } {
-setenv       TEMPO                /home/app/src/tempo
-prepend-path PATH                 /home/app/tempo/cpu/bin
-prepend-path CPATH                /home/app/tempo/cpu/include
-prepend-path LIBRARY_PATH         /home/app/tempo/cpu/lib
-prepend-path LD_LIBRARY_PATH      /home/app/tempo/cpu/lib
+setenv       TEMPO                $APP_ROOT/src/tempo
+prepend-path PATH                 $APP_ROOT/tempo/cpu/bin
+prepend-path CPATH                $APP_ROOT/tempo/cpu/include
+prepend-path LIBRARY_PATH         $APP_ROOT/tempo/cpu/lib
+prepend-path LD_LIBRARY_PATH      $APP_ROOT/tempo/cpu/lib
 }
 

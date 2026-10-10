@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use boost version 4.9.3"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-5.9.3
@@ -29,12 +29,12 @@ load_unless_already_loaded mpc/cpu-0.8.1
 load_unless_already_loaded isl/cpu-0.12.2
 
 if {! [module-info mode whatis] } {
-setenv       CC                   /home/app/gcc/4.9.3/cpu/bin/gcc
-setenv       CXX                  /home/app/gcc/4.9.3/cpu/bin/g++
-setenv       FC                   /home/app/gcc/4.9.3/cpu/bin/gfortran
-prepend-path PATH                 /home/app/gcc/4.9.3/cpu/bin
-prepend-path CPATH                /home/app/gcc/4.9.3/cpu/include
-prepend-path LIBRARY_PATH         /home/app/gcc/4.9.3/cpu/lib64
-prepend-path LD_LIBRARY_PATH      /home/app/gcc/4.9.3/cpu/lib64
+setenv       CC                   $APP_ROOT/gcc/4.9.3/cpu/bin/gcc
+setenv       CXX                  $APP_ROOT/gcc/4.9.3/cpu/bin/g++
+setenv       FC                   $APP_ROOT/gcc/4.9.3/cpu/bin/gfortran
+prepend-path PATH                 $APP_ROOT/gcc/4.9.3/cpu/bin
+prepend-path CPATH                $APP_ROOT/gcc/4.9.3/cpu/include
+prepend-path LIBRARY_PATH         $APP_ROOT/gcc/4.9.3/cpu/lib64
+prepend-path LD_LIBRARY_PATH      $APP_ROOT/gcc/4.9.3/cpu/lib64
 }
 

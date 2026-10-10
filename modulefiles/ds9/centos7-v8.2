@@ -1,4 +1,5 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 #
 # ds9 modulefile
 #
@@ -21,6 +22,6 @@ if { [ module-info mode load ] } {
 }
 
 if {! [module-info mode whatis] } {
-prepend-path PATH                 /home/app/ds9/8.2/cpu/bin
+prepend-path PATH                 $APP_ROOT/ds9/8.2/cpu/bin
 }
 

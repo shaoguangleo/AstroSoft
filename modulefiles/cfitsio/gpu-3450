@@ -1,4 +1,5 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 #
 # cfitsio modulefile
 #
@@ -27,13 +28,13 @@ if { [ module-info mode load ] } {
 
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_CFITSIO_HOME /home/software/cfitsio/gpu
-setenv       CFITSIO_ROOT       "/home/software/cfitsio/gpu"
-setenv       CFITSIO            "/home/software/cfitsio/gpu"
-prepend-path CPATH              /home/software/cfitsio/gpu/include
-prepend-path FCPATH             /home/software/cfitsio/gpu/include
-prepend-path FPATH              /home/software/cfitsio/gpu/include
-prepend-path LD_LIBRARY_PATH    /home/software/cfitsio/gpu/lib
-prepend-path MANPATH            /home/software/cfitsio/gpu/share/man
-prepend-path PKG_CONFIG_PATH    /home/software/cfitsio/gpu/lib/pkgconfig
+setenv       MAALI_CFITSIO_HOME $SOFTWARE_ROOT/cfitsio/gpu
+setenv       CFITSIO_ROOT       "$SOFTWARE_ROOT/cfitsio/gpu"
+setenv       CFITSIO            "$SOFTWARE_ROOT/cfitsio/gpu"
+prepend-path CPATH              $SOFTWARE_ROOT/cfitsio/gpu/include
+prepend-path FCPATH             $SOFTWARE_ROOT/cfitsio/gpu/include
+prepend-path FPATH              $SOFTWARE_ROOT/cfitsio/gpu/include
+prepend-path LD_LIBRARY_PATH    $SOFTWARE_ROOT/cfitsio/gpu/lib
+prepend-path MANPATH            $SOFTWARE_ROOT/cfitsio/gpu/share/man
+prepend-path PKG_CONFIG_PATH    $SOFTWARE_ROOT/cfitsio/gpu/lib/pkgconfig
 }

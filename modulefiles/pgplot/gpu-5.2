@@ -1,4 +1,5 @@
 #%Module -*- mode: tcl -*-
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 proc ModulesHelp { } {
     puts stderr "Prepends pgplot5.2."
@@ -7,7 +8,7 @@ proc ModulesHelp { } {
 
 set software pgplot
 set version gpu-5.2
-set root /home/app/pgplot/gpu
+set root $APP_ROOT/pgplot/gpu
 
 # Check that the root directory actually exists.
 if { ! [file exists $root] } {
@@ -25,4 +26,4 @@ setenv PGPLOT_DIR           $root
 setenv PGPLOT_FONT          $root/grfont.dat
 setenv PGPLOT_DEV           /xwine 
 #/Xserve
-setenv PGPLOT_LIB           "-L /usr/X11R6/lib -lX11 -L /home/app/pgplot/gpu -lpgplot"
+setenv PGPLOT_LIB           "-L /usr/X11R6/lib -lX11 -L $APP_ROOT/pgplot/gpu -lpgplot"

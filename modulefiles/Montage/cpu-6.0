@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use Montage version 6.0"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-6.0
@@ -23,9 +23,9 @@ if { [ module-info mode load ] } {
 
 
 if {! [module-info mode whatis] } {
-prepend-path PATH                 /home/software/Montage/cpu/Montage/bin
-prepend-path CPATH                /home/software/Montage/cpu/Montage/include
-prepend-path LIBRARY_PATH         /home/software/Montage/cpu/Montage/lib
-prepend-path LD_LIBRARY_PATH      /home/software/Montage/cpu/Montage/lib
+prepend-path PATH                 $SOFTWARE_ROOT/Montage/cpu/Montage/bin
+prepend-path CPATH                $SOFTWARE_ROOT/Montage/cpu/Montage/include
+prepend-path LIBRARY_PATH         $SOFTWARE_ROOT/Montage/cpu/Montage/lib
+prepend-path LD_LIBRARY_PATH      $SOFTWARE_ROOT/Montage/cpu/Montage/lib
 }
 

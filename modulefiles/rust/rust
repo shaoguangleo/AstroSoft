@@ -1,7 +1,8 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 ##
 
-prepend-path PATH /home/software/rust/bin
-prepend-path RUSTUP_HOME /home/software/rust
-prepend-path CARGO_HOME /home/software/rust
+prepend-path PATH $SOFTWARE_ROOT/rust/bin
+prepend-path RUSTUP_HOME $SOFTWARE_ROOT/rust
+prepend-path CARGO_HOME $SOFTWARE_ROOT/rust
 

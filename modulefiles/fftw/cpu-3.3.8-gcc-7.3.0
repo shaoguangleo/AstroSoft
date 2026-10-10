@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use fftw version 3.8.8"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-3.8.8-gcc-7.3.0
@@ -26,14 +26,14 @@ if { [ module-info mode load ] } {
 load_unless_already_loaded gcc/cpu-7.3.0
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_FFTW_HOME    /home/app/fftw3/3.3.8/cpu/gcc/7.3.0
-setenv       FFTW_ROOT          "/home/app/fftw3/3.3.8/cpu/gcc/7.3.0"
-prepend-path CPATH              /home/app/fftw3/3.3.8/cpu/gcc/7.3.0/include
-prepend-path FCPATH             /home/app/fftw3/3.3.8/cpu/gcc/7.3.0/include
-prepend-path FPATH              /home/app/fftw3/3.3.8/cpu/gcc/7.3.0/include
-prepend-path LD_LIBRARY_PATH    /home/app/fftw3/3.3.8/cpu/gcc/7.3.0/lib
-prepend-path LIBRARY_PATH       /home/app/fftw3/3.3.8/cpu/gcc/7.3.0/lib
-prepend-path MANPATH            /home/app/fftw3/3.3.8/cpu/gcc/7.3.0/share/man
-prepend-path PKG_CONFIG_PATH    /home/app/fftw3/3.3.8/cpu/gcc/7.3.0/lib/pkgconfig
+setenv       MAALI_FFTW_HOME    $APP_ROOT/fftw3/3.3.8/cpu/gcc/7.3.0
+setenv       FFTW_ROOT          "$APP_ROOT/fftw3/3.3.8/cpu/gcc/7.3.0"
+prepend-path CPATH              $APP_ROOT/fftw3/3.3.8/cpu/gcc/7.3.0/include
+prepend-path FCPATH             $APP_ROOT/fftw3/3.3.8/cpu/gcc/7.3.0/include
+prepend-path FPATH              $APP_ROOT/fftw3/3.3.8/cpu/gcc/7.3.0/include
+prepend-path LD_LIBRARY_PATH    $APP_ROOT/fftw3/3.3.8/cpu/gcc/7.3.0/lib
+prepend-path LIBRARY_PATH       $APP_ROOT/fftw3/3.3.8/cpu/gcc/7.3.0/lib
+prepend-path MANPATH            $APP_ROOT/fftw3/3.3.8/cpu/gcc/7.3.0/share/man
+prepend-path PKG_CONFIG_PATH    $APP_ROOT/fftw3/3.3.8/cpu/gcc/7.3.0/lib/pkgconfig
 }
 

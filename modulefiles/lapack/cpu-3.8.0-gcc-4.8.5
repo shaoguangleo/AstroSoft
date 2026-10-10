@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use lapack version 3.8.0"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-3.8.0-gcc-4.8.5
@@ -34,11 +34,11 @@ if { [ module-info mode load ] } {
 #load_unless_already_loaded python/cpu-2.7.14
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_LAPACK_HOME /home/software/lapack/cpu/gcc/4.8.5
-setenv       LAPACK            "/home/software/lapack/cpu/gcc/4.8.5:/home/software/lapack/cpu/gcc/4.8.5/lib64"
-setenv       LAPACK_LIB        "/home/software/lapack/cpu/gcc/4.8.5/lib64"
-prepend-path LD_LIBRARY_PATH   "/home/software/lapack/cpu/gcc/4.8.5/lib64"
-prepend-path LIBRARY_PATH      "/home/software/lapack/cpu/gcc/4.8.5/lib64"
-prepend-path CPATH             "/home/software/lapack/cpu/gcc/4.8.5/include"
-prepend-path PKG_CONFIG_PATH   "/home/software/lapack/cpu/gcc/4.8.5/lib64/pkgconfig"
+setenv       MAALI_LAPACK_HOME $SOFTWARE_ROOT/lapack/cpu/gcc/4.8.5
+setenv       LAPACK            "$SOFTWARE_ROOT/lapack/cpu/gcc/4.8.5:$SOFTWARE_ROOT/lapack/cpu/gcc/4.8.5/lib64"
+setenv       LAPACK_LIB        "$SOFTWARE_ROOT/lapack/cpu/gcc/4.8.5/lib64"
+prepend-path LD_LIBRARY_PATH   "$SOFTWARE_ROOT/lapack/cpu/gcc/4.8.5/lib64"
+prepend-path LIBRARY_PATH      "$SOFTWARE_ROOT/lapack/cpu/gcc/4.8.5/lib64"
+prepend-path CPATH             "$SOFTWARE_ROOT/lapack/cpu/gcc/4.8.5/include"
+prepend-path PKG_CONFIG_PATH   "$SOFTWARE_ROOT/lapack/cpu/gcc/4.8.5/lib64/pkgconfig"
 }

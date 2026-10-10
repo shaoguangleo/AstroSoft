@@ -4,11 +4,11 @@ proc ModulesHelp { } {
   puts stderr "Prepends miriad"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software miriad
 set version cpu-2007
-set root /home/software/miriad
+set root $SOFTWARE_ROOT/miriad
 
 # Check that the root directory actually exists.
 if { ! [file exists $root] } {
@@ -18,7 +18,7 @@ if { ! [file exists $root] } {
 
 
 # Load dependencies.
-#source /mnt/beegfs/software/miriad/MIRRC.sh
+#source $BEEGFS_ROOT/miriad/MIRRC.sh
 # Prepend the paths.
 prepend-path PATH              $root/linux64/bin
 prepend-path LD_LIBRARY_PATH   $root/linux64/lib

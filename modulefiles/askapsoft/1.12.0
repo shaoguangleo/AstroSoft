@@ -1,4 +1,5 @@
 #%Module1.0#####################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 ##
 ## askapsoft modulefile
 ##
@@ -16,7 +17,7 @@ conflict        askapsoft
 
 module-whatis   "ASKAPsoft software package"
 
-set ASKAP_HOME  /home/software/askapsoft/1.12.0
+set ASKAP_HOME  $SOFTWARE_ROOT/askapsoft/1.12.0
 
 prepend-path    PATH            $ASKAP_HOME/bin
 

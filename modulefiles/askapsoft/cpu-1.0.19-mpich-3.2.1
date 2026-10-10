@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use askapsoft version 1.0.2"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-1.0.19-mpich-3.2.1
@@ -25,7 +25,7 @@ if { [ module-info mode load ] } {
 load_unless_already_loaded mpich/cpu-3.2.1-gcc-4.8.5
 load_unless_already_loaded libpng/cpu-1.2.59-gcc-4.8.5
 
-set ASKAP_HOME  /home/app/askapsoft/cpu/CP-1.0.19
+set ASKAP_HOME  $APP_ROOT/askapsoft/cpu/CP-1.0.19
 set PYTHON_LIB_VERSION 2.7
 
 if {! [module-info mode whatis] } {

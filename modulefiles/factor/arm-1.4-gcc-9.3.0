@@ -4,11 +4,11 @@ proc ModulesHelp { } {
     puts stderr "Prepends RTS master"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software RTS
 set version cpu-master
-set root /home/software/RTS
+set root $SOFTWARE_ROOT/RTS
 
 #fail_if_path_does_not_exist $root
 #swap_module_if_version_does_not_match $software $version

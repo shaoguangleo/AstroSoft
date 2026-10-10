@@ -1,4 +1,5 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 #
 # python modulefile
 #
@@ -23,16 +24,16 @@ if { [ module-info mode load ] } {
 }
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_PYTHON_HOME          /home/app/python/3.6.5/arm
+setenv       MAALI_PYTHON_HOME          $APP_ROOT/python/3.6.5/arm
 setenv       MAALI_PYTHON_LIBDIR        "lib"
 setenv       MAALI_PYTHON_LIB_VERSION   "3.6"
-prepend-path LD_LIBRARY_PATH            /home/app/python/3.6.5/arm/lib
-prepend-path MANPATH                    /home/app/python/3.6.5/arm/share/man
-prepend-path PATH                       /home/app/python/3.6.5/arm/bin
-prepend-path CPATH                      /home/app/python/3.6.5/arm/include/python3.6m
-prepend-path PKG_CONFIG_PATH            /home/app/python/3.6.5/arm/lib/pkgconfig
-prepend-path PYTHONPATH                 "/home/app/python/3.6.5/arm/lib/python3.6/site-packages"
-setenv       PYTHON_DIR                 "/home/app/python/3.6.5/arm"
+prepend-path LD_LIBRARY_PATH            $APP_ROOT/python/3.6.5/arm/lib
+prepend-path MANPATH                    $APP_ROOT/python/3.6.5/arm/share/man
+prepend-path PATH                       $APP_ROOT/python/3.6.5/arm/bin
+prepend-path CPATH                      $APP_ROOT/python/3.6.5/arm/include/python3.6m
+prepend-path PKG_CONFIG_PATH            $APP_ROOT/python/3.6.5/arm/lib/pkgconfig
+prepend-path PYTHONPATH                 "$APP_ROOT/python/3.6.5/arm/lib/python3.6/site-packages"
+setenv       PYTHON_DIR                 "$APP_ROOT/python/3.6.5/arm"
 setenv       PYTHON_VERSION             "3.6.5"
 }
 

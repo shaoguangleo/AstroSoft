@@ -4,12 +4,12 @@ proc ModulesHelp { } {
     puts stderr "Prepends casacore v3.3.0"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software casacore
 set version cpu-3.3.0-gcc-7.3.0
 
-set root /home/app/casacore/3.3.0/cpu/gcc/7.3.0
+set root $APP_ROOT/casacore/3.3.0/cpu/gcc/7.3.0
 
 fail_if_path_does_not_exist $root
 

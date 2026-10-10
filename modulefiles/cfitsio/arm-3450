@@ -1,4 +1,5 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 #
 # cfitsio modulefile
 #
@@ -27,13 +28,13 @@ if { [ module-info mode load ] } {
 
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_CFITSIO_HOME /home/app/cfitsio/arm
-setenv       CFITSIO_ROOT       "/home/app/cfitsio/arm"
-setenv       CFITSIO            "/home/app/cfitsio/arm"
-prepend-path CPATH              /home/app/cfitsio/arm/include
-prepend-path FCPATH             /home/app/cfitsio/arm/include
-prepend-path FPATH              /home/app/cfitsio/arm/include
-prepend-path LD_LIBRARY_PATH    /home/app/cfitsio/arm/lib
-prepend-path MANPATH            /home/app/cfitsio/arm/share/man
-prepend-path PKG_CONFIG_PATH    /home/app/cfitsio/arm/lib/pkgconfig
+setenv       MAALI_CFITSIO_HOME $APP_ROOT/cfitsio/arm
+setenv       CFITSIO_ROOT       "$APP_ROOT/cfitsio/arm"
+setenv       CFITSIO            "$APP_ROOT/cfitsio/arm"
+prepend-path CPATH              $APP_ROOT/cfitsio/arm/include
+prepend-path FCPATH             $APP_ROOT/cfitsio/arm/include
+prepend-path FPATH              $APP_ROOT/cfitsio/arm/include
+prepend-path LD_LIBRARY_PATH    $APP_ROOT/cfitsio/arm/lib
+prepend-path MANPATH            $APP_ROOT/cfitsio/arm/share/man
+prepend-path PKG_CONFIG_PATH    $APP_ROOT/cfitsio/arm/lib/pkgconfig
 }

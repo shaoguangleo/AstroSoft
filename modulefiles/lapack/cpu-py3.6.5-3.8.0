@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use lapack version 3.8.0"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-py3.6.5-3.8.0
@@ -34,12 +34,12 @@ if { [ module-info mode load ] } {
 load_unless_already_loaded python/cpu-3.6.5
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_LAPACK_HOME /home/app/lapack/3.8.0/cpu-py3.6.5
-setenv       LAPACK            "/home/app/lapack/3.8.0/cpu-py3.6.5:/home/app/lapack/3.8.0/cpu-py3.6.5/lib64"
-setenv       LAPACK_LIB        "/home/app/lapack/3.8.0/cpu-py3.6.5/lib64"
-setenv       BLAS              "/home/app/lapack/3.8.0/cpu-py3.6.5/lib64"
-prepend-path LD_LIBRARY_PATH   "/home/app/lapack/3.8.0/cpu-py3.6.5/lib64"
-prepend-path LIBRARY_PATH      "/home/app/lapack/3.8.0/cpu-py3.6.5/lib64"
-prepend-path CPATH             "/home/app/lapack/3.8.0/cpu-py3.6.5/include"
-prepend-path PKG_CONFIG_PATH   "/home/app/lapack/3.8.0/cpu-py3.6.5/lib64/pkgconfig"
+setenv       MAALI_LAPACK_HOME $APP_ROOT/lapack/3.8.0/cpu-py3.6.5
+setenv       LAPACK            "$APP_ROOT/lapack/3.8.0/cpu-py3.6.5:$APP_ROOT/lapack/3.8.0/cpu-py3.6.5/lib64"
+setenv       LAPACK_LIB        "$APP_ROOT/lapack/3.8.0/cpu-py3.6.5/lib64"
+setenv       BLAS              "$APP_ROOT/lapack/3.8.0/cpu-py3.6.5/lib64"
+prepend-path LD_LIBRARY_PATH   "$APP_ROOT/lapack/3.8.0/cpu-py3.6.5/lib64"
+prepend-path LIBRARY_PATH      "$APP_ROOT/lapack/3.8.0/cpu-py3.6.5/lib64"
+prepend-path CPATH             "$APP_ROOT/lapack/3.8.0/cpu-py3.6.5/include"
+prepend-path PKG_CONFIG_PATH   "$APP_ROOT/lapack/3.8.0/cpu-py3.6.5/lib64/pkgconfig"
 }

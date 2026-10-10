@@ -4,12 +4,12 @@ proc ModulesHelp { } {
     puts stderr "Prepends mwa-reduce - https://github.com/ICRAR/mwa-reduce"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software mwa-reduce
 set version cpu-master-2021
 
-set root /home/software/$software/cpu/2021
+set root $SOFTWARE_ROOT/$software/cpu/2021
 
 fail_if_path_does_not_exist $root
 swap_module_if_version_does_not_match $software $version

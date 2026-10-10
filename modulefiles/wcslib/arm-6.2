@@ -5,7 +5,7 @@
 proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use wcslib version 6.2"
 }
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version arm-6.2
@@ -27,9 +27,9 @@ load_unless_already_loaded cfitsio/arm-3450
 load_unless_already_loaded pgplot/arm-5.2
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_WCSLIB_HOME /home/app/wsclib/6.2/arm
-prepend-path LD_LIBRARY_PATH   /home/app/wsclib/6.2/arm/lib
-prepend-path PATH              /home/app/wsclib/6.2/arm/bin
-setenv       WCSLIB_ROOT       "/home/app/wsclib/6.2/arm"
+setenv       MAALI_WCSLIB_HOME $APP_ROOT/wsclib/6.2/arm
+prepend-path LD_LIBRARY_PATH   $APP_ROOT/wsclib/6.2/arm/lib
+prepend-path PATH              $APP_ROOT/wsclib/6.2/arm/bin
+setenv       WCSLIB_ROOT       "$APP_ROOT/wsclib/6.2/arm"
 }
 

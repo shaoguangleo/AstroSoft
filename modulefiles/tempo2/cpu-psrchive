@@ -1,4 +1,5 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 #
 # tempo2 modulefile
 #
@@ -11,7 +12,7 @@ set version cpu-psrchive
 set tool    tempo2
 module-whatis "Tempo2 runtime bundled inside the PSRCHIVE 2020-01-10 tree.
 
-TEMPO2=/home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2
+TEMPO2=$APP_ROOT/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2
 
 For further information see https://bitbucket.org/psrsoft/tempo2
 "
@@ -22,10 +23,10 @@ if { [ module-info mode load ] } {
 }
 
 if {! [module-info mode whatis] } {
-prepend-path PATH                 /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/bin
-prepend-path CPATH                /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/include
-prepend-path LIBRARY_PATH         /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/lib
-prepend-path LD_LIBRARY_PATH      /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/lib
-setenv       TEMPO2               /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2
+prepend-path PATH                 $APP_ROOT/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/bin
+prepend-path CPATH                $APP_ROOT/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/include
+prepend-path LIBRARY_PATH         $APP_ROOT/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/lib
+prepend-path LD_LIBRARY_PATH      $APP_ROOT/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/lib
+setenv       TEMPO2               $APP_ROOT/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2
 }
 

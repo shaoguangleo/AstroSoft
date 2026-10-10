@@ -1,4 +1,5 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 # hdf5 modulefile
 #
 proc ModulesHelp { } {
@@ -19,11 +20,11 @@ if { [ module-info mode load ] } {
 }
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_HDF5_HOME     /home/software/hdf5/gpu
-setenv       HDF5_ROOT           "/home/software/hdf5/gpu"
-prepend-path CPATH   /home/software/hdf5/gpu/include
-prepend-path CPLUS_INCLUDE_PATH   /home/software/hdf5/gpu/include
-prepend-path C_INCLUDE_PATH       /home/software/hdf5/gpu/include
-prepend-path LD_LIBRARY_PATH      /home/software/hdf5/gpu/lib
+setenv       MAALI_HDF5_HOME     $SOFTWARE_ROOT/hdf5/gpu
+setenv       HDF5_ROOT           "$SOFTWARE_ROOT/hdf5/gpu"
+prepend-path CPATH   $SOFTWARE_ROOT/hdf5/gpu/include
+prepend-path CPLUS_INCLUDE_PATH   $SOFTWARE_ROOT/hdf5/gpu/include
+prepend-path C_INCLUDE_PATH       $SOFTWARE_ROOT/hdf5/gpu/include
+prepend-path LD_LIBRARY_PATH      $SOFTWARE_ROOT/hdf5/gpu/lib
 }
 

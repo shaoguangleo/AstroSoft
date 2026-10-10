@@ -4,11 +4,11 @@ proc ModulesHelp { } {
   puts stderr "Prepends MWA_Tools mwa-sci"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software MWA_Tools
 set version arm-mwa-sci
-#set root /mnt/beegfs/software/modulefiles/$software
+#set root $BEEGFS_ROOT/modulefiles/$software
 
 # Check that the root directory actually exists.
 #if { ! [file exists $root] } {
@@ -60,5 +60,5 @@ load_unless_already_loaded stilts/arm-3.1-4
 load_unless_already_loaded chgcentre/arm-wsclean2.6 
 # needed ?
 #
-prepend-path PATH /home/software/bin
+prepend-path PATH $SOFTWARE_ROOT/bin
 setenv HDF5_USE_FILE_LOCKING "FALSE"

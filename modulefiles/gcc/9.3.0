@@ -1,4 +1,5 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 #
 # gcc modulefile
 #
@@ -22,12 +23,12 @@ if { [ module-info mode load ] } {
 }
 
 if {! [module-info mode whatis] } {
-setenv       CC                   /home/software/gcc/9.3.0/cpu/bin/gcc
-setenv       CXX                  /home/software/gcc/9.3.0/cpu/bin/g++
-setenv       FC                   /home/software/gcc/9.3.0/cpu/bin/gfortran
-prepend-path PATH                 /home/software/gcc/9.3.0/cpu/bin
-prepend-path CPATH                /home/software/gcc/9.3.0/cpu/include
-prepend-path LIBRARY_PATH         /home/software/gcc/9.3.0/cpu/lib64
-prepend-path LD_LIBRARY_PATH      /home/software/gcc/9.3.0/cpu/lib64:/usr/local/lib
+setenv       CC                   $SOFTWARE_ROOT/gcc/9.3.0/cpu/bin/gcc
+setenv       CXX                  $SOFTWARE_ROOT/gcc/9.3.0/cpu/bin/g++
+setenv       FC                   $SOFTWARE_ROOT/gcc/9.3.0/cpu/bin/gfortran
+prepend-path PATH                 $SOFTWARE_ROOT/gcc/9.3.0/cpu/bin
+prepend-path CPATH                $SOFTWARE_ROOT/gcc/9.3.0/cpu/include
+prepend-path LIBRARY_PATH         $SOFTWARE_ROOT/gcc/9.3.0/cpu/lib64
+prepend-path LD_LIBRARY_PATH      $SOFTWARE_ROOT/gcc/9.3.0/cpu/lib64:/usr/local/lib
 }
 

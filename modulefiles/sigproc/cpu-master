@@ -1,19 +1,20 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 #
 # sigproc modulefile
 #
 proc ModulesHelp { } {
-  puts stderr "Sets up the paths you need to use sigproc version master"
+  puts stderr "Sets up the paths you need to use SIGPROC (cpu-master)"
 }
 
 set sys     [uname sysname]
 set version cpu-master
 set tool    sigproc
-module-whatis " 
+module-whatis "SIGPROC pulsar data tools.
+
+Programs: $APP_ROOT/sigproc/bin
 
 For further information see https://github.com/evanocathain/sigproc.git
-
-Compiled with gcc/4.8.5 
 "
 if { [ module-info mode load ] } {
   if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
@@ -22,7 +23,7 @@ if { [ module-info mode load ] } {
 }
 
 if {! [module-info mode whatis] } {
-prepend-path PATH                 /home/app/sigproc/bin
+prepend-path PATH                 $APP_ROOT/sigproc/bin
 setenv  OSTYPE                    linux
 }
 

@@ -1,4 +1,5 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 #
 # lua modulefile
 #
@@ -23,8 +24,8 @@ if { [ module-info mode load ] } {
 
 
 if {! [module-info mode whatis] } {
-setenv       LUA_ROOT           "/home/software/lua/cpu/5.3.6/gcc/7.3.0"
-prepend-path PATH               /home/software/lua/cpu/5.3.6/gcc/7.3.0/bin
-prepend-path CPATH              /home/software/lua/cpu/5.3.6/gcc/7.3.0/include
-prepend-path LD_LIBRARY_PATH    /home/software/lua/cpu/5.3.6/gcc/7.3.0/lib
+setenv       LUA_ROOT           "$SOFTWARE_ROOT/lua/cpu/5.3.6/gcc/7.3.0"
+prepend-path PATH               $SOFTWARE_ROOT/lua/cpu/5.3.6/gcc/7.3.0/bin
+prepend-path CPATH              $SOFTWARE_ROOT/lua/cpu/5.3.6/gcc/7.3.0/include
+prepend-path LD_LIBRARY_PATH    $SOFTWARE_ROOT/lua/cpu/5.3.6/gcc/7.3.0/lib
 }

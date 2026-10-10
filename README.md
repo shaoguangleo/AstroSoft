@@ -13,6 +13,11 @@
 
 ASOD is the abbreviation of **A**stro**S**oft **O**n **D**ocker.
 
+
+If you used this package in your research, please cite it via [![DOI](https://zenodo.org/badge/40939159.svg)](https://zenodo.org/doi/10.5281/zenodo.11219200) DOI [10.5281/zenodo.11219200](https://doi.org/10.5281/zenodo.11219200)
+
+
+
 Any problem , send email to me [郭大侠](https://github.com/shaoguangleo) <sgguo@shao.ac.cn> @ [上海天文台](http://www.shao.ac.cn)
 
 # Introduction
@@ -102,7 +107,7 @@ $ sas software
 
 If you just type `sas`, you will get a help information of how to use sas like the following information.
 
-# 软件版本
+## 软件版本
 
 目前大部分版本因为托管在git上，更新比较快，除了稳定发布的tag版本，其他按照提交时间来发布。
 
@@ -111,6 +116,8 @@ If you just type `sas`, you will get a help information of how to use sas like t
 ```bash
 $ git show -s --pretty=format:%cI
 ```
+
+
 
 ## Maintainer
 

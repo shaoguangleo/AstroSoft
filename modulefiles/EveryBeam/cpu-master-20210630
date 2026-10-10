@@ -4,12 +4,12 @@ proc ModulesHelp { } {
     puts stderr "Prepends EveryBeam master - https://github.com/kernsuite-debian/everybeam"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software EveryBeam
 set version cpu-master-20210630
 
-set root /home/software/EveryBeam/cpu
+set root $SOFTWARE_ROOT/EveryBeam/cpu
 module-whatis "This package can be used to compute the beam response for a variety of radio telescopes.
 
 For further information see https://github.com/kernsuite-debian/everybeam

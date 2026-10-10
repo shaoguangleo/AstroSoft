@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use cuda version 10.1"
 }
 
-#source /home/app/modulefiles/common.tcl
+#source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version 11.0
@@ -30,4 +30,5 @@ prepend-path PATH                 /usr/local/cuda-11.0/bin
 prepend-path CPATH                /usr/local/cuda-11.0/include
 prepend-path LD_LIBRARY_PATH      /usr/local/cuda-11.0/lib64
 }
+
 

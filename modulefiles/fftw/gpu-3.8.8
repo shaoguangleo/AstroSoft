@@ -1,4 +1,5 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 #
 # lapack modulefile
 #
@@ -22,13 +23,13 @@ if { [ module-info mode load ] } {
 
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_FFTW_HOME /home/software/fftw/gpu
-setenv       FFTW_ROOT       "/home/software/fftw/gpu"
-prepend-path CPATH              /home/software/fftw/gpu/include
-prepend-path FCPATH             /home/software/fftw/gpu/include
-prepend-path FPATH              /home/software/fftw/gpu/include
-prepend-path LD_LIBRARY_PATH    /home/software/fftw/gpu/lib
-prepend-path MANPATH            /home/software/fftw/gpu/share/man
-prepend-path PKG_CONFIG_PATH    /home/software/fftw/gpu/lib/pkgconfig
+setenv       MAALI_FFTW_HOME $SOFTWARE_ROOT/fftw/gpu
+setenv       FFTW_ROOT       "$SOFTWARE_ROOT/fftw/gpu"
+prepend-path CPATH              $SOFTWARE_ROOT/fftw/gpu/include
+prepend-path FCPATH             $SOFTWARE_ROOT/fftw/gpu/include
+prepend-path FPATH              $SOFTWARE_ROOT/fftw/gpu/include
+prepend-path LD_LIBRARY_PATH    $SOFTWARE_ROOT/fftw/gpu/lib
+prepend-path MANPATH            $SOFTWARE_ROOT/fftw/gpu/share/man
+prepend-path PKG_CONFIG_PATH    $SOFTWARE_ROOT/fftw/gpu/lib/pkgconfig
 }
 

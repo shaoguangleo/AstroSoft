@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use cfitsio version 3450"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-349-gcc-4.8.5
@@ -31,13 +31,13 @@ if { [ module-info mode load ] } {
 #load_unless_already_loaded gcc/cpu-7.3.0
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_CFITSIO_HOME /home/app/cfitsio/3.49/cpu/gcc/4.8.5
-setenv       CFITSIO_ROOT       "/home/app/cfitsio/3.49/cpu/gcc/4.8.5"
-setenv       CFITSIO            "/home/app/cfitsio/3.49/cpu/gcc/4.8.5"
-prepend-path CPATH              /home/app/cfitsio/3.49/cpu/gcc/4.8.5/include
-prepend-path FCPATH             /home/app/cfitsio/3.49/cpu/gcc/4.8.5/include
-prepend-path FPATH              /home/app/cfitsio/3.49/cpu/gcc/4.8.5/include
-prepend-path LD_LIBRARY_PATH    /home/app/cfitsio/3.49/cpu/gcc/4.8.5/lib
-prepend-path MANPATH            /home/app/cfitsio/3.49/cpu/gcc/4.8.5/share/man
-prepend-path PKG_CONFIG_PATH    /home/app/cfitsio/3.49/cpu/gcc/4.8.5/lib/pkgconfig
+setenv       MAALI_CFITSIO_HOME $APP_ROOT/cfitsio/3.49/cpu/gcc/4.8.5
+setenv       CFITSIO_ROOT       "$APP_ROOT/cfitsio/3.49/cpu/gcc/4.8.5"
+setenv       CFITSIO            "$APP_ROOT/cfitsio/3.49/cpu/gcc/4.8.5"
+prepend-path CPATH              $APP_ROOT/cfitsio/3.49/cpu/gcc/4.8.5/include
+prepend-path FCPATH             $APP_ROOT/cfitsio/3.49/cpu/gcc/4.8.5/include
+prepend-path FPATH              $APP_ROOT/cfitsio/3.49/cpu/gcc/4.8.5/include
+prepend-path LD_LIBRARY_PATH    $APP_ROOT/cfitsio/3.49/cpu/gcc/4.8.5/lib
+prepend-path MANPATH            $APP_ROOT/cfitsio/3.49/cpu/gcc/4.8.5/share/man
+prepend-path PKG_CONFIG_PATH    $APP_ROOT/cfitsio/3.49/cpu/gcc/4.8.5/lib/pkgconfig
 }

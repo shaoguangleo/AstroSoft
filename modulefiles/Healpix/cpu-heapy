@@ -4,11 +4,11 @@ proc ModulesHelp { } {
     puts stderr "Prepends healpix from heapy"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software Healpix
 set version cpu-heapy
-set root /home/software/$software/cpu
+set root $SOFTWARE_ROOT/$software/cpu
 
 # Check that the root directory actually exists.
 if { ! [file exists $root] } {

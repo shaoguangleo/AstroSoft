@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use Duchamp version 1.6.2"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-1.6.2-gcc-4.8.5
@@ -28,7 +28,7 @@ load_unless_already_loaded pgplot/cpu-5.2
 load_unless_already_loaded cfitsio/cpu-3450
 
 if {! [module-info mode whatis] } {
-prepend-path CPATH              /home/app/Duchamp/cpu/1.6.2/gcc/4.8.5/include
-prepend-path PATH               /home/app/Duchamp/cpu/1.6.2/gcc/4.8.5/bin
-prepend-path LD_LIBRARY_PATH    /home/app/Duchamp/cpu/1.6.2/gcc/4.8.5/lib
+prepend-path CPATH              $APP_ROOT/Duchamp/cpu/1.6.2/gcc/4.8.5/include
+prepend-path PATH               $APP_ROOT/Duchamp/cpu/1.6.2/gcc/4.8.5/bin
+prepend-path LD_LIBRARY_PATH    $APP_ROOT/Duchamp/cpu/1.6.2/gcc/4.8.5/lib
 }

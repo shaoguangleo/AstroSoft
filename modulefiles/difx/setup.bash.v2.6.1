@@ -2,7 +2,7 @@
 export DIFX_VERSION=DiFX-2.6
 
 ####### ROOT PATHS ##########################
-export DIFXROOT=/home/app/modulefiles/difx/difx2.6.1
+export DIFXROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/difx2.6.1"
 export DIFX_PREFIX=$DIFXROOT
 export PGPLOTDIR=/usr/local/pgplot
 #export IPPROOT=/opt/intel

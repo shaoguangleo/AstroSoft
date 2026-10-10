@@ -4,12 +4,12 @@ proc ModulesHelp { } {
     puts stderr "Prepends casa v5.0.0"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software casa
 set version 5.0.0
 
-set root /home/app/casa-release-5.0.0-218.el6
+set root $APP_ROOT/casa-release-5.0.0-218.el6
 
 fail_if_path_does_not_exist $root
 

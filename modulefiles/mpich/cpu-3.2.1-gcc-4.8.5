@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use boost version 4.8.5"
 }
 
-#source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-3.2.1-gcc-4.8.5
@@ -25,9 +25,9 @@ if { [ module-info mode load ] } {
 
 
 if {! [module-info mode whatis] } {
-prepend-path PATH                 /home/app/mpich/3.2.1/cpu/gcc/4.8.5/bin
-prepend-path CPATH                /home/app/mpich/3.2.1/cpu/gcc/4.8.5/include
-prepend-path LIBRARY_PATH         /home/app/mpich/3.2.1/cpu/gcc/4.8.5/lib
-prepend-path LD_LIBRARY_PATH      /home/app/mpich/3.2.1/cpu/gcc/4.8.5/lib
+prepend-path PATH                 $APP_ROOT/mpich/3.2.1/cpu/gcc/4.8.5/bin
+prepend-path CPATH                $APP_ROOT/mpich/3.2.1/cpu/gcc/4.8.5/include
+prepend-path LIBRARY_PATH         $APP_ROOT/mpich/3.2.1/cpu/gcc/4.8.5/lib
+prepend-path LD_LIBRARY_PATH      $APP_ROOT/mpich/3.2.1/cpu/gcc/4.8.5/lib
 }
 

@@ -1,11 +1,12 @@
 #%Module -*- mode: tcl -*-
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 proc ModulesHelp { } {
     puts stderr "Prepends stilts"
 }
 
 set software stilts
-set root /home/software/$software
+set root $SOFTWARE_ROOT/$software
 
 # Check that the root directory actually exists.
 if { ! [file exists $root] } {

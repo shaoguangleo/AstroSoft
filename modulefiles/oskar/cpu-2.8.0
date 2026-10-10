@@ -4,12 +4,12 @@ proc ModulesHelp { } {
     puts stderr "Prepends oskar v2.8.0"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software oskar
 set version cpu-2.8.0
 
-set root /home/app/oskar/2.8.0/cpu/
+set root $APP_ROOT/oskar/2.8.0/cpu/
 
 fail_if_path_does_not_exist $root
 

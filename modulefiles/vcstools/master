@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use vcstools version master"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-master
@@ -34,10 +34,10 @@ load_unless_already_loaded cuda/10.1
 
 if {! [module-info mode whatis] } {
 setenv CMD_VCS_DB_FILE /ibo9000/Pulsar/mwavcs/.vcs.db #/o9000/MWA/vcs/.vcs.db
-setenv KNOWN_RFRB_CSV /home/app/pulsar/2021/vcstools-master/master/known_repeating_FRBs.csv
-prepend-path PATH                 /home/app/pulsar/2021/vcstools-master/master/bin
-prepend-path PYTHONPATH           /home/app/pulsar/2021/vcstools-master/master/bin
-prepend-path HDF5_DIR             /home/app/hdf5/1.10.4/cpu
+setenv KNOWN_RFRB_CSV $APP_ROOT/pulsar/2021/vcstools-master/master/known_repeating_FRBs.csv
+prepend-path PATH                 $APP_ROOT/pulsar/2021/vcstools-master/master/bin
+prepend-path PYTHONPATH           $APP_ROOT/pulsar/2021/vcstools-master/master/bin
+prepend-path HDF5_DIR             $APP_ROOT/hdf5/1.10.4/cpu
 setenv HDF5_USE_FILE_LOCKING "FALSE"
 }
 

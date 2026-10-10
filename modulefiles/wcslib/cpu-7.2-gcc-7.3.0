@@ -5,7 +5,7 @@
 proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use wcslib version 7.2"
 }
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-7.2-gcc-7.3.0
@@ -28,10 +28,10 @@ load_unless_already_loaded cfitsio/cpu-348-gcc-7.3.0
 load_unless_already_loaded pgplot/cpu-5.2
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_WCSLIB_HOME /home/app/wsclib/7.2/cpu/gcc/7.3.0
-prepend-path LD_LIBRARY_PATH   /home/app/wsclib/7.2/cpu/gcc/7.3.0/lib
-prepend-path CPATH   /home/app/wsclib/7.2/cpu/gcc/7.3.0/include
-prepend-path PATH              /home/app/wsclib/7.2/cpu/gcc/7.3.0/bin
-setenv       WCSLIB_ROOT       "/home/app/wsclib/7.2/cpu/gcc/7.3.0"
+setenv       MAALI_WCSLIB_HOME $APP_ROOT/wsclib/7.2/cpu/gcc/7.3.0
+prepend-path LD_LIBRARY_PATH   $APP_ROOT/wsclib/7.2/cpu/gcc/7.3.0/lib
+prepend-path CPATH   $APP_ROOT/wsclib/7.2/cpu/gcc/7.3.0/include
+prepend-path PATH              $APP_ROOT/wsclib/7.2/cpu/gcc/7.3.0/bin
+setenv       WCSLIB_ROOT       "$APP_ROOT/wsclib/7.2/cpu/gcc/7.3.0"
 }
 

@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use lapack version 3.8.0"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version arm-3.8.0
@@ -34,12 +34,12 @@ if { [ module-info mode load ] } {
 load_unless_already_loaded python/arm-2.7.14
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_LAPACK_HOME /home/app/lapack/3.8.0/arm
-setenv       LAPACK            "/home/app/lapack/3.8.0/arm:/home/app/lapack/3.8.0/arm/lib64"
-setenv       LAPACK_LIB        "/home/app/lapack/3.8.0/arm/lib64"
-setenv       BLAS              "/home/app/lapack/3.8.0/arm/lib64"
-prepend-path LD_LIBRARY_PATH   "/home/app/lapack/3.8.0/arm/lib64"
-prepend-path LIBRARY_PATH      "/home/app/lapack/3.8.0/arm/lib64"
-prepend-path CPATH             "/home/app/lapack/3.8.0/arm/include"
-prepend-path PKG_CONFIG_PATH   "/home/app/lapack/3.8.0/arm/lib64/pkgconfig"
+setenv       MAALI_LAPACK_HOME $APP_ROOT/lapack/3.8.0/arm
+setenv       LAPACK            "$APP_ROOT/lapack/3.8.0/arm:$APP_ROOT/lapack/3.8.0/arm/lib64"
+setenv       LAPACK_LIB        "$APP_ROOT/lapack/3.8.0/arm/lib64"
+setenv       BLAS              "$APP_ROOT/lapack/3.8.0/arm/lib64"
+prepend-path LD_LIBRARY_PATH   "$APP_ROOT/lapack/3.8.0/arm/lib64"
+prepend-path LIBRARY_PATH      "$APP_ROOT/lapack/3.8.0/arm/lib64"
+prepend-path CPATH             "$APP_ROOT/lapack/3.8.0/arm/include"
+prepend-path PKG_CONFIG_PATH   "$APP_ROOT/lapack/3.8.0/arm/lib64/pkgconfig"
 }

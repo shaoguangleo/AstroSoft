@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use fftw version 3.8.8"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-2.6-gcc-7.3.0
@@ -28,8 +28,8 @@ if { [ module-info mode load ] } {
 load_unless_already_loaded gcc/cpu-7.3.0
 
 if {! [module-info mode whatis] } {
-prepend-path CPATH              /home/app/gsl/2.6/cpu/gcc/7.3.0/include/gsl
-prepend-path LD_LIBRARY_PATH    /home/app/gsl/2.6/cpu/gcc/7.3.0/lib
-prepend-path LIBRARY_PATH    /home/app/gsl/2.6/cpu/gcc/7.3.0/lib
+prepend-path CPATH              $APP_ROOT/gsl/2.6/cpu/gcc/7.3.0/include/gsl
+prepend-path LD_LIBRARY_PATH    $APP_ROOT/gsl/2.6/cpu/gcc/7.3.0/lib
+prepend-path LIBRARY_PATH    $APP_ROOT/gsl/2.6/cpu/gcc/7.3.0/lib
 }
 

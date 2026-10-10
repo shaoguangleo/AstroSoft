@@ -141,7 +141,7 @@ nbclient==0.7.3
 nbconvert==7.3.1
 nbformat==5.8.0
 nest-asyncio==1.5.6
-nltk==3.6.7
+nltk==3.9.4
 notebook==6.5.4
 notebook_shim==0.2.2
 numpy==1.22
@@ -161,7 +161,7 @@ platformdirs==3.2.0
 prometheus-client==0.16.0
 prompt-toolkit==3.0.38
 proto-plus==1.22.2
-protobuf==3.20.3
+protobuf==4.25.8
 psutil==5.9.5
 psycopg2-binary==2.9.6
 ptyprocess==0.7.0
@@ -227,7 +227,7 @@ ua-parser==0.16.1
 ujson==5.7.0
 uri-template==1.2.0
 uritemplate==4.1.1
-urllib3==1.26.18
+urllib3==2.7.0
 user-agents==2.2.0
 virtualenv==20.21.0
 wcwidth==0.2.6

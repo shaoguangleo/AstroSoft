@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use askapsoft version 1.0.2"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-1.0.19-mpich-3.2.1
@@ -24,8 +24,8 @@ if { [ module-info mode load ] } {
 
 
 if {! [module-info mode whatis] } {
-prepend-path    PATH            /home/app/src/askapsoft-1.0.19/ASKAPsoft/Code/Components/Pipelines/bash-pipelines/current/install/bin
-setenv PIPELINEDIR /home/app/src/askapsoft-1.0.19/ASKAPsoft/Code/Components/Pipelines/bash-pipelines/current/install/bin
+prepend-path    PATH            $APP_ROOT/src/askapsoft-1.0.19/ASKAPsoft/Code/Components/Pipelines/bash-pipelines/current/install/bin
+setenv PIPELINEDIR $APP_ROOT/src/askapsoft-1.0.19/ASKAPsoft/Code/Components/Pipelines/bash-pipelines/current/install/bin
 setenv PIPELINE_VERSION 1.0.19
 }
 

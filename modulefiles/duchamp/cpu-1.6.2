@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use duchamp version 1.6.2"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-1.6.2
@@ -28,9 +28,9 @@ load_unless_already_loaded wcslib/cpu-6.2
 load_unless_already_loaded pgplot/cpu-5.2 
 
 if {! [module-info mode whatis] } {
-prepend-path PATH                 /home/software/duchamp/cpu/bin
-prepend-path CPATH                /home/software/duchamp/cpu/include
-prepend-path LIBRARY_PATH         /home/software/duchamp/cpu/lib
-prepend-path LD_LIBRARY_PATH      /home/software/duchamp/cpu/lib
+prepend-path PATH                 $SOFTWARE_ROOT/duchamp/cpu/bin
+prepend-path CPATH                $SOFTWARE_ROOT/duchamp/cpu/include
+prepend-path LIBRARY_PATH         $SOFTWARE_ROOT/duchamp/cpu/lib
+prepend-path LD_LIBRARY_PATH      $SOFTWARE_ROOT/duchamp/cpu/lib
 }
 

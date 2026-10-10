@@ -4,12 +4,12 @@ proc ModulesHelp { } {
     puts stderr "Prepends wsclean 2.9 - https://sourceforge.net/projects/wsclean/"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software wsclean
 set version cpu-2.9-gcc-7.3.0
 
-set root /home/software/wsclean/cpu/2.9/gcc/7.3.0
+set root $SOFTWARE_ROOT/wsclean/cpu/2.9/gcc/7.3.0
 module-whatis "An implementation of a fast, generic wide-field imager for radio astronomy.
 
 For further information see https://sourceforge.net/p/wsclean

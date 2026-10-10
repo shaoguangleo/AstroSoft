@@ -4,12 +4,12 @@ proc ModulesHelp { } {
     puts stderr "Prepends aoflagger - https://sourceforge.net/projects/aoflagger/"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software aoflagger
 set version cpu-3.0.0-gcc-7.3.0
 
-set root /home/software/aoflagger/cpu/3.0.0/gcc/7.3.0
+set root $SOFTWARE_ROOT/aoflagger/cpu/3.0.0/gcc/7.3.0
 
 # Check that the root directory actually exists.
 if { ! [file exists $root] } {

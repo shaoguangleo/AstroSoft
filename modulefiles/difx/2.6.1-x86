@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use DiFX version 2.6.1"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version 2.6.1
@@ -21,7 +21,7 @@ if { [ module-info mode load ] } {
 load_unless_already_loaded mpich/cpu-3.2.1-gcc-4.8.5
 load_unless_already_loaded libpng/cpu-1.2.59-gcc-4.8.5
 
-set DIFX_HOME  /home/app/modulefiles/difx/difx2.6.1
+set DIFX_HOME  $APP_ROOT/modulefiles/difx/difx2.6.1
 set PYTHON_LIB_VERSION 2.7
 set DIFXMPIHOME /usr/local/mpich/
 

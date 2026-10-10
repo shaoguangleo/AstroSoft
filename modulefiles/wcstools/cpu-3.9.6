@@ -4,11 +4,11 @@ proc ModulesHelp { } {
     puts stderr "Prepends wcstools 2.38.0"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software wcstools
 set version cpu-3.9.6
-set root /home/software/wcstools-3.9.6
+set root $SOFTWARE_ROOT/wcstools-3.9.6
 
 fail_if_path_does_not_exist $root
 swap_module_if_version_does_not_match $software $version

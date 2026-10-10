@@ -1,19 +1,20 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 #
 # tempo2 modulefile
 #
 proc ModulesHelp { } {
-  puts stderr "Sets up the paths you need to use tempo version master"
+  puts stderr "Sets up Tempo2 bundled with PSRCHIVE 2020-01-10 (cpu-psrchive)"
 }
 
 set sys     [uname sysname]
-set version cpu-master
+set version cpu-psrchive
 set tool    tempo2
-module-whatis "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user's freedom.
+module-whatis "Tempo2 runtime bundled inside the PSRCHIVE 2020-01-10 tree.
 
-For further information see https://gcc.gnu.org/
+TEMPO2=$APP_ROOT/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2
 
-Compiled with gcc/4.8.5 
+For further information see https://bitbucket.org/psrsoft/tempo2
 "
 if { [ module-info mode load ] } {
   if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
@@ -22,10 +23,10 @@ if { [ module-info mode load ] } {
 }
 
 if {! [module-info mode whatis] } {
-prepend-path PATH                 /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/bin
-prepend-path CPATH                /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/include
-prepend-path LIBRARY_PATH         /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/lib
-prepend-path LD_LIBRARY_PATH      /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/lib
-setenv       TEMPO2               /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2
+prepend-path PATH                 $APP_ROOT/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/bin
+prepend-path CPATH                $APP_ROOT/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/include
+prepend-path LIBRARY_PATH         $APP_ROOT/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/lib
+prepend-path LD_LIBRARY_PATH      $APP_ROOT/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2/lib
+setenv       TEMPO2               $APP_ROOT/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2
 }
 

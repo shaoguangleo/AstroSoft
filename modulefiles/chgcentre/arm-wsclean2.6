@@ -4,12 +4,12 @@ proc ModulesHelp { } {
     puts stderr "Prepends chgcentre from wsclean 2.5"
 }
 
-source /home/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software chgcentre
 set version arm-wsclean2.6
 
-set root /home/software/chgcentre/arm
+set root $SOFTWARE_ROOT/chgcentre/arm
 
 # Check that the root directory actually exists.
 if { ! [file exists $root] } {

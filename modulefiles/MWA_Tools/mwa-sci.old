@@ -4,11 +4,11 @@ proc ModulesHelp { } {
   puts stderr "Prepends MWA_Tools mwa-sci"
 }
 
-source /mnt/beegfs/software/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set software MWA_Tools
 set version mwa-sci
-#set root /mnt/beegfs/software/modulefiles/$software
+#set root $BEEGFS_ROOT/modulefiles/$software
 
 # Check that the root directory actually exists.
 #if { ! [file exists $root] } {
@@ -61,4 +61,4 @@ load_unless_already_loaded Healpix/heapy
 # needed ?
 #
 
-## prepend-path PATH /mnt/beegfs/software/bin
+## prepend-path PATH $BEEGFS_ROOT/bin

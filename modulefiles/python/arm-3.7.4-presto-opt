@@ -1,4 +1,5 @@
 #%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 #
 # python modulefile
 #
@@ -23,16 +24,16 @@ if { [ module-info mode load ] } {
 }
 
 if {! [module-info mode whatis] } {
-setenv       MAALI_PYTHON_HOME          /home/app/python/3.7.4/arm/gcc/4.8.5/presto_opt
+setenv       MAALI_PYTHON_HOME          $APP_ROOT/python/3.7.4/arm/gcc/4.8.5/presto_opt
 setenv       MAALI_PYTHON_LIBDIR        "lib"
 setenv       MAALI_PYTHON_LIB_VERSION   "3.7"
-prepend-path LD_LIBRARY_PATH            /home/app/python/3.7.4/arm/gcc/4.8.5/presto_opt/lib
-prepend-path MANPATH                    /home/app/python/3.7.4/arm/gcc/4.8.5/presto_opt/share/man
-prepend-path PATH                       /home/app/python/3.7.4/arm/gcc/4.8.5/presto_opt/bin
-prepend-path CPATH                      /home/app/python/3.7.4/arm/gcc/4.8.5/presto_opt/include/python3.7m
-prepend-path PKG_CONFIG_PATH            /home/app/python/3.7.4/arm/gcc/4.8.5/presto_opt/lib/pkgconfig
-prepend-path PYTHONPATH                 "/home/app/python/3.7.4/arm/gcc/4.8.5/presto_opt/lib/python3.7/site-packages"
-setenv       PYTHON_DIR                 "/home/app/python/3.7.4/arm/gcc/4.8.5/presto_opt"
+prepend-path LD_LIBRARY_PATH            $APP_ROOT/python/3.7.4/arm/gcc/4.8.5/presto_opt/lib
+prepend-path MANPATH                    $APP_ROOT/python/3.7.4/arm/gcc/4.8.5/presto_opt/share/man
+prepend-path PATH                       $APP_ROOT/python/3.7.4/arm/gcc/4.8.5/presto_opt/bin
+prepend-path CPATH                      $APP_ROOT/python/3.7.4/arm/gcc/4.8.5/presto_opt/include/python3.7m
+prepend-path PKG_CONFIG_PATH            $APP_ROOT/python/3.7.4/arm/gcc/4.8.5/presto_opt/lib/pkgconfig
+prepend-path PYTHONPATH                 "$APP_ROOT/python/3.7.4/arm/gcc/4.8.5/presto_opt/lib/python3.7/site-packages"
+setenv       PYTHON_DIR                 "$APP_ROOT/python/3.7.4/arm/gcc/4.8.5/presto_opt"
 setenv       PYTHON_VERSION             "3.7.4"
 }
 

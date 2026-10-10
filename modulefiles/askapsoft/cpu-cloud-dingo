@@ -6,7 +6,7 @@ proc ModulesHelp { } {
   puts stderr "Sets up the paths you need to use askapsoft version yanda"
 }
 
-source /home/app/modulefiles/common.tcl
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
 
 set sys     [uname sysname]
 set version cpu-cloud-dingo
@@ -32,9 +32,9 @@ load_unless_already_loaded wcslib/cpu-6.2
 load_unless_already_loaded openmpi/cpu-4.0.1
 
 if {! [module-info mode whatis] } {
-prepend-path PATH                 /home/app/askapsoft/cpu/bin
-prepend-path CPATH                /home/app/askapsoft/cpu/include
-prepend-path LIBRARY_PATH         /home/app/askapsoft/cpu/lib
-prepend-path LD_LIBRARY_PATH      /home/app/askapsoft/cpu/lib
+prepend-path PATH                 $APP_ROOT/askapsoft/cpu/bin
+prepend-path CPATH                $APP_ROOT/askapsoft/cpu/include
+prepend-path LIBRARY_PATH         $APP_ROOT/askapsoft/cpu/lib
+prepend-path LD_LIBRARY_PATH      $APP_ROOT/askapsoft/cpu/lib
 }
 

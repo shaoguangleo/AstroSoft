@@ -3,7 +3,7 @@
 # dspsr modulefile
 #
 proc ModulesHelp { } {
-  puts stderr "Sets up the paths you need to use tempo version master"
+  puts stderr "Sets up the paths you need to use DSPSR 2020-01-10 (gcc 4.8.5)"
 }
 
 source /home/app/modulefiles/common.tcl
@@ -11,11 +11,12 @@ source /home/app/modulefiles/common.tcl
 set sys     [uname sysname]
 set version cpu-2020-01-10-gcc-4.8.5
 set tool    dspsr
-module-whatis "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user's freedom.
+module-whatis "DSPSR digital signal processing for pulsar astronomy, built with gcc 4.8.5.
 
-For further information see https://gcc.gnu.org/
+Install prefix: /home/app/dspsr/2020-01-10/cpu/gcc/4.8.5/
+Tempo2 runtime: /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2
 
-Compiled with gcc/4.8.5 
+For further information see http://dspsr.sourceforge.net/
 "
 if { [ module-info mode load ] } {
   if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
@@ -31,9 +32,8 @@ load_unless_already_loaded pgplot/cpu-5.2
 load_unless_already_loaded psrdata/cpu-master-gcc-4.8.5
 load_unless_already_loaded psrchive/cpu-2020-01-10-gcc-4.8.5
 
-setenv TEMPO2 /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2
-
 if {! [module-info mode whatis] } {
+setenv       TEMPO2               /home/app/psrchive/2020-01-10/cpu/gcc/4.8.5/src/tempo2
 prepend-path PATH                 /home/app/dspsr/2020-01-10/cpu/gcc/4.8.5/bin
 prepend-path CPATH                /home/app/dspsr/2020-01-10/cpu/gcc/4.8.5/include
 prepend-path LIBRARY_PATH         /home/app/dspsr/2020-01-10/cpu/gcc/4.8.5/lib

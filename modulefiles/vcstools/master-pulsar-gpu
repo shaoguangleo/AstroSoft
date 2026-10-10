@@ -3,19 +3,20 @@
 # vcstools modulefile
 #
 proc ModulesHelp { } {
-  puts stderr "Sets up the paths you need to use vcstools version master"
+  puts stderr "Sets up the paths you need to use vcstools GPU beamformer (master-pulsar-gpu)"
 }
 
 source /home/app/modulefiles/common.tcl
 
 set sys     [uname sysname]
-set version pulsar-gpu
+set version master-pulsar-gpu
 set tool    vcstools
-module-whatis "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user's freedom.
+module-whatis "MWA vcstools with GPU beamforming.
 
-For further information see https://gcc.gnu.org/
+Install prefix: /home/app/pulsar/2021/vcstools-pulsar-gpu/
+Programs:       /home/app/pulsar/2021/vcstools-pulsar-gpu/pulsar-gpu/bin/
 
-Compiled with gcc/7.3.0 
+For further information see https://github.com/CIRA-Pulsars-and-Transients-Group/vcstools
 "
 if { [ module-info mode load ] } {
   if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {

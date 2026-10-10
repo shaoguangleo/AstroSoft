@@ -3,7 +3,7 @@
 # tempo2 modulefile
 #
 proc ModulesHelp { } {
-  puts stderr "Sets up the paths you need to use tempo version master"
+  puts stderr "Sets up the independent Tempo2 install (cpu-master)"
 }
 
 source /home/app/modulefiles/common.tcl
@@ -11,11 +11,13 @@ source /home/app/modulefiles/common.tcl
 set sys     [uname sysname]
 set version cpu-master
 set tool    tempo2
-module-whatis "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user's freedom.
+module-whatis "Independent Tempo2 install.
 
-For further information see https://gcc.gnu.org/
+TEMPO2=/home/app/tempo2/cpu
 
-Compiled with gcc/4.8.5 
+The prototype listing confirms /home/app/tempo2/ exists. Confirm that bin, include, lib and the runtime data live under the cpu/ subdirectory before relying on this module.
+
+For further information see https://bitbucket.org/psrsoft/tempo2
 "
 if { [ module-info mode load ] } {
   if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {

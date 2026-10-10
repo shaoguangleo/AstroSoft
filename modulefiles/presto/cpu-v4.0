@@ -3,19 +3,19 @@
 # presto modulefile
 #
 proc ModulesHelp { } {
-  puts stderr "Sets up the paths you need to use presto version master"
+  puts stderr "Sets up the paths you need to use PRESTO 4.0 (cpu-v4.0)"
 }
 
 source /home/app/modulefiles/common.tcl
 
 set sys     [uname sysname]
-set version cpu-master
+set version cpu-v4.0
 set tool    presto
-module-whatis "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user's freedom.
+module-whatis "PRESTO 4.0.
 
-For further information see https://gcc.gnu.org/
+PRESTO=/home/app/presto-4.0
 
-Compiled with gcc/4.8.5 
+For further information see https://github.com/scottransom/presto
 "
 if { [ module-info mode load ] } {
   if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {

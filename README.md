@@ -20,6 +20,10 @@ If you used this package in your research, please cite it via [![DOI](https://ze
 
 Any problem , send email to me [郭大侠](https://github.com/shaoguangleo) <sgguo@shao.ac.cn> @ [上海天文台](http://www.shao.ac.cn)
 
+如果有任何天文软件的需求，在本仓库还没有提供，欢迎随时更新需求：https://github.com/shaoguangleo/AstroSoft/issues/new
+
+If you need any astronomy software that is not yet provided in this repository, feel free to submit a request anytime: https://github.com/shaoguangleo/AstroSoft/issues/new
+
 # Introduction
 
 This git repo will hold all the related astrosoft dockers and **sas** (*S*HAO *A*stronomical *S*oftware)。

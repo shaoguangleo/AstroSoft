@@ -1,0 +1,24 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+
+proc ModulesHelp { } {
+    puts stderr "TEMPO2 2025.01.2"
+}
+
+module-whatis "TEMPO2 2025.01.2"
+
+set TEMPO2_PREFIX $CLUSTER_APPS/tempo2/2025.01.2
+set TEMPO2_RUNTIME ${TEMPO2_PREFIX}/T2runtime
+
+prepend-path PATH ${TEMPO2_PREFIX}/bin
+prepend-path LD_LIBRARY_PATH ${TEMPO2_PREFIX}/lib
+prepend-path LD_LIBRARY_PATH $CLUSTER_APPS/pgplot/5.2
+
+prepend-path CPATH ${TEMPO2_PREFIX}/include
+
+setenv TEMPO2 ${TEMPO2_RUNTIME}
+setenv TEMPO2_PLUG_PATH ${TEMPO2_PREFIX}/plugins
+
+setenv PGPLOT_DIR $CLUSTER_APPS/pgplot/5.2
+setenv PGPLOT_FONT $CLUSTER_APPS/pgplot/5.2/grfont.dat
+setenv PGPLOT_RGB $CLUSTER_APPS/pgplot/5.2/rgb.txt

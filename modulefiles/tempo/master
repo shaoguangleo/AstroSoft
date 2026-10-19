@@ -1,0 +1,25 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+## Module file created by spack (https://github.com/spack/spack) on 2026-08-16 11:15:16.630783
+##
+## tempo@master build_system=autotools commit=aaf34c44ca1187bd92309a5b806bc865f07e731c platform=linux os=rocky9 target=skylake_avx512/npefoae
+##
+
+
+module-whatis {Tempo is a program for pulsar timing data analysis.}
+
+proc ModulesHelp { } {
+    puts stderr {Name   : tempo}
+    puts stderr {Version: master}
+    puts stderr {Target : skylake_avx512}
+    puts stderr {}
+    puts stderr {Tempo is a program for pulsar timing data analysis.}
+}
+
+
+conflict tempo
+
+prepend-path -d {:} PATH "$CLUSTER_APPS/tempo/bin"
+prepend-path -d {:} CMAKE_PREFIX_PATH "$CLUSTER_APPS/tempo/."
+setenv TEMPO "$CLUSTER_APPS/tempo"
+

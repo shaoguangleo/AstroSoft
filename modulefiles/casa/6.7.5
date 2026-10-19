@@ -1,0 +1,7 @@
+#%Module
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+
+set	root	$CLUSTER_APPS/casa/casa-6.7.5-18-py3.12.el9
+
+prepend-path	PATH	$root/bin
+prepend-path	LD_LIBRARY_PATH	$root/lib

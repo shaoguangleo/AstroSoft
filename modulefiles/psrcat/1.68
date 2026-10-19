@@ -1,0 +1,25 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+## Module file created by spack (https://github.com/spack/spack) on 2026-08-16 11:23:29.595453
+##
+## psrcat@1.68 build_system=makefile platform=linux os=rocky9 target=skylake_avx512/w33ija6
+##
+
+
+module-whatis {ATNF Pulsar Catalogue A catalogue of pulsars provided by the Australian Telescope National Facility}
+
+proc ModulesHelp { } {
+    puts stderr {Name   : psrcat}
+    puts stderr {Version: 1.68}
+    puts stderr {Target : skylake_avx512}
+    puts stderr {}
+    puts stderr {ATNF Pulsar Catalogue A catalogue of pulsars provided by the Australian}
+    puts stderr {Telescope National Facility}
+}
+
+
+conflict psrcat
+
+prepend-path -d {:} PATH "$CLUSTER_APPS/spack/opt/spack/linux-skylake_avx512/psrcat-1.68-w33ija6t2l7rtacvwi2trkv4b22onjxx/bin"
+prepend-path -d {:} CMAKE_PREFIX_PATH "$CLUSTER_APPS/spack/opt/spack/linux-skylake_avx512/psrcat-1.68-w33ija6t2l7rtacvwi2trkv4b22onjxx/."
+

@@ -1,0 +1,37 @@
+#%Module1.0#####################################################################
+source [file join [file dirname [file dirname [file dirname $::ModulesCurrentModulefile]]] common.tcl]
+##
+## anaconda3/2026.07 modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "\t此模块加载 Anaconda3 2026.07 版本"
+    puts stderr "\t设置 PATH、LD_LIBRARY_PATH 等环境变量以使用 conda/python"
+}
+
+module-whatis "Anaconda3 2026.07 - Python 科学计算发行版"
+
+# 软件安装根目录
+set             root                $CLUSTER_ARM_APPS/anaconda3/2026.07
+
+# 冲突设置：同一时刻不允许加载其他 anaconda/miniconda 版本
+conflict        anaconda3
+conflict        miniconda3
+conflict        anaconda2
+
+# 检查安装目录是否存在
+if { ![file exists $root] } {
+    puts stderr "\t[module-info name] 加载失败：找不到目录 $root"
+    break
+}
+
+# 设置环境变量
+setenv          ANACONDA_HOME       $root
+setenv          CONDA_PREFIX        $root
+
+# 修改 PATH
+prepend-path    PATH                $root/bin
+prepend-path    PATH                $root/condabin
+
+# 库路径（如有需要编译/链接依赖 anaconda 提供的库时使用）
+#prepend-path    LD_LIBRARY_PATH     $root/lib
+

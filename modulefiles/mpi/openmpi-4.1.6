@@ -1,0 +1,9 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+proc ModulesHelp { } {puts stderr "OpenMPI 4.1.6"}
+module-whatis "OpenMPI 4.1.6 with GCC"
+set root $CLUSTER_APPS/openmpi/4.1.6-gcc12
+prepend-path PATH $root/bin
+prepend-path LD_LIBRARY_PATH $root/lib
+prepend-path MANPATH $root/share/man
+setenv MPI_HOME $root

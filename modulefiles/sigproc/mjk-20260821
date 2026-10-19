@@ -1,0 +1,34 @@
+#%Module1.0#####################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+##
+## SIGPROC mjk-20260821 modulefile
+## 自动生成于 2026-08-21 15:41:12
+##
+proc ModulesHelp { } {
+    puts stderr "SIGPROC mjk-20260821 - Pulsar search processing software"
+    puts stderr "(SixByNine/Michael Keith fork of Duncan Lorimer's SIGPROC)"
+    puts stderr "Homepage: http://sigproc.sourceforge.net/"
+    puts stderr "Source  : https://github.com/SixByNine/sigproc.git (ref: master)"
+}
+
+module-whatis "SIGPROC mjk-20260821 - pulsar search data processing suite"
+
+set         version     mjk-20260821
+set         prefix      $CLUSTER_APPS/sigproc/mjk-20260821
+
+conflict    sigproc
+
+prepend-path    PATH                $prefix/bin
+prepend-path    LD_LIBRARY_PATH     $prefix/lib
+
+if { [file isdirectory $prefix/lib64] } {
+    prepend-path    LD_LIBRARY_PATH     $prefix/lib64
+}
+if { [file isdirectory $prefix/share/man] } {
+    prepend-path    MANPATH             $prefix/share/man
+}
+if { [file isdirectory $prefix/include] } {
+    prepend-path    CPATH               $prefix/include
+}
+
+setenv          SIGPROC             $prefix

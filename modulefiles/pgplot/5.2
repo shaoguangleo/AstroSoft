@@ -1,0 +1,8 @@
+#%Module
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+
+set PGPLOT_DIR $CLUSTER_APPS/pgplot/5.2
+
+prepend-path PGPLOT_FONT $PGPLOT_DIR/grfont.dat
+prepend-path PGPLOT_RGB $PGPLOT_DIR/rgb.txt
+prepend-path LD_LIBRARY_PATH $PGPLOT_DIR

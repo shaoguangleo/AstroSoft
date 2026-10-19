@@ -1,0 +1,20 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+
+proc ModulesHelp { } {
+    puts stderr "ParselTongue 3.0"
+    puts stderr "Python scripting interface for classic AIPS."
+    puts stderr "Installed from kettenis conda channel."
+    puts stderr "Requires a working classic AIPS environment."
+}
+
+module-whatis "ParselTongue 3.0 - AIPS Talking Python"
+
+set root $CLUSTER_APPS/ParselTongue/3.0
+
+conflict ParselTongue
+
+prepend-path PATH $root/bin
+prepend-path LD_LIBRARY_PATH $root/lib
+
+setenv PARSELTONGUE_ROOT $root

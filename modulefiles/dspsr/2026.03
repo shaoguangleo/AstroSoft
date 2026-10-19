@@ -1,0 +1,22 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+
+proc ModulesHelp { } {
+    puts stderr "DSPSR 2026-03-31: digital signal processing software for pulsar astronomy"
+    puts stderr "Depends on psrchive/2026.02 (which in turn loads tempo2/2025.01.2)"
+    puts stderr "Citation: van Straten & Bailes (2011), PASA, 28, 1"
+}
+
+module-whatis "DSPSR 2026-03-31"
+
+conflict dspsr
+prereq psrchive/2026.02
+
+set DSPSR_PREFIX $CLUSTER_APPS/dspsr/2026.03
+
+prepend-path PATH            ${DSPSR_PREFIX}/bin
+prepend-path LD_LIBRARY_PATH ${DSPSR_PREFIX}/lib
+prepend-path LIBRARY_PATH    ${DSPSR_PREFIX}/lib
+prepend-path CPATH           ${DSPSR_PREFIX}/include
+
+setenv DSPSR ${DSPSR_PREFIX}

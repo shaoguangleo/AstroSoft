@@ -1,0 +1,15 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+
+proc ModulesHelp { } {
+    puts stderr "AIPS 31DEC26 - Astronomical Image Processing System"
+}
+
+module-whatis "AIPS 31DEC26 - Astronomical Image Processing System"
+
+set AIPS_ROOT $CLUSTER_APPS/aips/31DEC26
+
+setenv AIPS_ROOT $AIPS_ROOT
+setenv AIPS_VERSION 31DEC26
+
+prepend-path PATH $AIPS_ROOT

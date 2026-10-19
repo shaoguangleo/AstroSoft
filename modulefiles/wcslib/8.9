@@ -1,0 +1,35 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+##
+## wcslib 8.9 modulefile
+##
+
+set             root        $CLUSTER_APPS/wcslib/8.9
+set             version     8.9
+
+proc ModulesHelp { } {
+    puts stderr "wcslib 8.9 - World Coordinate System library (WCS.h), 用于编译 SoFiA-2"
+}
+
+module-whatis   "wcslib $version - WCS library, required by SoFiA-2"
+
+conflict        wcslib
+
+# 头文件搜索路径：同时加入 include/ 和 include/wcslib-8.9/（若存在其一即可命中）
+prepend-path    CPATH               $root/include
+prepend-path    CPATH               $root/include/wcslib-$version
+
+# 库文件路径（编译期链接 + 运行期动态链接）
+prepend-path    LIBRARY_PATH        $root/lib
+prepend-path    LD_LIBRARY_PATH     $root/lib
+
+# pkg-config 支持（如果 SoFiA 或其他工具用 pkg-config 查找 wcslib）
+prepend-path    PKG_CONFIG_PATH     $root/lib/pkgconfig
+
+# 可执行工具（wcsware, fitshdr 等）与 man 手册
+prepend-path    PATH                $root/bin
+prepend-path    MANPATH             $root/share/man
+
+setenv          WCSLIB_DIR          $root
+setenv          WCSLIB_INC          $root/include
+setenv          WCSLIB_LIB          $root/lib

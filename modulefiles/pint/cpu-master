@@ -1,0 +1,34 @@
+#%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+#
+# pint modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up PINT (cpu-master)"
+}
+
+set sys     [uname sysname]
+set version cpu-master
+set tool    pint
+module-whatis "PINT: high-precision pulsar timing. This is not TEMPO3.
+
+Install with Python 3.9 into this prefix:
+  pip install --prefix $APP_ROOT/pint/cpu pint-pulsar
+Scripts: $APP_ROOT/pint/cpu/bin
+Python:  $APP_ROOT/pint/cpu/lib/python3.9/site-packages
+
+For further information see https://github.com/nanograv/PINT
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+load_unless_already_loaded python/cpu-3.9.2-gcc-9.3.0
+load_unless_already_loaded tempo2/cpu-psrchive
+
+if {! [module-info mode whatis] } {
+prepend-path PATH                 $APP_ROOT/pint/cpu/bin
+prepend-path PYTHONPATH           $APP_ROOT/pint/cpu/lib/python3.9/site-packages
+}

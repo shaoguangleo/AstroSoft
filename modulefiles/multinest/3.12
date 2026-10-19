@@ -1,0 +1,18 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+
+proc ModulesHelp { } {
+    puts stderr "MultiNest 3.12"
+}
+
+module-whatis "MultiNest 3.12"
+
+set MULTINEST_DIR $CLUSTER_APPS/multinest/3.12
+
+prepend-path PATH $MULTINEST_DIR/bin
+prepend-path LD_LIBRARY_PATH $MULTINEST_DIR/lib
+prepend-path CPATH $MULTINEST_DIR/include
+prepend-path C_INCLUDE_PATH $MULTINEST_DIR/include
+prepend-path CPLUS_INCLUDE_PATH $MULTINEST_DIR/include
+
+setenv MULTINEST_DIR $MULTINEST_DIR

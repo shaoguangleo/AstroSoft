@@ -1,0 +1,10 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+module-whatis "PSRCHIVE 2026.02"
+
+set PREFIX $CLUSTER_APPS/psrchive/2026.02
+prereq tempo2/2025.01.2
+
+prepend-path PATH $PREFIX/bin
+prepend-path LD_LIBRARY_PATH $PREFIX/lib
+setenv PSRCHIVE $PREFIX

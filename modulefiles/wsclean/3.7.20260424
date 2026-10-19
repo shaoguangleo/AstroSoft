@@ -1,0 +1,29 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+## Module file created by spack (https://github.com/spack/spack) on 2026-08-15 14:52:17.259457
+##
+## wsclean@3.7.20260424~cuda~ipo+mpi+python build_system=cmake build_type=Release commit=c5314d942913d1502e2518b675c5605f234cdb75 generator=make platform=linux os=rocky9 target=skylake_avx512/fohui4l
+##
+## Configure options: -DBLA_VENDOR:STRING=OpenBLAS -DPORTABLE:BOOL=ON
+##
+
+
+module-whatis {WSClean (w-stacking clean) is a fast generic widefield imager. It implements several gridding algorithms and offers fully-automated multi-scale multi-frequency deconvolution.}
+
+proc ModulesHelp { } {
+    puts stderr {Name   : wsclean}
+    puts stderr {Version: 3.7.20260424}
+    puts stderr {Target : skylake_avx512}
+    puts stderr {}
+    puts stderr {WSClean (w-stacking clean) is a fast generic widefield imager. It}
+    puts stderr {implements several gridding algorithms and offers fully-automated multi-}
+    puts stderr {scale multi-frequency deconvolution.}
+}
+
+
+conflict wsclean
+
+prepend-path -d {:} PATH "$CLUSTER_APPS/spack/opt/spack/linux-skylake_avx512/wsclean-3.7.20260424-fohui4lqmwz4mlspcmecftkks6ad2tgc/bin"
+prepend-path -d {:} CMAKE_PREFIX_PATH "$CLUSTER_APPS/spack/opt/spack/linux-skylake_avx512/wsclean-3.7.20260424-fohui4lqmwz4mlspcmecftkks6ad2tgc/."
+setenv OPENBLAS_NUM_THREADS {1}
+

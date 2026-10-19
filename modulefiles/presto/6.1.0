@@ -1,0 +1,52 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+##
+## PRESTO 6.1.0 - pulsar search and analysis toolkit
+## https://github.com/scottransom/presto
+##
+
+proc ModulesHelp { } {
+    puts stderr "PRESTO 6.1.0: Pulsar Exploration and Search Toolkit"
+    puts stderr ""
+    puts stderr "  安装路径  : $::CLUSTER_APPS/presto/6.1.0"
+    puts stderr "  C 程序    : prepfold, accelsearch, rfifind, prepsubband ..."
+    puts stderr "  Python    : $::CLUSTER_APPS/presto/6.1.0/venv (import presto, DDplan.py, ...)"
+    puts stderr "  依赖模块  : pgplot/5.2 ($::CLUSTER_APPS/pgplot/5.2)"
+    puts stderr ""
+    puts stderr "  注意: 加载本模块后 PATH 中的 python 指向 PRESTO 专用虚拟环境。"
+    puts stderr "  运行节点需安装: fftw glib2 cfitsio gsl(可无) libX11 libpng"
+    puts stderr "                 libgfortran ghostscript python3.11"
+}
+
+module-whatis "PRESTO 6.1.0: pulsar search and analysis toolkit"
+
+conflict presto
+
+set root $CLUSTER_APPS/presto/6.1.0
+set pgplot_dir $CLUSTER_APPS/pgplot/5.2
+
+# 依赖 PGPLOT 模块
+if { ![is-loaded pgplot/5.2] } {
+    module load pgplot/5.2
+}
+
+if { ![file isdirectory $root] } {
+    puts stderr "presto/6.1.0: 安装目录不存在: $root"
+    break
+}
+
+prepend-path PATH             $root/venv/bin
+prepend-path PATH             $root/bin
+prepend-path LD_LIBRARY_PATH  $root/lib
+prepend-path LIBRARY_PATH     $root/lib
+prepend-path CPATH            $root/include
+prepend-path PKG_CONFIG_PATH  $root/lib/pkgconfig
+prepend-path MANPATH          $root/share/man
+
+# PGPLOT 运行时需要 grfont.dat / rgb.txt; 与 pgplot 模块指向同一目录
+prepend-path LD_LIBRARY_PATH $pgplot_dir
+setenv PGPLOT_DIR   $pgplot_dir
+setenv PRESTO_HOME  $root
+
+# 注意: 不要设置 PRESTO 环境变量。v6 会自动在 <prefix>/share/presto 找运行时数据,
+# 设置 PRESTO 反而会覆盖该路径。

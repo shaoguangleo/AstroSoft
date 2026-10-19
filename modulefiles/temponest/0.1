@@ -1,0 +1,27 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+
+proc ModulesHelp { } {
+    puts stderr "TempoNest 0.1"
+}
+
+module-whatis "TempoNest 0.1 - Bayesian pulsar timing"
+
+module load tempo2/2025.01.2
+module load multinest/3.12
+
+set TEMPONEST_PREFIX $CLUSTER_APPS/temponest/0.1
+
+setenv TEMPO2 $CLUSTER_APPS/tempo2/2025.01.2/T2runtime
+setenv TEMPO2_PLUG_PATH $CLUSTER_APPS/tempo2/2025.01.2/plugins
+setenv MULTINEST_DIR $CLUSTER_APPS/multinest/3.12
+
+setenv PGPLOT_DIR $CLUSTER_APPS/pgplot/5.2
+setenv PGPLOT_FONT $CLUSTER_APPS/pgplot/5.2/grfont.dat
+setenv PGPLOT_RGB $CLUSTER_APPS/pgplot/5.2/rgb.txt
+
+prepend-path PATH $CLUSTER_APPS/tempo2/2025.01.2/bin
+prepend-path LD_LIBRARY_PATH $CLUSTER_APPS/temponest/0.1/lib
+prepend-path LD_LIBRARY_PATH $CLUSTER_APPS/tempo2/2025.01.2/lib
+prepend-path LD_LIBRARY_PATH $CLUSTER_APPS/multinest/3.12/lib
+prepend-path LD_LIBRARY_PATH $CLUSTER_APPS/pgplot/5.2

@@ -1,0 +1,36 @@
+#%Module######################################################################
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+#
+# temponest modulefile
+#
+proc ModulesHelp { } {
+  puts stderr "Sets up TempoNest (cpu-master)"
+}
+
+set sys     [uname sysname]
+set version cpu-master
+set tool    temponest
+module-whatis "TempoNest: joint Bayesian analysis of the pulsar timing model and stochastic signals.
+
+Programs: $APP_ROOT/temponest/cpu/bin
+Needs the Tempo2 runtime from tempo2/cpu-psrchive, plus MultiNest (libnest3.so). MultiNest is not a module yet.
+
+For further information see https://github.com/LindleyLentati/TempoNest
+"
+if { [ module-info mode load ] } {
+  if { [is-loaded $tool] && ! [is-loaded $tool/$version] } {
+    module unload $tool
+  }
+}
+
+load_unless_already_loaded tempo2/cpu-psrchive
+load_unless_already_loaded cfitsio/cpu-3450
+load_unless_already_loaded gsl/cpu-1.16-gcc-4.9.3
+load_unless_already_loaded lapack/cpu-3.8.0-gcc-4.8.5
+
+if {! [module-info mode whatis] } {
+# MultiNest has no modulefile. Uncomment after libnest3.so is installed:
+# prepend-path LD_LIBRARY_PATH      $APP_ROOT/multinest/cpu/lib
+prepend-path PATH                 $APP_ROOT/temponest/cpu/bin
+prepend-path LD_LIBRARY_PATH      $APP_ROOT/temponest/cpu/lib
+}

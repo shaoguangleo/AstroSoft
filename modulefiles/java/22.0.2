@@ -1,0 +1,8 @@
+#%Module
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+set     root    $CLUSTER_APPS/java/22.0.2
+prepend-path    PATH            $root/bin
+setenv    JAVA_HOME       $root
+prepend-path    MANPATH         $root/man
+prepend-path    CLASSPATH       $root/lib
+prepend-path    LD_LIBRARY_PATH $root/lib

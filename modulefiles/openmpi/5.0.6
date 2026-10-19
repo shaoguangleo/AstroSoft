@@ -1,0 +1,28 @@
+#%Module1.0
+source [file join [file dirname [file dirname $::ModulesCurrentModulefile]] common.tcl]
+##
+## OpenMPI 5.0.6 (UCX 1.17.0 + PMIx 5.0.3, IB + Slurm)
+##
+proc ModulesHelp { } {
+    puts stderr "OpenMPI 5.0.6 - 编译自源码，支持 InfiniBand(UCX) 和 Slurm(PMIx)"
+}
+module-whatis "OpenMPI 5.0.6 with UCX 1.17.0 and PMIx 5.0.3"
+
+set OMPI_ROOT  $CLUSTER_APPS/openmpi/5.0.6
+set UCX_ROOT   $CLUSTER_APPS/ucx/1.17.0
+set PMIX_ROOT  $CLUSTER_APPS/pmix/5.0.3
+
+conflict openmpi
+
+prepend-path PATH            $OMPI_ROOT/bin
+prepend-path LD_LIBRARY_PATH  $OMPI_ROOT/lib
+prepend-path LD_LIBRARY_PATH  $UCX_ROOT/lib
+prepend-path LD_LIBRARY_PATH  $PMIX_ROOT/lib
+prepend-path MANPATH          $OMPI_ROOT/share/man
+prepend-path CPATH            $OMPI_ROOT/include
+prepend-path PKG_CONFIG_PATH  $OMPI_ROOT/lib/pkgconfig
+
+setenv MPI_HOME    $OMPI_ROOT
+setenv OMPI_HOME   $OMPI_ROOT
+setenv UCX_HOME    $UCX_ROOT
+setenv PMIX_HOME   $PMIX_ROOT
